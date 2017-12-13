@@ -1,0 +1,3 @@
+# react-native-agora
+基于声网互动直播原生sdk封装react-native的版本，支持iOS和android，目前正在封装中...
+email： 799170694@qq.com
