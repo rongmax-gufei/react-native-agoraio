@@ -1,6 +1,6 @@
 ##### 有任何问题欢迎加QQ进行反馈  799170694
 
-# react-native-agoraio
+# react-native-agoraio [![npm version](https://www.npmjs.com/package/react-native-agoraio.svg)](https://www.npmjs.com/package/react-native-agoraio)
 
 ## 功能介绍
 
