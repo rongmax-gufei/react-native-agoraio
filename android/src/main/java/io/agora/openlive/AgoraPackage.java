@@ -1,4 +1,4 @@
-package com.syan.agora;
+package io.agora.openlive;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -10,6 +10,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * AgoraPackage
+ *
+ * @author learnta
+ * @version 1.0
+ * @createDate 2017/12/21
+ * @lastUpdate 2017/12/21
+ */
 public class AgoraPackage implements ReactPackage {
 
     @Override

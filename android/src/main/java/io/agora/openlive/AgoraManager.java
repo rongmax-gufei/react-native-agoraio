@@ -1,4 +1,4 @@
-package com.syan.agora;
+package io.agora.openlive;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,9 +15,13 @@ import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
 
 /**
- * Created by Leon on 2017/4/9.
+ * AgoraManager
+ *
+ * @author learnta
+ * @version 1.0
+ * @createDate 2017/12/21
+ * @lastUpdate 2017/12/21
  */
-
 public class AgoraManager {
 
     public static AgoraManager sAgoraManager;

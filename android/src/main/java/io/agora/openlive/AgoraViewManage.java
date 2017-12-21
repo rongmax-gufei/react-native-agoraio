@@ -1,4 +1,4 @@
-package com.syan.agora;
+package io.agora.openlive;
 
 import android.view.SurfaceView;
 
@@ -7,9 +7,13 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 /**
- * Created by DB on 2017/6/23.
+ * AgoraViewManage
+ *
+ * @author learnta
+ * @version 1.0
+ * @createDate 2017/12/21
+ * @lastUpdate 2017/12/21
  */
-
 public class AgoraViewManage extends SimpleViewManager<AgoraVideoView> {
 
     public static final String REACT_CLASS = "RCTAgoraView";

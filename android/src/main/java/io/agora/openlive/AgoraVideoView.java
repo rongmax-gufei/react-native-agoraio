@@ -1,13 +1,17 @@
-package com.syan.agora;
+package io.agora.openlive;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 /**
- * Created by DB on 2017/6/27.
+ * AgoraVideoView
+ *
+ * @author learnta
+ * @version 1.0
+ * @createDate 2017/12/21
+ * @lastUpdate 2017/12/21
  */
-
 public class AgoraVideoView extends LinearLayout {
 
     public AgoraVideoView(Context context) {

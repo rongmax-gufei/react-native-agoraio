@@ -1,4 +1,4 @@
-package com.syan.agora;
+package io.agora.openlive;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -20,6 +20,14 @@ import io.agora.rtc.RtcEngine;
 
 import static com.facebook.react.bridge.UiThreadUtil.runOnUiThread;
 
+/**
+ * AgoraModule
+ *
+ * @author learnta
+ * @version 1.0
+ * @createDate 2017/12/21
+ * @lastUpdate 2017/12/21
+ */
 public class AgoraModule extends ReactContextBaseJavaModule {
 
     public AgoraModule(ReactApplicationContext context) {
@@ -221,7 +229,7 @@ public class AgoraModule extends ReactContextBaseJavaModule {
                 .owner(options.getBoolean("owner"))
                 .size(options.getInt("width"), options.getInt("height"))
                 .frameRate(options.getInt("framerate"))
-                .biteRate(options.getInt("bitrate"))
+                .bitRate(options.getInt("bitrate"))
                 .defaultLayout(options.getInt("defaultLayout"))
                 .streamLifeCycle(options.getInt("lifeCycle"))
                 .rawStreamUrl(options.getString("rawStreamUrl"))
