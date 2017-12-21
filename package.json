@@ -1,30 +1,22 @@
 {
-  "name": "react-native-agora",
+  "name": "react-native-agoraio",
   "version": "1.10.0",
-  "description": "声网Agora",
+  "description": "声网Agora OpenLive",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/midas-gufei/react-native-agora.git"
   },
   "keywords": [
-    "agora",
-    "react-native",
-    "react-native-agora",
-    "live",
-    "react",
-    "Agora"
+    ""
   ],
-  "author": "",
+  "author": "gufei",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/midas-gufei/react-native-agora/issues"
   },
-  "homepage": "https://github.com/midas-gufei/react-native-agora#readme",
-  "dependencies": {
-    "react-native-agora": "^1.10.0"
-  }
+  "homepage": "https://github.com/midas-gufei/react-native-agora#readme"
 }

@@ -1,6 +1,6 @@
 ##### 有任何问题欢迎加QQ进行反馈  799170694
 
-# react-native-agora
+# react-native-agoraio
 
 ## 功能介绍
 
@@ -9,17 +9,11 @@
 
 ## 安装使用
 
-Install with npm:
+ `npm install --save react-native-agoraio`
 
- `npm install --save react-native-agora`
+Then link with:
 
-Or, install with yarn:
-
- `yarn add react-native-agora`
-
-Either way, then link with:
-
- `react-native link react-native-agora`
+ `react-native link react-native-agoraio`
 
 #### iOS
 
@@ -74,7 +68,7 @@ Add following to `AndroidManifest.xml`
 
 ## Documentation
 
-[声网API文档](https://document.agora.io/cn/1.12/api/)
+[声网API文档](https://docs.agora.io/cn/2.0.2)
 
 ##### RtcEngine方法
 
@@ -143,14 +137,16 @@ RtcEngine.eventEmitter({
 
 ## 运行示例
 
-[Example](https://github.com/DBshaoYan/RNAgoraExample)
+[Example](https://github.com/midas-gufei/RNAgoraExample)
 
 
 ## 更新信息
+#### 2.2.0
+- 更新Agora SDK为2.2.0
 
 #### 1.0.8
 
- - 更新 Agora SDK 为 1.12
+ - 更新Agora SDK为1.12
 
  - init 不再默认开启视频预览 根据自己需求和时机调用startPreview
 
