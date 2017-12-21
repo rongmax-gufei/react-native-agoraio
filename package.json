@@ -1,0 +1,30 @@
+{
+  "name": "react-native-agora",
+  "version": "1.0.8",
+  "description": "声网Agora",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBshaoYan/react-native-agora.git"
+  },
+  "keywords": [
+    "agora",
+    "react-native",
+    "react-native-agora",
+    "live",
+    "react",
+    "Agora"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DBshaoYan/react-native-agora/issues"
+  },
+  "homepage": "https://github.com/DBshaoYan/react-native-agora#readme",
+  "dependencies": {
+    "react-native-agora": "^1.0.8"
+  }
+}
