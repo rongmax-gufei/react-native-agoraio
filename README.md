@@ -1,4 +1,7 @@
-##### 有任何问题欢迎加QQ进行反馈  799170694
+# README
+| Author        |     E-mail      |
+| ------------- |:---------------:|
+| gufei         | 799170694@qq.com|
 
 # react-native-agoraio 
 
