@@ -33,17 +33,17 @@ TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，选择
     
 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择
 
-    node_modules/react-native-agora/ios/RCTAgora/libs/libcrypto.a
-    node_modules/react-native-agora/ios/RCTAgora/libs/AgoraRtcCryptoLoader.framework
-    node_modules/react-native-agora/ios/RCTAgora/libs/AgoraRtcEngineKit.framework
+    node_modules/react-native-agoraio/ios/RCTAgora/libs/libcrypto.a
+    node_modules/react-native-agoraio/ios/RCTAgora/libs/AgoraRtcCryptoLoader.framework
+    node_modules/react-native-agoraio/ios/RCTAgora/libs/AgoraRtcEngineKit.framework
     
 TARGETS->Build Settings->Search Paths->Framework Search Paths添加
 
-    "$(SRCROOT)/../node_modules/react-native-agora/ios/RCTAgora/libs"
+    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/libs"
     
 TARGETS->Build Settings->Search Paths->Library Search Paths添加
 
-    "$(SRCROOT)/../node_modules/react-native-agora/ios/RCTAgora/libs"
+    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/libs"
     
 TARGETS->Build Settings->Enable Bitcode设置为No
 
