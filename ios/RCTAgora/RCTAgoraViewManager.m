@@ -2,8 +2,8 @@
 //  AgoraViewManager.m
 //  RCTAgora
 //
-//  Created by 邓博 on 2017/6/30.
-//  Copyright © 2017年 Syan. All rights reserved.
+//  Created by Learnta on 2017/12/21.
+//  Copyright © 2017年 Learnta Inc. All rights reserved.
 //
 
 #import "RCTAgoraViewManager.h"
@@ -17,9 +17,7 @@ RCT_EXPORT_VIEW_PROPERTY(showLocalVideo, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(remoteUid, NSInteger)
 
 - (UIView *)view {
-
     return [RCTAgoraVideoView new];
 }
-
 
 @end

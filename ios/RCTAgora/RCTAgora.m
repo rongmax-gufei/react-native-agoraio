@@ -2,8 +2,8 @@
 //  RCTAgora.m
 //  RCTAgora
 //
-//  Created by 邓博 on 2017/6/13.
-//  Copyright © 2017年 Syan. All rights reserved.
+//  Created by Learnta on 2017/12/21.
+//  Copyright © 2017年 Learnta Inc. All rights reserved.
 //
 
 #import "RCTAgora.h"
@@ -79,6 +79,7 @@ RCT_EXPORT_METHOD(leaveChannel){
     [self.rtcEngine leaveChannel:^(AgoraRtcStats *stat) {
         NSMutableDictionary *params = @{}.mutableCopy;
         params[@"type"] = @"onLeaveChannel";
+        
         [self sendEvent:params];
     }];
 }
@@ -97,7 +98,7 @@ RCT_EXPORT_METHOD(setupLocalVideo:(NSDictionary *)options){
     [self.rtcEngine setupLocalVideo:canvas];
 }
 
-//设置 远端 视频显示属性
+//设置 远端 视频显示视图
 RCT_EXPORT_METHOD(setupRemoteVideo:(NSDictionary *)options){
     AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
     canvas.uid = [options[@"uid"] integerValue];
@@ -127,7 +128,7 @@ RCT_EXPORT_METHOD(configPublisher:(NSDictionary *)config){
     apc.rawStreamUrl = config[@"rawStreamUrl"]; //单流地址
     apc.extraInfo = config[@"extraInfo"]; //其他信息
     apc.owner = [config[@"owner"] boolValue]; //是否将当前主播设为该 RTMP 流的主人
-  
+    
     [self.rtcEngine configPublisher:apc];
 }
 
@@ -147,9 +148,9 @@ RCT_EXPORT_METHOD(enableAudioVolumeIndication:(NSUInteger)interval smooth:(NSUIn
 }
 
 //开启屏幕共享
-RCT_EXPORT_METHOD(startScreenCapture:(NSUInteger)windowId){
-
-}
+//RCT_EXPORT_METHOD(startScreenCapture:(NSUInteger)windowId){
+//
+//}
 
 //关闭视频预览
 RCT_EXPORT_METHOD(stopPreview){
@@ -171,7 +172,7 @@ RCT_EXPORT_METHOD(disableVideo){
     [self.rtcEngine disableVideo];
 }
 
-//开启扬声器  Yes: 音频输出至扬声器  No: 音频输出至听筒
+//打开外放  Yes: 音频输出至扬声器  No: 音频输出至听筒
 RCT_EXPORT_METHOD(setEnableSpeakerphone:(BOOL)enableSpeaker){
     [self.rtcEngine setEnableSpeakerphone: enableSpeaker];
 }
@@ -189,6 +190,21 @@ RCT_EXPORT_METHOD(muteAllRemoteAudioStreams:(BOOL)mute){
 //静音指定用户 音频
 RCT_EXPORT_METHOD(muteRemoteAudioStream:(NSUInteger)uid muted:(BOOL)mute){
     [self.rtcEngine muteRemoteAudioStream:uid mute:mute];
+}
+
+//是否打开闪光灯
+RCT_EXPORT_METHOD(setCameraTorchOn:(BOOL)isOn){
+    [self.rtcEngine setCameraTorchOn:isOn];
+}
+
+//否开启人脸对焦功能
+RCT_EXPORT_METHOD(setCameraAutoFocusFaceModeEnabled:(BOOL)enable){
+    [self.rtcEngine setCameraAutoFocusFaceModeEnabled:enable];
+}
+
+//修改默认的语音路由 True: 默认路由改为外放(扬声器) False: 默认路由改为听筒
+RCT_EXPORT_METHOD(setDefaultAudioRouteToSpeakerphone:(BOOL)defaultToSpeaker){
+    [self.rtcEngine setDefaultAudioRouteToSpeakerphone:defaultToSpeaker];
 }
 
 //暂停发送本地 视频流
@@ -256,7 +272,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback){
  客户端成功加入了指定的频道
  */
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger) elapsed {
-
+    
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onJoinChannelSuccess";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
@@ -275,7 +291,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback){
     params[@"uid"] = [NSNumber numberWithInteger:uid];
     
     [self sendEvent:params];
-
+    
 }
 
 /*
@@ -328,10 +344,10 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback){
 }
 
 //RCT_EXPORT_METHOD(getViewWithTag:(nonnull NSNumber *)reactTag) {
-//    
+//
 //    UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
 //    NSLog(@"%@",view);
-//    
+//
 //}
 
 @end

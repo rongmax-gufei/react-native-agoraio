@@ -22,7 +22,6 @@ public class AgoraVideoView extends LinearLayout {
         super(context, attrs);
     }
 
-
     public AgoraVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }

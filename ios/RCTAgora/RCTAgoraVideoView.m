@@ -2,8 +2,8 @@
 //  RCTAgoraVideoView.m
 //  RCTAgora
 //
-//  Created by 邓博 on 2017/6/30.
-//  Copyright © 2017年 Syan. All rights reserved.
+//  Created by Learnta on 2017/12/21.
+//  Copyright © 2017年 Learnta Inc. All rights reserved.
 //
 
 #import "RCTAgoraVideoView.h"
@@ -18,16 +18,6 @@
     
     return self;
 }
-
-//- (void)setLocalUid:(NSInteger)localUid {
-//    if (localUid == 0) {
-//        AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
-//        canvas.uid = localUid;
-//        canvas.view = self;
-//        canvas.renderMode = AgoraRtc_Render_Hidden;
-//        [_rtcEngine setupLocalVideo:canvas];
-//    }
-//}
 
 - (void)setShowLocalVideo:(Boolean)showLocalVideo {
     if (showLocalVideo) {

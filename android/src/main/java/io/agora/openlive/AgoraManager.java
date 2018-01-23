@@ -54,11 +54,9 @@ public class AgoraManager {
      */
     public void init(Context context, IRtcEngineEventHandler mRtcEventHandler, ReadableMap options) {
         this.context = context;
-
         //创建RtcEngine对象，mRtcEventHandler为RtcEngine的回调
         try {
             mRtcEngine = RtcEngine.create(context, options.getString("appid"), mRtcEventHandler);
-
         } catch (Exception e) {
             throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
         }
@@ -87,7 +85,6 @@ public class AgoraManager {
     }
 
     public AgoraManager setupRemoteVideo(int uid) {
-
         SurfaceView surfaceView = RtcEngine.CreateRendererView(context);
         mSurfaceViews.put(uid, surfaceView);
         mRtcEngine.setupRemoteVideo(new VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_HIDDEN, uid));
@@ -131,6 +128,4 @@ public class AgoraManager {
     public SurfaceView getSurfaceView(int uid) {
         return mSurfaceViews.get(uid);
     }
-
-
 }
