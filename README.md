@@ -152,8 +152,7 @@ RtcEngine.eventEmitter({
 - 新增方法 是否开启人脸对焦功能 setCameraAutoFocusFaceModeEnabled
 - 新增方法 修改默认的语音路由 setDefaultAudioRouteToSpeakerphone
 - 新增方法 是否打开闪光灯 setCameraTorchOn
-
-修复 Android 说话者音量提示bug
+- 修复 Android 说话者音量提示bug
 
 #### 1.0.8
 
