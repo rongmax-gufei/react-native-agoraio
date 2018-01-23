@@ -68,10 +68,10 @@ Add following to `AndroidManifest.xml`
 
     -keep class io.agora.**{*;}
 
-
 ## Documentation
 
 [声网API文档](https://docs.agora.io/cn/2.0.2)
+[声网SDK下载地址](https://docs.agora.io/cn/2.0.2/download)
 
 ##### RtcEngine方法
 
