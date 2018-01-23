@@ -1,6 +1,6 @@
 {
   "name": "react-native-agoraio",
-  "version": "1.10.5",
+  "version": "1.10.6",
   "description": "声网Agora OpenLive",
   "main": "index.js",
   "scripts": {
