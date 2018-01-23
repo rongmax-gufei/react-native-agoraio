@@ -90,6 +90,9 @@ Add following to `AndroidManifest.xml`
 | switchCamera                     |                                          | 切换前置/后置摄像头                            |
 | enableVideo                      |                                          | 开启视频模式                                |
 | disableVideo                     |                                          | 关闭视频                                  |
+| setCameraAutoFocusFaceModeEnabled                     |                                          | 是否开启人脸对焦功能                                  |
+| setDefaultAudioRouteToSpeakerphone                     |                                          | 修改默认的语音路由                                  |
+| setCameraTorchOn                     |                                          | 是否打开闪光灯            |
 | setEnableSpeakerphone            | bool                                     | 开启扬声器  trun: 音频输出至扬声器  false: 音频输出至听筒 |
 | muteLocalAudioStream             | bool (default false)                     | 将自己静音                                 |
 | muteAllRemoteAudioStreams        | bool (default false)                     | 静音所有远端 音频                             |
@@ -146,6 +149,11 @@ RtcEngine.eventEmitter({
 ## 更新信息
 #### 2.2.0
 - 更新Agora SDK为2.2.0
+- 新增方法 是否开启人脸对焦功能 setCameraAutoFocusFaceModeEnabled
+- 新增方法 修改默认的语音路由 setDefaultAudioRouteToSpeakerphone
+- 新增方法 是否打开闪光灯 setCameraTorchOn
+
+修复 Android 说话者音量提示bug
 
 #### 1.0.8
 
