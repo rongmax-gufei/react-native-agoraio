@@ -77,32 +77,32 @@ Add following to `AndroidManifest.xml`
 
 | Property                         | Type                                     | Description                           |
 | -------------------------------- | ---------------------------------------- | ------------------------------------- |
-| init                             | object {appid: 'agora注册的应用id', channelProfile: '频道模式', videoProfile: '视频模式', clientRole: '角色', swapWidthAndHeight: 'bool值'} | 初始化Agora引擎                            |
-| joinChannel                      | string channelName （房间名称）   number uid （用户设置的uid 传0系统会自动分配） | 加入房间                                  |
-| leaveChannel                     |                                          | 离开频道                                  |
-| destroy                          |                                          | 销毁引擎实例                                |
-| configPublisher                     | object{} config参数请前往Agora文档查看                                        | 配置旁路直播推流方法                               |
-| setLocalRenderMode                     | number mode (1 2 3)                                        | 设置本地视频显示模式                                |
-| setRemoteRenderMode                     | number uid  number mode (1 2 3)                                          | 设置远端视频显示模式                                |
-| enableAudioVolumeIndication                     | number interval (时间间隔) number smooth(平滑系数。可以设置为 3)                                         | 启用说话者音量提示                                |
+| init                             | <br>{<br>appid: 'agora注册的应用id', <br>channelProfile: '频道模式', <br>videoProfile: '视频模式', <br>clientRole: '角色', <br>swapWidthAndHeight: 'bool值'<br>} | 初始化Agora引擎                            |
+| joinChannel                      | string: channelName（房间名称)<br>number: uid（uid=0系统自动分配） | 加入房间                                  |
+| leaveChannel                     |                                          | 离开频道                                |
+| destroy                          |                                          | 销毁引擎实例                             |
+| configPublisher                  | object{} config参数请前往Agora文档查看      | 配置旁路直播推流方法                               |
+| setLocalRenderMode               | number: mode (1 2 3)                      | 设置本地视频显示模式                                |
+| setRemoteRenderMode              | number: uid <br>number: mode (1 2 3)       | 设置远端视频显示模式                                |
+| enableAudioVolumeIndication      | number: interval (时间间隔) <br>number: smooth(平滑系数，可以设置为3)                                         | 启用说话者音量提示                                |
 | startPreview                     |                                          | 开启视频预览                                |
 | stopPreview                      |                                          | 关闭视频预览                                |
-| switchCamera                     |                                          | 切换前置/后置摄像头                            |
+| switchCamera                     |                                          | 切换（前置/后置）摄像头                            |
 | enableVideo                      |                                          | 开启视频模式                                |
 | disableVideo                     |                                          | 关闭视频                                  |
-| setCameraAutoFocusFaceModeEnabled                     |                                          | 是否开启人脸对焦功能                                  |
-| setDefaultAudioRouteToSpeakerphone                     |                                          | 修改默认的语音路由                                  |
-| setCameraTorchOn                     |                                          | 是否打开闪光灯            |
-| setEnableSpeakerphone            | bool                                     | 开启扬声器  trun: 音频输出至扬声器  false: 音频输出至听筒 |
+| setCameraAutoFocusFaceModeEnabled|                                          | 开/关 人脸对焦功能                                  |
+| setDefaultAudioRouteToSpeakerphone|                                         | 修改默认的语音路由                                  |
+| setCameraTorchOn                 |                                          | 开/关 闪光灯            |
+| setEnableSpeakerphone            | bool                                     | 开/关 扬声器 |
 | muteLocalAudioStream             | bool (default false)                     | 将自己静音                                 |
-| muteAllRemoteAudioStreams        | bool (default false)                     | 静音所有远端 音频                             |
-| muteRemoteAudioStream            | number uid（用户uid） bool  mute（是否静音）       | 静音指定用户 音频                             |
-| muteLocalVideoStream             | bool (default false)                     | 暂停发送本地 视频流                            |
+| muteAllRemoteAudioStreams        | bool (default false)                     | 静音所有远端音频                             |
+| muteRemoteAudioStream            | number: uid（用户uid）<br>bool: mute（是否静音）| 静音指定用户音频                             |
+| muteLocalVideoStream             | bool (default false)                     | 暂停发送本地视频流                            |
 | enableLocalVideo                 | bool (default false)                     | 禁用本地视频功能                              |
 | muteAllRemoteVideoStreams        | bool (default false)                     | 暂停所有远端视频流                             |
-| muteRemoteVideoStream            | number uid（用户uid） bool  mute（是否暂停）       | 暂停指定远端视频流                             |
-| startRecordingService (iOS only) | string  recordingKey                     | 启动服务端录制服务                             |
-| stopRecordingService (iOS only)  | string  recordingKey                     | 停止服务端录制服务                             |
+| muteRemoteVideoStream            | number: uid（用户uid）<br>bool: mute（是否暂停）| 暂停指定远端视频流                             |
+| startRecordingService (iOS only) | string: recordingKey                     | 启动服务端录制服务                             |
+| stopRecordingService (iOS only)  | string: recordingKey                     | 停止服务端录制服务                             |
 | getSdkVersion                    | callback                                 | 获取版本号                                 |
 
 ##### 原生通知事件
@@ -129,7 +129,7 @@ RtcEngine.eventEmitter({
 | onError                   | 错误信息         |
 | onWarning                 | 警告           |
 | onLeaveChannel            | 退出频道         |
-| onAudioVolumeIndication            | 音量提示回调         |
+| onAudioVolumeIndication   | 音量提示回调         |
 
 
 ##### AgoraView 组件
@@ -147,11 +147,17 @@ RtcEngine.eventEmitter({
 
 
 ## 更新信息
-#### 2.2.0
+
+#### 1.10.6
+
 - 更新Agora SDK为2.2.0
+
 - 新增方法 是否开启人脸对焦功能 setCameraAutoFocusFaceModeEnabled
+
 - 新增方法 修改默认的语音路由 setDefaultAudioRouteToSpeakerphone
+
 - 新增方法 是否打开闪光灯 setCameraTorchOn
+
 - 修复 Android 说话者音量提示bug
 
 #### 1.0.8
