@@ -15,24 +15,6 @@ export default {
     joinChannel(channelName = '00001', uid = 0) {
         Agora.joinChannel(channelName, uid)
     },
-    startPreview() {
-        Agora.startPreview();
-    },
-    stopPreview() {
-        Agora.stopPreview();
-    },
-    leaveChannel() {
-        Agora.leaveChannel();
-    },
-    switchCamera() {
-        Agora.switchCamera();
-    },
-    muteAllRemoteAudioStreams(isMute) {
-        Agora.muteAllRemoteAudioStreams();
-    },
-    setEnableSpeakerphone(isSpeaker) {
-        Agora.setEnableSpeakerphone(isSpeaker);
-    },
     eventEmitter(fnConf) {
         //there are no `removeListener` for NativeAppEventEmitter & DeviceEventEmitter
         this.listener && this.listener.remove();
