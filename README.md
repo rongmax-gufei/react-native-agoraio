@@ -78,13 +78,13 @@ Add following to `AndroidManifest.xml`
 | Property                         | Type                                     | Description                           |
 | -------------------------------- | ---------------------------------------- | ------------------------------------- |
 | init                             | <br>{<br>appid: 'agora注册的应用id', <br>channelProfile: '频道模式', <br>videoProfile: '视频模式', <br>clientRole: '角色', <br>swapWidthAndHeight: 'bool值'<br>} | 初始化Agora引擎                            |
-| joinChannel                      | string channelName（房间名称)<br>number uid（uid=0系统自动分配） | 加入房间                                  |
+| joinChannel                      | string: channelName（房间名称)<br>number: uid（uid=0系统自动分配） | 加入房间                                  |
 | leaveChannel                     |                                          | 离开频道                                |
 | destroy                          |                                          | 销毁引擎实例                             |
 | configPublisher                  | object{} config参数请前往Agora文档查看      | 配置旁路直播推流方法                               |
-| setLocalRenderMode               | number mode (1 2 3)                      | 设置本地视频显示模式                                |
-| setRemoteRenderMode              | number uid <br>number mode (1 2 3)       | 设置远端视频显示模式                                |
-| enableAudioVolumeIndication      | number interval (时间间隔) <br>number smooth(平滑系数，可以设置为3)                                         | 启用说话者音量提示                                |
+| setLocalRenderMode               | number: mode (1 2 3)                      | 设置本地视频显示模式                                |
+| setRemoteRenderMode              | number: uid <br>number: mode (1 2 3)       | 设置远端视频显示模式                                |
+| enableAudioVolumeIndication      | number: interval (时间间隔) <br>number: smooth(平滑系数，可以设置为3)                                         | 启用说话者音量提示                                |
 | startPreview                     |                                          | 开启视频预览                                |
 | stopPreview                      |                                          | 关闭视频预览                                |
 | switchCamera                     |                                          | 切换（前置/后置）摄像头                            |
@@ -96,13 +96,13 @@ Add following to `AndroidManifest.xml`
 | setEnableSpeakerphone            | bool                                     | 开/关 扬声器 |
 | muteLocalAudioStream             | bool (default false)                     | 将自己静音                                 |
 | muteAllRemoteAudioStreams        | bool (default false)                     | 静音所有远端音频                             |
-| muteRemoteAudioStream            | number uid（用户uid）<br>bool  mute（是否静音）| 静音指定用户音频                             |
+| muteRemoteAudioStream            | number: uid（用户uid）<br>bool: mute（是否静音）| 静音指定用户音频                             |
 | muteLocalVideoStream             | bool (default false)                     | 暂停发送本地视频流                            |
 | enableLocalVideo                 | bool (default false)                     | 禁用本地视频功能                              |
 | muteAllRemoteVideoStreams        | bool (default false)                     | 暂停所有远端视频流                             |
-| muteRemoteVideoStream            | number uid（用户uid）<br>bool  mute（是否暂停）| 暂停指定远端视频流                             |
-| startRecordingService (iOS only) | string  recordingKey                     | 启动服务端录制服务                             |
-| stopRecordingService (iOS only)  | string  recordingKey                     | 停止服务端录制服务                             |
+| muteRemoteVideoStream            | number: uid（用户uid）<br>bool: mute（是否暂停）| 暂停指定远端视频流                             |
+| startRecordingService (iOS only) | string: recordingKey                     | 启动服务端录制服务                             |
+| stopRecordingService (iOS only)  | string: recordingKey                     | 停止服务端录制服务                             |
 | getSdkVersion                    | callback                                 | 获取版本号                                 |
 
 ##### 原生通知事件
