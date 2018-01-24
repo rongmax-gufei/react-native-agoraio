@@ -145,7 +145,9 @@ RtcEngine.eventEmitter({
 
 示例工程 [Example](https://github.com/midas-gufei/RNAgoraExample)<br>
 
-<img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/screenshot-iOS.png"/>
+<img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/Screen%20Shot%202018-01-24%20at%20下午4.42.36.png"/>
+
+<img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/Screen%20Shot%202018-01-24%20at%20下午4.43.37.png"/>
 
 ## 更新信息
 
