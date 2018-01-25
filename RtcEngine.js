@@ -1,11 +1,10 @@
 import {
     NativeModules,
-    findNodeHandle,
     NativeEventEmitter
 } from 'react-native';
 
 const { Agora } = NativeModules
-const NativeModule = new NativeEventEmitter(Agora);
+const agoraEmitter = new NativeEventEmitter(Agora);
 
 export default {
     ...Agora,
@@ -18,7 +17,7 @@ export default {
     },
     eventEmitter(fnConf) {
         this.removeEmitter();
-        this.listener = NativeModule.addListener(
+        this.listener = agoraEmitter.addListener(
             'agoraEvent',
             (event) => {
                 fnConf[event['type']] && fnConf[event['type']](event);
