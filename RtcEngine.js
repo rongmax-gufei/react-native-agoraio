@@ -1,10 +1,11 @@
 import {
     NativeModules,
     findNodeHandle,
-    NativeAppEventEmitter
+    NativeEventEmitter
 } from 'react-native';
 
 const { Agora } = NativeModules
+const NativeModule = new NativeEventEmitter(Agora);
 
 export default {
     ...Agora,
@@ -13,16 +14,19 @@ export default {
         Agora.init(options);
     },
     joinChannel(channelName = '00001', uid = 0) {
-        Agora.joinChannel(channelName, uid)
+        Agora.joinChannel(channelName, uid);
     },
     eventEmitter(fnConf) {
-        //there are no `removeListener` for NativeAppEventEmitter & DeviceEventEmitter
-        this.listener && this.listener.remove();
-        this.listener = NativeAppEventEmitter.addListener('agoraEvent', event => {
-            fnConf[event['type']] && fnConf[event['type']](event);
-        });
+        this.removeEmitter();
+        this.listener = NativeModule.addListener(
+            'agoraEvent',
+            (event) => {
+                fnConf[event['type']] && fnConf[event['type']](event);
+            }
+        );
     },
     removeEmitter() {
         this.listener && this.listener.remove();
+        this.listener = null;
     }
 };
