@@ -193,12 +193,12 @@ RCT_EXPORT_METHOD(muteRemoteAudioStream:(NSUInteger)uid muted:(BOOL)mute) {
     [self.rtcEngine muteRemoteAudioStream:uid mute:mute];
 }
 
-//是否打开闪光灯
+//设置是否打开闪光灯
 RCT_EXPORT_METHOD(setCameraTorchOn:(BOOL)isOn) {
     [self.rtcEngine setCameraTorchOn:isOn];
 }
 
-//否开启人脸对焦功能
+//设置是否开启人脸对焦功能
 RCT_EXPORT_METHOD(setCameraAutoFocusFaceModeEnabled:(BOOL)enable) {
     [self.rtcEngine setCameraAutoFocusFaceModeEnabled:enable];
 }
@@ -275,13 +275,37 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 }
 
 /*
- * 客户端成功加入了指定的频道
+ * 加入频道回调
+ * 该回调方法表示该客户端成功加入了指定的频道
  */
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger) elapsed {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onJoinChannelSuccess";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
     params[@"channel"] = channel;
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 重新加入频道回调
+ * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK 会进行自动重连，自动重连成功后触发此回调方法。
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didRejoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger) elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onReJoinChannelSuccess";
+    params[@"uid"] = [NSNumber numberWithInteger:uid];
+    params[@"channel"] = channel;
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 本地首帧视频显示回调
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstLocalVideoFrameWithSize:(CGSize)size elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onFirstLocalVideoFrameWithSize";
     
     [self sendEvent:params];
 }
@@ -298,7 +322,22 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 }
 
 /*
- * 用户加入回调
+ * 远端首帧视频显示回调
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoFrameOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onFirstRemoteVideoFrameOfUid";
+    params[@"uid"] = [NSNumber numberWithInteger:uid];
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 主播加入回调
+ * 提示有主播加入了频道。如果该客户端加入频道时已经有人在频道中，SDK也会向应用程序上报这些已在频道中的用户。
+ * 直播场景下:
+ * 主播间能相互收到新主播加入频道的回调，并能获得该主播的 uid
+ * 观众也能收到新主播加入频道的回调，并能获得该主播的 uid
  */
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
     NSMutableDictionary *params = @{}.mutableCopy;
@@ -309,7 +348,10 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 }
 
 /*
- * 用户离线回调
+ * 主播离线回调
+ * 提示有主播离开了频道（或掉线）。
+ * SDK 判断用户离开频道（或掉线）的依据是超时: 在一定时间内（15 秒）没有收到对方的任何数据包，判定为对方掉线。
+ * 在网络较差的情况下，可能会有误报。建议可靠的掉线检测应该由信令来做。
  */
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason {
     NSMutableDictionary *params = @{}.mutableCopy;
@@ -334,6 +376,41 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     
     params[@"speakers"] = arr;
     params[@"totalVolume"] = [NSNumber numberWithInteger:totalVolume];
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 网络连接中断回调
+ * 在 SDK 和服务器失去了网络连接时，触发该回调。失去连接后，除非APP主动调用 leaveChannel，SDK 会一直自动重连。
+ */
+- (void)rtcEngineConnectionDidInterrupted:(AgoraRtcEngineKit *)engine {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onConnectionDidInterrupted";
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 网络连接丢失回调
+ * 在 SDK 和服务器失去了网络连接后，会触发 rtcEngineConnectionDidInterrupted 回调，并自动重连。
+ * 在一定时间内（默认 10 秒）如果没有重连成功，触发 rtcEngineConnectionDidLost 回调。
+ * 除非 APP 主动调用 leaveChannel，SDK 仍然会自动重连。
+ */
+- (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onConnectionDidLost";
+    
+    [self sendEvent:params];
+}
+
+/*
+ * 连接已被禁止回调
+ * 当你被服务端禁掉连接的权限时，会触发该回调。意外掉线之后，SDK 会自动进行重连，重连多次都失败之后，该回调会被触发，判定为连接不可用。
+ */
+- (void)rtcEngineConnectionDidBanned:(AgoraRtcEngineKit * _Nonnull)engine {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[@"type"] = @"onConnectionDidBanned";
     
     [self sendEvent:params];
 }
