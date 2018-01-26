@@ -144,6 +144,7 @@ RtcEngine.eventEmitter({
 ## 运行示例
 
 示例工程 [Example](https://github.com/midas-gufei/RNAgoraExample)<br>
+[下载体验包](https://fir.im/agoraio?release_id=5a6aa486959d695df764b1c8)<br>
 
 <img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/Screen%20Shot%202018-01-24%20at%20下午4.42.36.png"/>
 
