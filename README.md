@@ -115,26 +115,38 @@ Add following to `AndroidManifest.xml`
 ```
 RtcEngine.eventEmitter({
   onFirstRemoteVideoDecoded: data => {},
+  onFirstRemoteVideoFrameOfUid: data => {},
+  onFirstLocalVideoFrameWithSize: data => {},
   onJoinChannelSuccess: data => {},
+  onReJoinChannelSuccess: data => {},
   onUserOffline: data => {},
   onUserJoined: data => {},
   onError: data => {},
   onWarning: data => {},
   onLeaveChannel: data => {},
-  onAudioVolumeIndication: data => {}
+  onAudioVolumeIndication: data => {},
+  onConnectionDidInterrupted: data => {},
+  onConnectionDidLost: data => {},
+  onConnectionDidBanned: data => {}
 })
 ```
 
 | Name                      | Description  |
 | ------------------------- | ------------ |
 | onFirstRemoteVideoDecoded | 远端首帧视频接收解码回调 |
+| onFirstRemoteVideoFrameOfUid | 远端首帧视频显示回调 |
+| onFirstLocalVideoFrameWithSize | 本地首帧视频显示回调 |
 | onJoinChannelSuccess      | 加入频道成功的回调    |
+| onReJoinChannelSuccess      | 重新加入频道回调    |
 | onUserOffline             | 其他用户离开当前频道   |
 | onUserJoined              | 其他用户加入当前频道   |
 | onError                   | 错误信息         |
 | onWarning                 | 警告           |
 | onLeaveChannel            | 退出频道         |
 | onAudioVolumeIndication   | 音量提示回调         |
+| onConnectionDidInterrupted   | 网络连接中断回调         |
+| onConnectionDidLost   | 网络连接丢失回调         |
+| onConnectionDidBanned   | 连接已被禁止回调         |
 
 
 ##### AgoraView 组件
@@ -158,17 +170,33 @@ RtcEngine.eventEmitter({
 
 ## 更新信息
 
+#### 1.10.10
+
+ - 重新加入频道回调
+
+ - 本地首帧视频显示回调
+
+ - 远端首帧视频显示回调
+
+ - 主播离线回调
+
+ - 网络连接中断回调
+
+ - 网络连接丢失回调
+
+ - 连接已被禁止回调
+
 #### 1.10.6
 
-- 更新Agora SDK为2.2.0
+ - 更新Agora SDK为2.2.0
 
-- 新增方法 是否开启人脸对焦功能 setCameraAutoFocusFaceModeEnabled
+ - 新增方法 是否开启人脸对焦功能 setCameraAutoFocusFaceModeEnabled
 
-- 新增方法 修改默认的语音路由 setDefaultAudioRouteToSpeakerphone
+ - 新增方法 修改默认的语音路由 setDefaultAudioRouteToSpeakerphone
 
-- 新增方法 是否打开闪光灯 setCameraTorchOn
+ - 新增方法 是否打开闪光灯 setCameraTorchOn
 
-- 修复 Android 说话者音量提示bug
+ - 修复 Android 说话者音量提示bug
 
 #### 1.0.8
 
