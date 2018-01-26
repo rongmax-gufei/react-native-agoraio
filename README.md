@@ -70,8 +70,8 @@ Add following to `AndroidManifest.xml`
 
 ## Documentation
 
-[声网API文档](https://docs.agora.io/cn/2.0.2)<br>
-[声网SDK下载地址](https://docs.agora.io/cn/2.0.2/download)
+[Agoraio Api Documetation](https://docs.agora.io/cn/2.0.2)<br>
+[Agoraio Sdk Download Link](https://docs.agora.io/cn/2.0.2/download)
 
 ##### RtcEngine方法
 
