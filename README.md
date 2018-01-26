@@ -147,10 +147,9 @@ RtcEngine.eventEmitter({
 [下载体验包](https://fir.im/agoraio?release_id=5a6aa486959d695df764b1c8)<br>
 
 <figure class="half">
-    <img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.png"/>
-    <img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"/>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"/></a>
 </figure>
-
 
 ## 更新信息
 
