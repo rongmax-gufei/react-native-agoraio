@@ -1,9 +1,14 @@
-# README
+# react-native-agoraio 
+
+[![npm version](https://badge.fury.io/js/react-native-agoraio.svg)](https://badge.fury.io/js/react-native-agoraio)
+[![npm](https://img.shields.io/npm/dt/react-native-agoraio.svg)](https://www.npmjs.com/package/react-native-agoraio)
+![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-yellow.svg)
+![MIT](https://img.shields.io/dub/l/vibe-d.svg)
+
 | Author        |     E-mail      |
 | ------------- |:---------------:|
 | gufei         | 799170694@qq.com|
 
-# react-native-agoraio 
 
 ## 功能介绍
 
