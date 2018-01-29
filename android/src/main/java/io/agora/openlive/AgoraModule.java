@@ -58,6 +58,44 @@ public class AgoraModule extends ReactContextBaseJavaModule {
         }
 
         /**
+         * 远端视频显示回调
+         * @param uid
+         * @param width
+         * @param height
+         * @param elapsed
+         */
+        @Override
+        public void onFirstRemoteVideoFrame(int uid, int width, int height, int elapsed) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onFirstRemoteVideoFrameOfUid");
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
+         * 本地视频显示回调
+         *
+         * @param width
+         * @param height
+         * @param elapsed
+         */
+        @Override
+        public void onFirstLocalVideoFrame(int width, int height, int elapsed) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onFirstLocalVideoFrameWithSize");
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
          * 加入频道成功的回调
          */
         @Override
@@ -68,6 +106,28 @@ public class AgoraModule extends ReactContextBaseJavaModule {
                 public void run() {
                     WritableMap map = Arguments.createMap();
                     map.putString("type", "onJoinChannelSuccess");
+                    map.putString("channel", channel);
+                    map.putInt("uid", uid);
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
+         * 重新加入频道回调
+         *
+         * @param channel
+         * @param uid
+         * @param elapsed
+         */
+        @Override
+        public void onRejoinChannelSuccess(final String channel, final int uid, int elapsed) {
+            Log.i("Agora", "重新加入频道成功---");
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onRejoinChannelSuccess");
                     map.putString("channel", channel);
                     map.putInt("uid", uid);
                     commonEvent(map);
@@ -178,6 +238,51 @@ public class AgoraModule extends ReactContextBaseJavaModule {
                     WritableMap map = Arguments.createMap();
                     map.putString("type", "onUserOffline");
                     map.putInt("uid", uid);
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
+         * 连接丢失回调
+         */
+        @Override
+        public void onConnectionLost() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onConnectionDidLost");
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
+         * 连接中断回调
+         */
+        @Override
+        public void onConnectionInterrupted() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onConnectionDidInterrupted");
+                    commonEvent(map);
+                }
+            });
+        }
+
+        /**
+         * 连接已被禁止回调
+         */
+        @Override
+        public void onConnectionBanned() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    WritableMap map = Arguments.createMap();
+                    map.putString("type", "onConnectionDidBanned");
                     commonEvent(map);
                 }
             });
