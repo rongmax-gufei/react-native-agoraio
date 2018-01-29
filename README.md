@@ -77,7 +77,8 @@ Add following to `AndroidManifest.xml`
 
 [Agoraio Api Documetation](https://docs.agora.io/cn/2.0.2)<br>
 [Agoraio Sdk Download Link](https://docs.agora.io/cn/2.0.2/download)<br>
-[iOS美颜SDK=>Kiwi](https://github.com/kiwi-face/KiwiFaceSDK_Demo_iOS)
+[iOS美颜SDK=>Kiwi](https://github.com/kiwi-face/KiwiFaceSDK_Demo_iOS)<br>
+[Android美颜SDK=>Kiwi](https://github.com/kiwi-face/KiwiFaceSDK_Demo_Android)
 
 ##### RtcEngine方法
 
