@@ -15,6 +15,11 @@
 - 支持 iOS Android  声网Agora视频通讯SDK
 - 支持 直播 多人视频会议 语音 功能
 
+## todo
+
+- 美颜 功能
+- 信令 功能
+
 ## 安装使用
 
  `npm install --save react-native-agoraio`
