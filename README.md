@@ -17,7 +17,7 @@
 
 ## todo
 
-- 美颜 功能
+- Android 美颜、滤镜、贴纸 ...
 - 信令 功能
 
 ## 安装使用
@@ -80,10 +80,7 @@ Add following to `AndroidManifest.xml`
 
 ## Documentation
 
-[Agoraio Api Documetation](https://docs.agora.io/cn/2.0.2)<br>
-[Agoraio Sdk Download Link](https://docs.agora.io/cn/2.0.2/download)<br>
-[iOS美颜SDK=>Kiwi](https://github.com/kiwi-face/KiwiFaceSDK_Demo_iOS)<br>
-[Android美颜SDK=>Kiwi](https://github.com/kiwi-face/KiwiFaceSDK_Demo_Android)
+[声网API](https://docs.agora.io/cn/2.0.2)<br>
 
 ##### RtcEngine方法
 
@@ -176,6 +173,10 @@ RtcEngine.eventEmitter({
 </figure>
 
 ## 更新信息
+
+#### 1.10.12 
+
+ - Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜） - iOS版
 
 #### 1.10.10
 
