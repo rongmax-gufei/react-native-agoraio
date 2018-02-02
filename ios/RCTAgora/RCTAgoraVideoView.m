@@ -7,6 +7,7 @@
 //
 
 #import "RCTAgoraVideoView.h"
+#import "AgoraVideoManager.h"
 
 @implementation RCTAgoraVideoView
 
@@ -19,7 +20,7 @@
     return self;
 }
 
-- (void)setShowLocalVideo:(Boolean)showLocalVideo {
+- (void)setShowLocalVideo:(BOOL)showLocalVideo {
     if (showLocalVideo) {
         AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
         canvas.uid = [AgoraConst share].localUid;
@@ -27,6 +28,7 @@
         canvas.renderMode = AgoraRtc_Render_Hidden;
         [_rtcEngine setupLocalVideo:canvas];
     }
+    [AgoraVideoManager share].avRootView = self;
 }
 
 -(void)setRemoteUid:(NSInteger)remoteUid {

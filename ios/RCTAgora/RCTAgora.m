@@ -8,15 +8,29 @@
 
 #import "RCTAgora.h"
 
+#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/ALAssetsLibrary.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTBridge.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTView.h>
-
+#import "AGVideoPreProcessing.h"
+#import "AGUIManager.h"
+#import "FaceTracker.h"
+#import "Global.h"
 #import "AgoraConst.h"
+#import "UIUtils.h"
 
 @interface RCTAgora ()<AgoraRtcEngineDelegate>
-@property (strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
+
+@property(strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
+@property(nonatomic, strong) AGUIManager *AGSDKUI;
+@property(nonatomic, strong) AGRenderManager *renderManager;
+
+@property(nonatomic, copy) NSString *modelPath;
+@property(nonatomic, assign) BOOL isBroadcaster;
+
 @end
 
 @implementation RCTAgora
@@ -38,23 +52,37 @@ RCT_EXPORT_MODULE();
  *  @return 0 when executed successfully. return negative value if failed.
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
-    
-    [AgoraConst share].appid = options[@"appid"];
-    
-    self.rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:options[@"appid"] delegate:self];
-    
+  
+    NSString *appid                        = options[@"appid"];
+    AgoraRtcChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
+    AgoraRtcVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
+    BOOL swapWidthAndHeight                = [options[@"swapWidthAndHeight"] boolValue];
+    AgoraRtcClientRole role                = [options[@"clientRole"] integerValue];
+  
+    [AgoraConst share].appid = appid;
+    self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
+  
+    // 初始化RtcEngineKit
+    self.rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:appid delegate:self];
     [AgoraConst share].rtcEngine = self.rtcEngine;
-    
+  
     //频道模式
-    [self.rtcEngine setChannelProfile:[options[@"channelProfile"] integerValue]];
+    [self.rtcEngine setChannelProfile:channelProfile];
     //启用双流模式
     [self.rtcEngine enableDualStreamMode:YES];
     [self.rtcEngine enableVideo];
-    [self.rtcEngine setVideoProfile:[options[@"videoProfile"] integerValue]swapWidthAndHeight:[options[@"swapWidthAndHeight"]boolValue]];
-    [self.rtcEngine setClientRole:[options[@"clientRole"] integerValue] withKey:nil];
+    [self.rtcEngine setVideoProfile:videoProfile swapWidthAndHeight:swapWidthAndHeight];
+    [self.rtcEngine setClientRole:role withKey:nil];
     
     //Agora Native SDK 与 Agora Web SDK 间的互通
     [self.rtcEngine enableWebSdkInteroperability:YES];
+}
+
+RCT_EXPORT_METHOD(initKiwiUI) {
+  // 初始化Kiwi美颜环境
+  [self initRenderManager];
+  [self initKiwiFaceUI];
+  [AGVideoPreProcessing registerVideoPreprocessing:self.rtcEngine];
 }
 
 //加入房间
@@ -65,17 +93,36 @@ RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
 }
 
 //离开频道
-RCT_EXPORT_METHOD(leaveChannel){
+RCT_EXPORT_METHOD(leaveChannel) {
+  
+    [AGVideoPreProcessing deregisterVideoPreprocessing:self.rtcEngine];
+    [self.rtcEngine setupLocalVideo:nil];
+    
     [self.rtcEngine leaveChannel:^(AgoraRtcStats *stat) {
         NSMutableDictionary *params = @{}.mutableCopy;
         params[@"type"] = @"onLeaveChannel";
         [self sendEvent:params];
     }];
+  
+    // 如果是主播，关闭预览
+    if (self.isBroadcaster) {
+      [self.rtcEngine stopPreview];
+    }
+  
+    //释放内存
+    [self.renderManager releaseManager];
+    [self.AGSDKUI releaseManager];
 }
 
 //销毁引擎实例
-RCT_EXPORT_METHOD(destroy){
+RCT_EXPORT_METHOD(destroy) {
     [AgoraRtcEngineKit destroy];
+}
+
+//切换角色
+RCT_EXPORT_METHOD(changeRole) {
+    AgoraRtcClientRole role = self.isBroadcaster ? AgoraRtc_ClientRole_Audience : AgoraRtc_ClientRole_Broadcaster;
+    [self.rtcEngine setClientRole:role withKey:nil];
 }
 
 /**
@@ -243,18 +290,61 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     callback(@[[AgoraRtcEngineKit getSdkVersion]]);
 }
 
-//RCT_EXPORT_METHOD(getViewWithTag:(nonnull NSNumber *)reactTag) {
-//
-//    UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
-//    NSLog(@"%@",view);
-//
-//}
+#pragma mask KiwiFace EXPORT_METHODS
+//打开蒙版
+RCT_EXPORT_METHOD(openMask) {
+  [self.AGSDKUI openStickerSetBtnOnClick];
+}
+
+//打开滤镜
+RCT_EXPORT_METHOD(openFilter) {
+  [self.AGSDKUI openFilterSetBtnOnClick];
+}
+
+/*
+ * 初始美颜 KiwiFaceSDK
+ */
+#pragma mark KiwiFaceSDK
+- (void)initRenderManager {
+  
+  //1.创建 KWRenderManager对象,指定models文件路径 若不传则默认路径是KWResource.bundle/models
+  self.renderManager = [[AGRenderManager alloc] initWithModelPath:nil isCameraPositionBack:NO];
+  
+  //2.加载贴纸滤镜
+  [self.renderManager loadRender];
+  
+  //3.鉴权kiwi AgLenses.lic
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verifyFailed) name:AGVerifyFailededNotification object:nil];
+}
+
+/*
+ * 初始化KiwiFace的演示UI
+ */
+- (void)initKiwiFaceUI {
+  //1.初始化UIManager
+  self.AGSDKUI = [[AGUIManager alloc] initWithRenderManager:self.renderManager delegate:nil superView:UIUtils.currentRootView];
+  
+  //2.是否清除原UI
+  self.AGSDKUI.isClearOldUI = NO;
+  
+  /*
+   3.创建内置UI
+   createUI 要放在最后
+   */
+  [self.AGSDKUI createUI];
+}
+
+- (void)verifyFailed {
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"KiwiFaceSDK初始化失败,错误码: %d", [AGRenderManager renderInitCode]] message:@"可在FaceTracker.h中查看错误码" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+  [alertView show];
+}
 
 /*
  * 该回调方法表示SDK运行时出现了（网络或媒体相关的）错误。通常情况下，SDK上报的错误意味着SDK无法自动恢复，需要应用程序干预或提示用户。
  * 比如启动通话失败时，SDK会上报AgoraRtc_Error_StartCall(1002)错误。
  * 应用程序可以提示用户启动通话失败，并调用leaveChannel退出频道。
  */
+#pragma mark AgoraSDK
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode{
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onError";
@@ -413,6 +503,13 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     params[@"type"] = @"onConnectionDidBanned";
     
     [self sendEvent:params];
+}
+
+// 根据tag找到指定的view
+- (UIView *)getViewWithTag:(nonnull NSNumber *)reactTag {
+  UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
+  NSLog(@"%@",view);
+  return view;
 }
 
 #pragma mark - native to js event method

@@ -7,11 +7,95 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23AF28211EEFECD800D771AB /* RCTAgora.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF28201EEFECD800D771AB /* RCTAgora.m */; };
-		23AF28221EEFECD800D771AB /* RCTAgora.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23AF281F1EEFECD800D771AB /* RCTAgora.h */; };
-		23C20DD11F0A6ED80095F60C /* AgoraConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DCC1F0A6ED80095F60C /* AgoraConst.m */; };
-		23C20DD21F0A6ED80095F60C /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DCE1F0A6ED80095F60C /* RCTAgoraVideoView.m */; };
-		23C20DD31F0A6ED80095F60C /* RCTAgoraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DD01F0A6ED80095F60C /* RCTAgoraViewManager.m */; };
+		1820C6FE2022DFA3004E53DF /* KWDistortionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C4F82022DFA2004E53DF /* KWDistortionCell.m */; };
+		1820C6FF2022DFA3004E53DF /* KWStickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C4FB2022DFA2004E53DF /* KWStickerCell.m */; };
+		1820C7002022DFA3004E53DF /* KWFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C4FD2022DFA2004E53DF /* KWFilterCell.m */; };
+		1820C7012022DFA3004E53DF /* KWUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C4FE2022DFA2004E53DF /* KWUIManager.m */; };
+		1820C7022022DFA3004E53DF /* KWGlobalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C51A2022DFA2004E53DF /* KWGlobalFilter.m */; };
+		1820C7032022DFA3004E53DF /* KWGlobalFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C54E2022DFA2004E53DF /* KWGlobalFilterManager.m */; };
+		1820C7042022DFA3004E53DF /* rotate_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5682022DFA2004E53DF /* rotate_common.cc */; };
+		1820C7052022DFA3004E53DF /* rotate_any.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5692022DFA2004E53DF /* rotate_any.cc */; };
+		1820C7062022DFA3004E53DF /* rotate.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56A2022DFA2004E53DF /* rotate.cc */; };
+		1820C7072022DFA3004E53DF /* scale_gcc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56B2022DFA2004E53DF /* scale_gcc.cc */; };
+		1820C7082022DFA3004E53DF /* convert_jpeg.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56C2022DFA2004E53DF /* convert_jpeg.cc */; };
+		1820C7092022DFA3004E53DF /* compare_win.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56D2022DFA2004E53DF /* compare_win.cc */; };
+		1820C70A2022DFA3004E53DF /* cpu_id.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56E2022DFA2004E53DF /* cpu_id.cc */; };
+		1820C70B2022DFA3004E53DF /* row_win.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C56F2022DFA2004E53DF /* row_win.cc */; };
+		1820C70C2022DFA3004E53DF /* mjpeg_decoder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5702022DFA2004E53DF /* mjpeg_decoder.cc */; };
+		1820C70D2022DFA3004E53DF /* row_neon.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5712022DFA2004E53DF /* row_neon.cc */; };
+		1820C70E2022DFA3004E53DF /* rotate_neon64.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5722022DFA2004E53DF /* rotate_neon64.cc */; };
+		1820C70F2022DFA3004E53DF /* scale.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5732022DFA2004E53DF /* scale.cc */; };
+		1820C7102022DFA3004E53DF /* compare.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5742022DFA2004E53DF /* compare.cc */; };
+		1820C7112022DFA3004E53DF /* row_neon64.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5752022DFA2004E53DF /* row_neon64.cc */; };
+		1820C7122022DFA3004E53DF /* convert_from_argb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5762022DFA2004E53DF /* convert_from_argb.cc */; };
+		1820C7132022DFA3004E53DF /* planar_functions.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5772022DFA2004E53DF /* planar_functions.cc */; };
+		1820C7142022DFA3004E53DF /* row_msa.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5782022DFA2004E53DF /* row_msa.cc */; };
+		1820C7152022DFA3004E53DF /* convert_argb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5792022DFA2004E53DF /* convert_argb.cc */; };
+		1820C7162022DFA3004E53DF /* rotate_mips.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57A2022DFA2004E53DF /* rotate_mips.cc */; };
+		1820C7172022DFA3004E53DF /* scale_mips.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57B2022DFA2004E53DF /* scale_mips.cc */; };
+		1820C7182022DFA3004E53DF /* row_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57C2022DFA2004E53DF /* row_common.cc */; };
+		1820C7192022DFA3004E53DF /* scale_any.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57D2022DFA2004E53DF /* scale_any.cc */; };
+		1820C71A2022DFA3004E53DF /* rotate_gcc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57E2022DFA2004E53DF /* rotate_gcc.cc */; };
+		1820C71B2022DFA3004E53DF /* convert.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C57F2022DFA2004E53DF /* convert.cc */; };
+		1820C71C2022DFA3004E53DF /* convert_from.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5802022DFA2004E53DF /* convert_from.cc */; };
+		1820C71D2022DFA3004E53DF /* scale_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5812022DFA2004E53DF /* scale_common.cc */; };
+		1820C71E2022DFA3004E53DF /* row_mips.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5822022DFA2004E53DF /* row_mips.cc */; };
+		1820C71F2022DFA3004E53DF /* row_any.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5832022DFA2004E53DF /* row_any.cc */; };
+		1820C7202022DFA3004E53DF /* convert_to_argb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5842022DFA2004E53DF /* convert_to_argb.cc */; };
+		1820C7212022DFA3004E53DF /* compare_neon.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5852022DFA2004E53DF /* compare_neon.cc */; };
+		1820C7222022DFA3004E53DF /* rotate_win.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5862022DFA2004E53DF /* rotate_win.cc */; };
+		1820C7232022DFA3004E53DF /* scale_neon64.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5872022DFA2004E53DF /* scale_neon64.cc */; };
+		1820C7242022DFA3004E53DF /* mjpeg_validate.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5882022DFA2004E53DF /* mjpeg_validate.cc */; };
+		1820C7252022DFA3004E53DF /* scale_win.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5892022DFA2004E53DF /* scale_win.cc */; };
+		1820C7262022DFA3004E53DF /* compare_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58A2022DFA2004E53DF /* compare_common.cc */; };
+		1820C7272022DFA3004E53DF /* scale_neon.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58B2022DFA2004E53DF /* scale_neon.cc */; };
+		1820C7282022DFA3004E53DF /* rotate_neon.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58C2022DFA2004E53DF /* rotate_neon.cc */; };
+		1820C7292022DFA3004E53DF /* video_common.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58D2022DFA2004E53DF /* video_common.cc */; };
+		1820C72A2022DFA3004E53DF /* convert_to_i420.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58E2022DFA2004E53DF /* convert_to_i420.cc */; };
+		1820C72B2022DFA3004E53DF /* row_gcc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C58F2022DFA2004E53DF /* row_gcc.cc */; };
+		1820C72C2022DFA3004E53DF /* rotate_argb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5902022DFA2004E53DF /* rotate_argb.cc */; };
+		1820C72D2022DFA3004E53DF /* compare_gcc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5912022DFA2004E53DF /* compare_gcc.cc */; };
+		1820C72E2022DFA3004E53DF /* compare_neon64.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5922022DFA2004E53DF /* compare_neon64.cc */; };
+		1820C72F2022DFA3004E53DF /* scale_argb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1820C5932022DFA2004E53DF /* scale_argb.cc */; };
+		1820C7302022DFA3004E53DF /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1820C5C42022DFA2004E53DF /* libGPUImage.a */; };
+		1820C7312022DFA3004E53DF /* libfaceTrackerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1820C64F2022DFA3004E53DF /* libfaceTrackerSDK.a */; };
+		1820C7322022DFA3004E53DF /* libKwSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1820C6502022DFA3004E53DF /* libKwSDK.a */; };
+		1820C7332022DFA3004E53DF /* KWRenderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6512022DFA3004E53DF /* KWRenderManager.m */; };
+		1820C7342022DFA3004E53DF /* KWStickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6532022DFA3004E53DF /* KWStickerManager.m */; };
+		1820C7352022DFA3004E53DF /* KWPresentStickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6542022DFA3004E53DF /* KWPresentStickerManager.m */; };
+		1820C7362022DFA3004E53DF /* KWStickerDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6582022DFA3004E53DF /* KWStickerDownloadManager.m */; };
+		1820C7372022DFA3004E53DF /* KWSticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C65D2022DFA3004E53DF /* KWSticker.m */; };
+		1820C7382022DFA3004E53DF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6C62022DFA3004E53DF /* Reachability.m */; };
+		1820C7392022DFA3004E53DF /* KWSaveData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6C72022DFA3004E53DF /* KWSaveData.m */; };
+		1820C73A2022DFA3004E53DF /* UIDevice+DeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6CE2022DFA3004E53DF /* UIDevice+DeviceModel.m */; };
+		1820C73B2022DFA3004E53DF /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D02022DFA3004E53DF /* UIImage+WebP.m */; };
+		1820C73C2022DFA3004E53DF /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D12022DFA3004E53DF /* MKAnnotationView+WebCache.m */; };
+		1820C73D2022DFA3004E53DF /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D42022DFA3004E53DF /* SDWebImageManager.m */; };
+		1820C73E2022DFA3004E53DF /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D52022DFA3004E53DF /* SDWebImageDecoder.m */; };
+		1820C73F2022DFA3004E53DF /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D72022DFA3004E53DF /* UIImageView+HighlightedWebCache.m */; };
+		1820C7402022DFA3004E53DF /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6D92022DFA3004E53DF /* SDWebImageDownloader.m */; };
+		1820C7412022DFA3004E53DF /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6DA2022DFA3004E53DF /* UIImage+GIF.m */; };
+		1820C7422022DFA3004E53DF /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6DC2022DFA3004E53DF /* UIImage+MultiFormat.m */; };
+		1820C7432022DFA3004E53DF /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6DD2022DFA3004E53DF /* SDWebImageCompat.m */; };
+		1820C7442022DFA3004E53DF /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6DE2022DFA3004E53DF /* SDWebImagePrefetcher.m */; };
+		1820C7452022DFA3004E53DF /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6E22022DFA3004E53DF /* SDImageCache.m */; };
+		1820C7462022DFA3004E53DF /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6E42022DFA3004E53DF /* SDWebImageDownloaderOperation.m */; };
+		1820C7472022DFA3004E53DF /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6E72022DFA3004E53DF /* NSData+ImageContentType.m */; };
+		1820C7482022DFA3004E53DF /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6E82022DFA3004E53DF /* UIImageView+WebCache.m */; };
+		1820C7492022DFA3004E53DF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6EB2022DFA3004E53DF /* UIView+WebCacheOperation.m */; };
+		1820C74A2022DFA3004E53DF /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6EF2022DFA3004E53DF /* UIButton+WebCache.m */; };
+		1820C74B2022DFA3004E53DF /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6F32022DFA3004E53DF /* unzip.c */; };
+		1820C74C2022DFA3004E53DF /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6F42022DFA3004E53DF /* zip.c */; };
+		1820C74D2022DFA3004E53DF /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6F52022DFA3004E53DF /* ioapi.c */; };
+		1820C74E2022DFA3004E53DF /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6F62022DFA3004E53DF /* mztools.c */; };
+		1820C74F2022DFA3004E53DF /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1820C6FD2022DFA3004E53DF /* SSZipArchive.m */; };
+		182CC523201F21D00044F5D4 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CC30D201F21CE0044F5D4 /* libcrypto.a */; };
+		182CC524201F21D00044F5D4 /* AgoraRtcCryptoLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CC30E201F21CE0044F5D4 /* AgoraRtcCryptoLoader.framework */; };
+		182CC525201F21D00044F5D4 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CC30F201F21CE0044F5D4 /* AgoraRtcEngineKit.framework */; };
+		182CC526201F21D00044F5D4 /* AgoraConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CC310201F21CE0044F5D4 /* AgoraConst.m */; };
+		182CC527201F21D00044F5D4 /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CC312201F21CE0044F5D4 /* RCTAgoraVideoView.m */; };
+		182CC528201F21D00044F5D4 /* RCTAgoraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CC313201F21CE0044F5D4 /* RCTAgoraViewManager.m */; };
+		182CC529201F21D00044F5D4 /* RCTAgora.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CC314201F21CE0044F5D4 /* RCTAgora.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,23 +105,521 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				23AF28221EEFECD800D771AB /* RCTAgora.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		23ACF47C1EF0CF9500801BC7 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
+		1820C4F52022DFA2004E53DF /* KWRenderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRenderManager.h; sourceTree = "<group>"; };
+		1820C4F82022DFA2004E53DF /* KWDistortionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWDistortionCell.m; sourceTree = "<group>"; };
+		1820C4F92022DFA2004E53DF /* KWStickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStickerCell.h; sourceTree = "<group>"; };
+		1820C4FA2022DFA2004E53DF /* KWFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWFilterCell.h; sourceTree = "<group>"; };
+		1820C4FB2022DFA2004E53DF /* KWStickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWStickerCell.m; sourceTree = "<group>"; };
+		1820C4FC2022DFA2004E53DF /* KWDistortionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWDistortionCell.h; sourceTree = "<group>"; };
+		1820C4FD2022DFA2004E53DF /* KWFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWFilterCell.m; sourceTree = "<group>"; };
+		1820C4FE2022DFA2004E53DF /* KWUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWUIManager.m; sourceTree = "<group>"; };
+		1820C5012022DFA2004E53DF /* Lomo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lomo.h; sourceTree = "<group>"; };
+		1820C5022022DFA2004E53DF /* Valencia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Valencia.h; sourceTree = "<group>"; };
+		1820C5042022DFA2004E53DF /* GPUImageFourInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFourInputFilter.h; sourceTree = "<group>"; };
+		1820C5052022DFA2004E53DF /* SixInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixInputFilter.h; sourceTree = "<group>"; };
+		1820C5062022DFA2004E53DF /* FiveInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveInputFilter.h; sourceTree = "<group>"; };
+		1820C5072022DFA2004E53DF /* Years1977.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Years1977.h; sourceTree = "<group>"; };
+		1820C5082022DFA2004E53DF /* Sutro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sutro.h; sourceTree = "<group>"; };
+		1820C5092022DFA2004E53DF /* Hefe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hefe.h; sourceTree = "<group>"; };
+		1820C50A2022DFA2004E53DF /* Sierra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sierra.h; sourceTree = "<group>"; };
+		1820C50B2022DFA2004E53DF /* Nashville.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nashville.h; sourceTree = "<group>"; };
+		1820C50C2022DFA2004E53DF /* Hudson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hudson.h; sourceTree = "<group>"; };
+		1820C50D2022DFA2004E53DF /* Toaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toaster.h; sourceTree = "<group>"; };
+		1820C50E2022DFA2004E53DF /* Brannan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brannan.h; sourceTree = "<group>"; };
+		1820C50F2022DFA2004E53DF /* Amaro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amaro.h; sourceTree = "<group>"; };
+		1820C5102022DFA2004E53DF /* Rise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rise.h; sourceTree = "<group>"; };
+		1820C5112022DFA2004E53DF /* Freud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Freud.h; sourceTree = "<group>"; };
+		1820C5122022DFA2004E53DF /* Lut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lut.h; sourceTree = "<group>"; };
+		1820C5132022DFA2004E53DF /* Pixar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixar.h; sourceTree = "<group>"; };
+		1820C5142022DFA2004E53DF /* Inkwell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inkwell.h; sourceTree = "<group>"; };
+		1820C5152022DFA2004E53DF /* Walden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Walden.h; sourceTree = "<group>"; };
+		1820C5162022DFA2004E53DF /* XproII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XproII.h; sourceTree = "<group>"; };
+		1820C5172022DFA2004E53DF /* Brooklyn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brooklyn.h; sourceTree = "<group>"; };
+		1820C5182022DFA2004E53DF /* Kevin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kevin.h; sourceTree = "<group>"; };
+		1820C5192022DFA2004E53DF /* Earlybird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Earlybird.h; sourceTree = "<group>"; };
+		1820C51A2022DFA2004E53DF /* KWGlobalFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWGlobalFilter.m; sourceTree = "<group>"; };
+		1820C51C2022DFA2004E53DF /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vignetteMap.png; sourceTree = "<group>"; };
+		1820C51D2022DFA2004E53DF /* sutroMetal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sutroMetal.png; sourceTree = "<group>"; };
+		1820C51E2022DFA2004E53DF /* overlayMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlayMap.png; sourceTree = "<group>"; };
+		1820C51F2022DFA2004E53DF /* sutroEdgeBurn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sutroEdgeBurn.png; sourceTree = "<group>"; };
+		1820C5202022DFA2004E53DF /* nashvilleMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nashvilleMap.png; sourceTree = "<group>"; };
+		1820C5212022DFA2004E53DF /* lomoMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lomoMap.png; sourceTree = "<group>"; };
+		1820C5222022DFA2004E53DF /* 1977blowout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1977blowout.png; sourceTree = "<group>"; };
+		1820C5232022DFA2004E53DF /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xproMap.png; sourceTree = "<group>"; };
+		1820C5242022DFA2004E53DF /* inkwellMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inkwellMap.png; sourceTree = "<group>"; };
+		1820C5252022DFA2004E53DF /* hefeMetal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hefeMetal.png; sourceTree = "<group>"; };
+		1820C5262022DFA2004E53DF /* brannanLuma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brannanLuma.png; sourceTree = "<group>"; };
+		1820C5272022DFA2004E53DF /* brannanProcess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brannanProcess.png; sourceTree = "<group>"; };
+		1820C5282022DFA2004E53DF /* valenciaMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valenciaMap.png; sourceTree = "<group>"; };
+		1820C5292022DFA2004E53DF /* riseMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riseMap.png; sourceTree = "<group>"; };
+		1820C52A2022DFA2004E53DF /* earlybirdBlowout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earlybirdBlowout.png; sourceTree = "<group>"; };
+		1820C52B2022DFA2004E53DF /* filter_map_first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_map_first.png; sourceTree = "<group>"; };
+		1820C52C2022DFA2004E53DF /* blackboard1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackboard1024.png; sourceTree = "<group>"; };
+		1820C52D2022DFA2004E53DF /* waldenMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waldenMap.png; sourceTree = "<group>"; };
+		1820C52E2022DFA2004E53DF /* toasterMetal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toasterMetal.png; sourceTree = "<group>"; };
+		1820C52F2022DFA2004E53DF /* earlyBirdCurves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earlyBirdCurves.png; sourceTree = "<group>"; };
+		1820C5302022DFA2004E53DF /* hefeMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hefeMap.png; sourceTree = "<group>"; };
+		1820C5312022DFA2004E53DF /* hefeGradientMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hefeGradientMap.png; sourceTree = "<group>"; };
+		1820C5322022DFA2004E53DF /* toasterCurves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toasterCurves.png; sourceTree = "<group>"; };
+		1820C5332022DFA2004E53DF /* hudsonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hudsonBackground.png; sourceTree = "<group>"; };
+		1820C5342022DFA2004E53DF /* brannanBlowout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brannanBlowout.png; sourceTree = "<group>"; };
+		1820C5352022DFA2004E53DF /* toasterOverlayMapWarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toasterOverlayMapWarm.png; sourceTree = "<group>"; };
+		1820C5362022DFA2004E53DF /* earlybirdMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earlybirdMap.png; sourceTree = "<group>"; };
+		1820C5372022DFA2004E53DF /* sutroCurves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sutroCurves.png; sourceTree = "<group>"; };
+		1820C5382022DFA2004E53DF /* brannanScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brannanScreen.png; sourceTree = "<group>"; };
+		1820C5392022DFA2004E53DF /* freud_rand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freud_rand.png; sourceTree = "<group>"; };
+		1820C53A2022DFA2004E53DF /* toasterColorShift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toasterColorShift.png; sourceTree = "<group>"; };
+		1820C53B2022DFA2004E53DF /* amaroMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amaroMap.png; sourceTree = "<group>"; };
+		1820C53C2022DFA2004E53DF /* hudsonMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hudsonMap.png; sourceTree = "<group>"; };
+		1820C53D2022DFA2004E53DF /* kelvinMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kelvinMap.png; sourceTree = "<group>"; };
+		1820C53E2022DFA2004E53DF /* sierraMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sierraMap.png; sourceTree = "<group>"; };
+		1820C53F2022DFA2004E53DF /* valenciaGradientMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valenciaGradientMap.png; sourceTree = "<group>"; };
+		1820C5402022DFA2004E53DF /* edgeBurn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edgeBurn.png; sourceTree = "<group>"; };
+		1820C5412022DFA2004E53DF /* brooklynCurves2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brooklynCurves2.png; sourceTree = "<group>"; };
+		1820C5422022DFA2004E53DF /* brannanContrast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brannanContrast.png; sourceTree = "<group>"; };
+		1820C5432022DFA2004E53DF /* 1977map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1977map.png; sourceTree = "<group>"; };
+		1820C5442022DFA2004E53DF /* hefeSoftLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hefeSoftLight.png; sourceTree = "<group>"; };
+		1820C5452022DFA2004E53DF /* toasterSoftLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toasterSoftLight.png; sourceTree = "<group>"; };
+		1820C5462022DFA2004E53DF /* sierraVignette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sierraVignette.png; sourceTree = "<group>"; };
+		1820C5472022DFA2004E53DF /* earlybirdOverlayMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earlybirdOverlayMap.png; sourceTree = "<group>"; };
+		1820C5482022DFA2004E53DF /* brooklynCurves1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brooklynCurves1.png; sourceTree = "<group>"; };
+		1820C5492022DFA2004E53DF /* softLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = softLight.png; sourceTree = "<group>"; };
+		1820C54A2022DFA2004E53DF /* pixar_curves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixar_curves.png; sourceTree = "<group>"; };
+		1820C54B2022DFA2004E53DF /* KWGlobalFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGlobalFilterManager.h; sourceTree = "<group>"; };
+		1820C54C2022DFA2004E53DF /* KWGlobalFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWGlobalFilter.h; sourceTree = "<group>"; };
+		1820C54D2022DFA2004E53DF /* filters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = filters.json; sourceTree = "<group>"; };
+		1820C54E2022DFA2004E53DF /* KWGlobalFilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWGlobalFilterManager.m; sourceTree = "<group>"; };
+		1820C5512022DFA2004E53DF /* libyuv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libyuv.h; sourceTree = "<group>"; };
+		1820C5532022DFA2004E53DF /* scale_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_row.h; sourceTree = "<group>"; };
+		1820C5542022DFA2004E53DF /* scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale.h; sourceTree = "<group>"; };
+		1820C5552022DFA2004E53DF /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		1820C5562022DFA2004E53DF /* cpu_id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu_id.h; sourceTree = "<group>"; };
+		1820C5572022DFA2004E53DF /* video_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video_common.h; sourceTree = "<group>"; };
+		1820C5582022DFA2004E53DF /* compare_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compare_row.h; sourceTree = "<group>"; };
+		1820C5592022DFA2004E53DF /* mjpeg_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mjpeg_decoder.h; sourceTree = "<group>"; };
+		1820C55A2022DFA2004E53DF /* rotate_row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate_row.h; sourceTree = "<group>"; };
+		1820C55B2022DFA2004E53DF /* planar_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planar_functions.h; sourceTree = "<group>"; };
+		1820C55C2022DFA2004E53DF /* scale_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scale_argb.h; sourceTree = "<group>"; };
+		1820C55D2022DFA2004E53DF /* compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compare.h; sourceTree = "<group>"; };
+		1820C55E2022DFA2004E53DF /* convert_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_argb.h; sourceTree = "<group>"; };
+		1820C55F2022DFA2004E53DF /* rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate.h; sourceTree = "<group>"; };
+		1820C5602022DFA2004E53DF /* convert_from_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_from_argb.h; sourceTree = "<group>"; };
+		1820C5612022DFA2004E53DF /* basic_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_types.h; sourceTree = "<group>"; };
+		1820C5622022DFA2004E53DF /* convert_from.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert_from.h; sourceTree = "<group>"; };
+		1820C5632022DFA2004E53DF /* convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convert.h; sourceTree = "<group>"; };
+		1820C5642022DFA2004E53DF /* rotate_argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotate_argb.h; sourceTree = "<group>"; };
+		1820C5652022DFA2004E53DF /* macros_msa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros_msa.h; sourceTree = "<group>"; };
+		1820C5662022DFA2004E53DF /* row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = row.h; sourceTree = "<group>"; };
+		1820C5682022DFA2004E53DF /* rotate_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_common.cc; sourceTree = "<group>"; };
+		1820C5692022DFA2004E53DF /* rotate_any.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_any.cc; sourceTree = "<group>"; };
+		1820C56A2022DFA2004E53DF /* rotate.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate.cc; sourceTree = "<group>"; };
+		1820C56B2022DFA2004E53DF /* scale_gcc.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_gcc.cc; sourceTree = "<group>"; };
+		1820C56C2022DFA2004E53DF /* convert_jpeg.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_jpeg.cc; sourceTree = "<group>"; };
+		1820C56D2022DFA2004E53DF /* compare_win.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare_win.cc; sourceTree = "<group>"; };
+		1820C56E2022DFA2004E53DF /* cpu_id.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpu_id.cc; sourceTree = "<group>"; };
+		1820C56F2022DFA2004E53DF /* row_win.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_win.cc; sourceTree = "<group>"; };
+		1820C5702022DFA2004E53DF /* mjpeg_decoder.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mjpeg_decoder.cc; sourceTree = "<group>"; };
+		1820C5712022DFA2004E53DF /* row_neon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_neon.cc; sourceTree = "<group>"; };
+		1820C5722022DFA2004E53DF /* rotate_neon64.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_neon64.cc; sourceTree = "<group>"; };
+		1820C5732022DFA2004E53DF /* scale.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale.cc; sourceTree = "<group>"; };
+		1820C5742022DFA2004E53DF /* compare.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare.cc; sourceTree = "<group>"; };
+		1820C5752022DFA2004E53DF /* row_neon64.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_neon64.cc; sourceTree = "<group>"; };
+		1820C5762022DFA2004E53DF /* convert_from_argb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_from_argb.cc; sourceTree = "<group>"; };
+		1820C5772022DFA2004E53DF /* planar_functions.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = planar_functions.cc; sourceTree = "<group>"; };
+		1820C5782022DFA2004E53DF /* row_msa.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_msa.cc; sourceTree = "<group>"; };
+		1820C5792022DFA2004E53DF /* convert_argb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_argb.cc; sourceTree = "<group>"; };
+		1820C57A2022DFA2004E53DF /* rotate_mips.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_mips.cc; sourceTree = "<group>"; };
+		1820C57B2022DFA2004E53DF /* scale_mips.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_mips.cc; sourceTree = "<group>"; };
+		1820C57C2022DFA2004E53DF /* row_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_common.cc; sourceTree = "<group>"; };
+		1820C57D2022DFA2004E53DF /* scale_any.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_any.cc; sourceTree = "<group>"; };
+		1820C57E2022DFA2004E53DF /* rotate_gcc.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_gcc.cc; sourceTree = "<group>"; };
+		1820C57F2022DFA2004E53DF /* convert.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cc; sourceTree = "<group>"; };
+		1820C5802022DFA2004E53DF /* convert_from.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_from.cc; sourceTree = "<group>"; };
+		1820C5812022DFA2004E53DF /* scale_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_common.cc; sourceTree = "<group>"; };
+		1820C5822022DFA2004E53DF /* row_mips.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_mips.cc; sourceTree = "<group>"; };
+		1820C5832022DFA2004E53DF /* row_any.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_any.cc; sourceTree = "<group>"; };
+		1820C5842022DFA2004E53DF /* convert_to_argb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_to_argb.cc; sourceTree = "<group>"; };
+		1820C5852022DFA2004E53DF /* compare_neon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare_neon.cc; sourceTree = "<group>"; };
+		1820C5862022DFA2004E53DF /* rotate_win.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_win.cc; sourceTree = "<group>"; };
+		1820C5872022DFA2004E53DF /* scale_neon64.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_neon64.cc; sourceTree = "<group>"; };
+		1820C5882022DFA2004E53DF /* mjpeg_validate.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mjpeg_validate.cc; sourceTree = "<group>"; };
+		1820C5892022DFA2004E53DF /* scale_win.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_win.cc; sourceTree = "<group>"; };
+		1820C58A2022DFA2004E53DF /* compare_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare_common.cc; sourceTree = "<group>"; };
+		1820C58B2022DFA2004E53DF /* scale_neon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_neon.cc; sourceTree = "<group>"; };
+		1820C58C2022DFA2004E53DF /* rotate_neon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_neon.cc; sourceTree = "<group>"; };
+		1820C58D2022DFA2004E53DF /* video_common.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = video_common.cc; sourceTree = "<group>"; };
+		1820C58E2022DFA2004E53DF /* convert_to_i420.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_to_i420.cc; sourceTree = "<group>"; };
+		1820C58F2022DFA2004E53DF /* row_gcc.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = row_gcc.cc; sourceTree = "<group>"; };
+		1820C5902022DFA2004E53DF /* rotate_argb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotate_argb.cc; sourceTree = "<group>"; };
+		1820C5912022DFA2004E53DF /* compare_gcc.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare_gcc.cc; sourceTree = "<group>"; };
+		1820C5922022DFA2004E53DF /* compare_neon64.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compare_neon64.cc; sourceTree = "<group>"; };
+		1820C5932022DFA2004E53DF /* scale_argb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scale_argb.cc; sourceTree = "<group>"; };
+		1820C5952022DFA2004E53DF /* GPUImageBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBuffer.h; sourceTree = "<group>"; };
+		1820C5962022DFA2004E53DF /* GPUImageShiTomasiFeatureDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageShiTomasiFeatureDetectionFilter.h; sourceTree = "<group>"; };
+		1820C5972022DFA2004E53DF /* GPUImageThreeInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageThreeInputFilter.h; sourceTree = "<group>"; };
+		1820C5982022DFA2004E53DF /* GPUImageSmoothToonFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSmoothToonFilter.h; sourceTree = "<group>"; };
+		1820C5992022DFA2004E53DF /* GPUImageVoronoiConsumerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageVoronoiConsumerFilter.h; sourceTree = "<group>"; };
+		1820C59A2022DFA2004E53DF /* GPUImageMovieComposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMovieComposition.h; sourceTree = "<group>"; };
+		1820C59B2022DFA2004E53DF /* GPUImageRawDataOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRawDataOutput.h; sourceTree = "<group>"; };
+		1820C59C2022DFA2004E53DF /* GPUImageContrastFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageContrastFilter.h; sourceTree = "<group>"; };
+		1820C59D2022DFA2004E53DF /* GPUImageHalftoneFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHalftoneFilter.h; sourceTree = "<group>"; };
+		1820C59E2022DFA2004E53DF /* GPUImageHazeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHazeFilter.h; sourceTree = "<group>"; };
+		1820C59F2022DFA2004E53DF /* GPUImageRGBDilationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRGBDilationFilter.h; sourceTree = "<group>"; };
+		1820C5A02022DFA2004E53DF /* GPUImageCrosshairGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCrosshairGenerator.h; sourceTree = "<group>"; };
+		1820C5A12022DFA2004E53DF /* GPUImageAverageColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAverageColor.h; sourceTree = "<group>"; };
+		1820C5A22022DFA2004E53DF /* GPUImageColorBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorBlendFilter.h; sourceTree = "<group>"; };
+		1820C5A32022DFA2004E53DF /* GPUImageSubtractBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSubtractBlendFilter.h; sourceTree = "<group>"; };
+		1820C5A42022DFA2004E53DF /* GPUImageMaskFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMaskFilter.h; sourceTree = "<group>"; };
+		1820C5A52022DFA2004E53DF /* GPUImageSwirlFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSwirlFilter.h; sourceTree = "<group>"; };
+		1820C5A62022DFA2004E53DF /* GPUImageSoftLightBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSoftLightBlendFilter.h; sourceTree = "<group>"; };
+		1820C5A72022DFA2004E53DF /* GPUImageLuminosity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLuminosity.h; sourceTree = "<group>"; };
+		1820C5A82022DFA2004E53DF /* GPUImageGaussianSelectiveBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGaussianSelectiveBlurFilter.h; sourceTree = "<group>"; };
+		1820C5A92022DFA2004E53DF /* GPUImageSharpenFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSharpenFilter.h; sourceTree = "<group>"; };
+		1820C5AA2022DFA2004E53DF /* GPUImagePoissonBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePoissonBlendFilter.h; sourceTree = "<group>"; };
+		1820C5AB2022DFA2004E53DF /* GPUImageMotionBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMotionBlurFilter.h; sourceTree = "<group>"; };
+		1820C5AC2022DFA2004E53DF /* GPUImageGlassSphereFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGlassSphereFilter.h; sourceTree = "<group>"; };
+		1820C5AD2022DFA2004E53DF /* GPUImageScreenBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageScreenBlendFilter.h; sourceTree = "<group>"; };
+		1820C5AE2022DFA2004E53DF /* GPUImageTwoInputCrossTextureSamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoInputCrossTextureSamplingFilter.h; sourceTree = "<group>"; };
+		1820C5AF2022DFA2004E53DF /* GPUImagePinchDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePinchDistortionFilter.h; sourceTree = "<group>"; };
+		1820C5B02022DFA2004E53DF /* GPUImageMedianFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMedianFilter.h; sourceTree = "<group>"; };
+		1820C5B12022DFA2004E53DF /* GPUImageLinearBurnBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLinearBurnBlendFilter.h; sourceTree = "<group>"; };
+		1820C5B22022DFA2004E53DF /* GPUImageLocalBinaryPatternFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLocalBinaryPatternFilter.h; sourceTree = "<group>"; };
+		1820C5B32022DFA2004E53DF /* GPUImageDirectionalNonMaximumSuppressionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDirectionalNonMaximumSuppressionFilter.h; sourceTree = "<group>"; };
+		1820C5B42022DFA2004E53DF /* GPUImageClosingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageClosingFilter.h; sourceTree = "<group>"; };
+		1820C5B52022DFA2004E53DF /* GPUImageMotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMotionDetector.h; sourceTree = "<group>"; };
+		1820C5B62022DFA2004E53DF /* GPUImageMonochromeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMonochromeFilter.h; sourceTree = "<group>"; };
+		1820C5B72022DFA2004E53DF /* GPUImageHoughTransformLineDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHoughTransformLineDetector.h; sourceTree = "<group>"; };
+		1820C5B82022DFA2004E53DF /* GPUImageRGBErosionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRGBErosionFilter.h; sourceTree = "<group>"; };
+		1820C5B92022DFA2004E53DF /* GPUImageLowPassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLowPassFilter.h; sourceTree = "<group>"; };
+		1820C5BA2022DFA2004E53DF /* GPUImageRGBOpeningFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRGBOpeningFilter.h; sourceTree = "<group>"; };
+		1820C5BB2022DFA2004E53DF /* GPUImageWhiteBalanceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageWhiteBalanceFilter.h; sourceTree = "<group>"; };
+		1820C5BC2022DFA2004E53DF /* GPUImageRawDataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRawDataInput.h; sourceTree = "<group>"; };
+		1820C5BD2022DFA2004E53DF /* GPUImageThresholdSketchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageThresholdSketchFilter.h; sourceTree = "<group>"; };
+		1820C5BE2022DFA2004E53DF /* GPUImageMosaicFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMosaicFilter.h; sourceTree = "<group>"; };
+		1820C5BF2022DFA2004E53DF /* GPUImageSingleComponentGaussianBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSingleComponentGaussianBlurFilter.h; sourceTree = "<group>"; };
+		1820C5C02022DFA2004E53DF /* GPUImageKuwaharaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageKuwaharaFilter.h; sourceTree = "<group>"; };
+		1820C5C12022DFA2004E53DF /* GPUImageCrosshatchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCrosshatchFilter.h; sourceTree = "<group>"; };
+		1820C5C22022DFA2004E53DF /* GPUImageNobleCornerDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageNobleCornerDetectionFilter.h; sourceTree = "<group>"; };
+		1820C5C32022DFA2004E53DF /* GPUImageHighlightShadowFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHighlightShadowFilter.h; sourceTree = "<group>"; };
+		1820C5C42022DFA2004E53DF /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
+		1820C5C52022DFA2004E53DF /* GPUImage3x3ConvolutionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage3x3ConvolutionFilter.h; sourceTree = "<group>"; };
+		1820C5C62022DFA2004E53DF /* GPUImageNormalBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageNormalBlendFilter.h; sourceTree = "<group>"; };
+		1820C5C72022DFA2004E53DF /* GPUImageDilationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDilationFilter.h; sourceTree = "<group>"; };
+		1820C5C82022DFA2004E53DF /* GPUImageAddBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAddBlendFilter.h; sourceTree = "<group>"; };
+		1820C5C92022DFA2004E53DF /* GPUImageHSBFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHSBFilter.h; sourceTree = "<group>"; };
+		1820C5CA2022DFA2004E53DF /* GPUImageHueBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHueBlendFilter.h; sourceTree = "<group>"; };
+		1820C5CB2022DFA2004E53DF /* GPUImagePerlinNoiseFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePerlinNoiseFilter.h; sourceTree = "<group>"; };
+		1820C5CC2022DFA2004E53DF /* GPUImageTextureOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTextureOutput.h; sourceTree = "<group>"; };
+		1820C5CD2022DFA2004E53DF /* GPUImagePrewittEdgeDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePrewittEdgeDetectionFilter.h; sourceTree = "<group>"; };
+		1820C5CE2022DFA2004E53DF /* GPUImageVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageVideoCamera.h; sourceTree = "<group>"; };
+		1820C5CF2022DFA2004E53DF /* GPUImageDarkenBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDarkenBlendFilter.h; sourceTree = "<group>"; };
+		1820C5D02022DFA2004E53DF /* GPUImageCGAColorspaceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCGAColorspaceFilter.h; sourceTree = "<group>"; };
+		1820C5D12022DFA2004E53DF /* GPUImageLightenBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLightenBlendFilter.h; sourceTree = "<group>"; };
+		1820C5D22022DFA2004E53DF /* GPUImageStillCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageStillCamera.h; sourceTree = "<group>"; };
+		1820C5D32022DFA2004E53DF /* GPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFilter.h; sourceTree = "<group>"; };
+		1820C5D42022DFA2004E53DF /* GPUImageLookupFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLookupFilter.h; sourceTree = "<group>"; };
+		1820C5D52022DFA2004E53DF /* GPUImageBulgeDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBulgeDistortionFilter.h; sourceTree = "<group>"; };
+		1820C5D62022DFA2004E53DF /* GPUImageFalseColorFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFalseColorFilter.h; sourceTree = "<group>"; };
+		1820C5D72022DFA2004E53DF /* GPUImagePolkaDotFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePolkaDotFilter.h; sourceTree = "<group>"; };
+		1820C5D82022DFA2004E53DF /* GPUImageChromaKeyBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageChromaKeyBlendFilter.h; sourceTree = "<group>"; };
+		1820C5D92022DFA2004E53DF /* GPUImageLuminanceRangeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLuminanceRangeFilter.h; sourceTree = "<group>"; };
+		1820C5DA2022DFA2004E53DF /* GPUImageLuminosityBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLuminosityBlendFilter.h; sourceTree = "<group>"; };
+		1820C5DB2022DFA2004E53DF /* GPUImageExposureFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageExposureFilter.h; sourceTree = "<group>"; };
+		1820C5DD2022DFA2004E53DF /* GPUImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageView.h; sourceTree = "<group>"; };
+		1820C5DF2022DFA2004E53DF /* GPUImageFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFramework.h; sourceTree = "<group>"; };
+		1820C5E02022DFA2004E53DF /* GPUImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageContext.h; sourceTree = "<group>"; };
+		1820C5E12022DFA2004E53DF /* GPUImageMovieWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMovieWriter.h; sourceTree = "<group>"; };
+		1820C5E22022DFA2004E53DF /* GPUImagePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePicture.h; sourceTree = "<group>"; };
+		1820C5E32022DFA2004E53DF /* GPUImagePicture+TextureSubimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPUImagePicture+TextureSubimage.h"; sourceTree = "<group>"; };
+		1820C5E42022DFA2004E53DF /* GPUImageTwoInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoInputFilter.h; sourceTree = "<group>"; };
+		1820C5E52022DFA2004E53DF /* GPUImageColorInvertFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorInvertFilter.h; sourceTree = "<group>"; };
+		1820C5E62022DFA2004E53DF /* GPUImageEmbossFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageEmbossFilter.h; sourceTree = "<group>"; };
+		1820C5E72022DFA2004E53DF /* GPUImageGrayscaleFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGrayscaleFilter.h; sourceTree = "<group>"; };
+		1820C5E82022DFA2004E53DF /* GPUImageNonMaximumSuppressionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageNonMaximumSuppressionFilter.h; sourceTree = "<group>"; };
+		1820C5E92022DFA2004E53DF /* GPUImageWeakPixelInclusionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageWeakPixelInclusionFilter.h; sourceTree = "<group>"; };
+		1820C5EA2022DFA2004E53DF /* GPUImageUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageUIElement.h; sourceTree = "<group>"; };
+		1820C5EB2022DFA2004E53DF /* GPUImageColorPackingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorPackingFilter.h; sourceTree = "<group>"; };
+		1820C5EC2022DFA2004E53DF /* GPUImageGaussianBlurPositionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGaussianBlurPositionFilter.h; sourceTree = "<group>"; };
+		1820C5ED2022DFA2004E53DF /* GPUImageSoftEleganceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSoftEleganceFilter.h; sourceTree = "<group>"; };
+		1820C5EE2022DFA2004E53DF /* GPUImageTwoPassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoPassFilter.h; sourceTree = "<group>"; };
+		1820C5EF2022DFA2004E53DF /* GPUImageHighPassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHighPassFilter.h; sourceTree = "<group>"; };
+		1820C5F02022DFA2004E53DF /* GPUImageSobelEdgeDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSobelEdgeDetectionFilter.h; sourceTree = "<group>"; };
+		1820C5F12022DFA2004E53DF /* GPUImageFilterGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFilterGroup.h; sourceTree = "<group>"; };
+		1820C5F22022DFA2004E53DF /* GPUImageParallelCoordinateLineTransformFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageParallelCoordinateLineTransformFilter.h; sourceTree = "<group>"; };
+		1820C5F32022DFA2004E53DF /* GPUImageLuminanceThresholdFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLuminanceThresholdFilter.h; sourceTree = "<group>"; };
+		1820C5F42022DFA2004E53DF /* GPUImageChromaKeyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageChromaKeyFilter.h; sourceTree = "<group>"; };
+		1820C5F52022DFA2004E53DF /* GPUImageThresholdEdgeDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageThresholdEdgeDetectionFilter.h; sourceTree = "<group>"; };
+		1820C5F62022DFA2004E53DF /* GPUImageColorBurnBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorBurnBlendFilter.h; sourceTree = "<group>"; };
+		1820C5F72022DFA2004E53DF /* GPUImageTwoPassTextureSamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoPassTextureSamplingFilter.h; sourceTree = "<group>"; };
+		1820C5F82022DFA2004E53DF /* GPUImageUnsharpMaskFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageUnsharpMaskFilter.h; sourceTree = "<group>"; };
+		1820C5F92022DFA2004E53DF /* GPUImageGammaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGammaFilter.h; sourceTree = "<group>"; };
+		1820C5FA2022DFA2004E53DF /* GPUImageAlphaBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAlphaBlendFilter.h; sourceTree = "<group>"; };
+		1820C5FB2022DFA2004E53DF /* GPUImageHistogramGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHistogramGenerator.h; sourceTree = "<group>"; };
+		1820C5FC2022DFA2004E53DF /* GPUImageBilateralFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBilateralFilter.h; sourceTree = "<group>"; };
+		1820C5FD2022DFA2004E53DF /* GPUImageKuwaharaRadius3Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageKuwaharaRadius3Filter.h; sourceTree = "<group>"; };
+		1820C5FE2022DFA2004E53DF /* GPUImageThresholdedNonMaximumSuppressionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageThresholdedNonMaximumSuppressionFilter.h; sourceTree = "<group>"; };
+		1820C5FF2022DFA2004E53DF /* GPUImageAmatorkaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAmatorkaFilter.h; sourceTree = "<group>"; };
+		1820C6002022DFA2004E53DF /* GPUImageTransformFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTransformFilter.h; sourceTree = "<group>"; };
+		1820C6012022DFA2004E53DF /* GPUImageHueFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHueFilter.h; sourceTree = "<group>"; };
+		1820C6022022DFA2004E53DF /* GPUImageJFAVoronoiFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageJFAVoronoiFilter.h; sourceTree = "<group>"; };
+		1820C6032022DFA2004E53DF /* GPUImageiOSBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageiOSBlurFilter.h; sourceTree = "<group>"; };
+		1820C6042022DFA2004E53DF /* GPUImageSketchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSketchFilter.h; sourceTree = "<group>"; };
+		1820C6052022DFA2004E53DF /* GPUImageVignetteFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageVignetteFilter.h; sourceTree = "<group>"; };
+		1820C6062022DFA3004E53DF /* GPUImageHistogramEqualizationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHistogramEqualizationFilter.h; sourceTree = "<group>"; };
+		1820C6072022DFA3004E53DF /* GPUImageMissEtikateFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMissEtikateFilter.h; sourceTree = "<group>"; };
+		1820C6082022DFA3004E53DF /* GPUImagePixellatePositionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePixellatePositionFilter.h; sourceTree = "<group>"; };
+		1820C6092022DFA3004E53DF /* GPUImageHistogramFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHistogramFilter.h; sourceTree = "<group>"; };
+		1820C60A2022DFA3004E53DF /* GPUImageFASTCornerDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFASTCornerDetectionFilter.h; sourceTree = "<group>"; };
+		1820C60B2022DFA3004E53DF /* GPUImageLevelsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLevelsFilter.h; sourceTree = "<group>"; };
+		1820C60C2022DFA3004E53DF /* GPUImageMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMovie.h; sourceTree = "<group>"; };
+		1820C60D2022DFA3004E53DF /* GPUImageCannyEdgeDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCannyEdgeDetectionFilter.h; sourceTree = "<group>"; };
+		1820C60E2022DFA3004E53DF /* GPUImageLineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLineGenerator.h; sourceTree = "<group>"; };
+		1820C60F2022DFA3004E53DF /* GPUImageSepiaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSepiaFilter.h; sourceTree = "<group>"; };
+		1820C6102022DFA3004E53DF /* GPUImage3x3TextureSamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage3x3TextureSamplingFilter.h; sourceTree = "<group>"; };
+		1820C6112022DFA3004E53DF /* GPUImageSphereRefractionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSphereRefractionFilter.h; sourceTree = "<group>"; };
+		1820C6122022DFA3004E53DF /* GPUImageRGBClosingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRGBClosingFilter.h; sourceTree = "<group>"; };
+		1820C6132022DFA3004E53DF /* GPUImageTextureInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTextureInput.h; sourceTree = "<group>"; };
+		1820C6142022DFA3004E53DF /* GPUImageOpacityFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOpacityFilter.h; sourceTree = "<group>"; };
+		1820C6152022DFA3004E53DF /* GPUImagePixellateFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePixellateFilter.h; sourceTree = "<group>"; };
+		1820C6162022DFA3004E53DF /* GPUImageCropFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageCropFilter.h; sourceTree = "<group>"; };
+		1820C6172022DFA3004E53DF /* GPUImageDissolveBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDissolveBlendFilter.h; sourceTree = "<group>"; };
+		1820C6182022DFA3004E53DF /* GPUImageToonFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageToonFilter.h; sourceTree = "<group>"; };
+		1820C6192022DFA3004E53DF /* GPUImageErosionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageErosionFilter.h; sourceTree = "<group>"; };
+		1820C61A2022DFA3004E53DF /* GPUImageSaturationFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSaturationFilter.h; sourceTree = "<group>"; };
+		1820C61B2022DFA3004E53DF /* GPUImageOpeningFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOpeningFilter.h; sourceTree = "<group>"; };
+		1820C61C2022DFA3004E53DF /* GPUImagePolarPixellateFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePolarPixellateFilter.h; sourceTree = "<group>"; };
+		1820C61D2022DFA3004E53DF /* GPUImageAdaptiveThresholdFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAdaptiveThresholdFilter.h; sourceTree = "<group>"; };
+		1820C61E2022DFA3004E53DF /* GPUImageHardLightBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHardLightBlendFilter.h; sourceTree = "<group>"; };
+		1820C61F2022DFA3004E53DF /* GPUImageZoomBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageZoomBlurFilter.h; sourceTree = "<group>"; };
+		1820C6202022DFA3004E53DF /* GPUImageHarrisCornerDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageHarrisCornerDetectionFilter.h; sourceTree = "<group>"; };
+		1820C6212022DFA3004E53DF /* GPUImageMultiplyBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMultiplyBlendFilter.h; sourceTree = "<group>"; };
+		1820C6222022DFA3004E53DF /* GPUImageOverlayBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOverlayBlendFilter.h; sourceTree = "<group>"; };
+		1820C6232022DFA3004E53DF /* GPUImageColorMatrixFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorMatrixFilter.h; sourceTree = "<group>"; };
+		1820C6242022DFA3004E53DF /* GPUImageSolidColorGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSolidColorGenerator.h; sourceTree = "<group>"; };
+		1820C6252022DFA3004E53DF /* GPUImageExclusionBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageExclusionBlendFilter.h; sourceTree = "<group>"; };
+		1820C6262022DFA3004E53DF /* GPUImageToneCurveFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageToneCurveFilter.h; sourceTree = "<group>"; };
+		1820C6272022DFA3004E53DF /* GPUImageGaussianBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageGaussianBlurFilter.h; sourceTree = "<group>"; };
+		1820C6282022DFA3004E53DF /* GPUImageFramebufferCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFramebufferCache.h; sourceTree = "<group>"; };
+		1820C6292022DFA3004E53DF /* GPUImageTiltShiftFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTiltShiftFilter.h; sourceTree = "<group>"; };
+		1820C62A2022DFA3004E53DF /* GPUImageSaturationBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSaturationBlendFilter.h; sourceTree = "<group>"; };
+		1820C62B2022DFA3004E53DF /* GPUImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImage.h; sourceTree = "<group>"; };
+		1820C62C2022DFA3004E53DF /* GPUImageRGBFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRGBFilter.h; sourceTree = "<group>"; };
+		1820C62D2022DFA3004E53DF /* GPUImageBoxBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBoxBlurFilter.h; sourceTree = "<group>"; };
+		1820C62E2022DFA3004E53DF /* GPUImageSourceOverBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageSourceOverBlendFilter.h; sourceTree = "<group>"; };
+		1820C62F2022DFA3004E53DF /* GPUImageFramebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFramebuffer.h; sourceTree = "<group>"; };
+		1820C6302022DFA3004E53DF /* GPUImageLaplacianFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLaplacianFilter.h; sourceTree = "<group>"; };
+		1820C6312022DFA3004E53DF /* GPUImageLanczosResamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageLanczosResamplingFilter.h; sourceTree = "<group>"; };
+		1820C6322022DFA3004E53DF /* GPUImageFilterPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFilterPipeline.h; sourceTree = "<group>"; };
+		1820C6332022DFA3004E53DF /* GPUImageXYDerivativeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageXYDerivativeFilter.h; sourceTree = "<group>"; };
+		1820C6342022DFA3004E53DF /* GPUImageColorDodgeBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageColorDodgeBlendFilter.h; sourceTree = "<group>"; };
+		1820C6352022DFA3004E53DF /* GPUImageAverageLuminanceThresholdFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageAverageLuminanceThresholdFilter.h; sourceTree = "<group>"; };
+		1820C6362022DFA3004E53DF /* GPUImageOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOutput.h; sourceTree = "<group>"; };
+		1820C6372022DFA3004E53DF /* GPUImagePosterizeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImagePosterizeFilter.h; sourceTree = "<group>"; };
+		1820C6382022DFA3004E53DF /* GPUImageDirectionalSobelEdgeDetectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDirectionalSobelEdgeDetectionFilter.h; sourceTree = "<group>"; };
+		1820C6392022DFA3004E53DF /* GPUImageBrightnessFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBrightnessFilter.h; sourceTree = "<group>"; };
+		1820C63A2022DFA3004E53DF /* GPUImageDifferenceBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDifferenceBlendFilter.h; sourceTree = "<group>"; };
+		1820C63B2022DFA3004E53DF /* GPUImageDivideBlendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageDivideBlendFilter.h; sourceTree = "<group>"; };
+		1820C63C2022DFA3004E53DF /* GPUImageStretchDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageStretchDistortionFilter.h; sourceTree = "<group>"; };
+		1820C63D2022DFA3004E53DF /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		1820C63F2022DFA3004E53DF /* FatFaceDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FatFaceDistortionFilter.h; sourceTree = "<group>"; };
+		1820C6402022DFA3004E53DF /* SmallFaceBigEyeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallFaceBigEyeFilter.h; sourceTree = "<group>"; };
+		1820C6412022DFA3004E53DF /* KWBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeautyFilter.h; sourceTree = "<group>"; };
+		1820C6422022DFA3004E53DF /* KWSmiliesStickerRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWSmiliesStickerRenderer.h; sourceTree = "<group>"; };
+		1820C6432022DFA3004E53DF /* KWPresentStickerRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWPresentStickerRenderer.h; sourceTree = "<group>"; };
+		1820C6442022DFA3004E53DF /* KWStickerRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStickerRenderer.h; sourceTree = "<group>"; };
+		1820C6452022DFA3004E53DF /* KWColorFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWColorFilter.h; sourceTree = "<group>"; };
+		1820C6462022DFA3004E53DF /* KWRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRenderer.h; sourceTree = "<group>"; };
+		1820C6472022DFA3004E53DF /* KWRenderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWRenderProtocol.h; sourceTree = "<group>"; };
+		1820C6482022DFA3004E53DF /* SlimFaceDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlimFaceDistortionFilter.h; sourceTree = "<group>"; };
+		1820C6492022DFA3004E53DF /* SquareFaceDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareFaceDistortionFilter.h; sourceTree = "<group>"; };
+		1820C64A2022DFA3004E53DF /* KWPointsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWPointsRenderer.h; sourceTree = "<group>"; };
+		1820C64B2022DFA3004E53DF /* PearFaceDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PearFaceDistortionFilter.h; sourceTree = "<group>"; };
+		1820C64C2022DFA3004E53DF /* ETDistortionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETDistortionFilter.h; sourceTree = "<group>"; };
+		1820C64E2022DFA3004E53DF /* FaceTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTracker.h; sourceTree = "<group>"; };
+		1820C64F2022DFA3004E53DF /* libfaceTrackerSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfaceTrackerSDK.a; sourceTree = "<group>"; };
+		1820C6502022DFA3004E53DF /* libKwSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKwSDK.a; sourceTree = "<group>"; };
+		1820C6512022DFA3004E53DF /* KWRenderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWRenderManager.m; sourceTree = "<group>"; };
+		1820C6532022DFA3004E53DF /* KWStickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWStickerManager.m; sourceTree = "<group>"; };
+		1820C6542022DFA3004E53DF /* KWPresentStickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWPresentStickerManager.m; sourceTree = "<group>"; };
+		1820C6552022DFA3004E53DF /* stickers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stickers.json; sourceTree = "<group>"; };
+		1820C6562022DFA3004E53DF /* KWPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWPoint.h; sourceTree = "<group>"; };
+		1820C6572022DFA3004E53DF /* KWSticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWSticker.h; sourceTree = "<group>"; };
+		1820C6582022DFA3004E53DF /* KWStickerDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWStickerDownloadManager.m; sourceTree = "<group>"; };
+		1820C6592022DFA3004E53DF /* stickers_gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stickers_gift.json; sourceTree = "<group>"; };
+		1820C65A2022DFA3004E53DF /* KWStickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStickerManager.h; sourceTree = "<group>"; };
+		1820C65B2022DFA3004E53DF /* KWPresentStickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWPresentStickerManager.h; sourceTree = "<group>"; };
+		1820C65C2022DFA3004E53DF /* KWStickerDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWStickerDownloadManager.h; sourceTree = "<group>"; };
+		1820C65D2022DFA3004E53DF /* KWSticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWSticker.m; sourceTree = "<group>"; };
+		1820C65E2022DFA3004E53DF /* KWUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWUIManager.h; sourceTree = "<group>"; };
+		1820C6622022DFA3004E53DF /* distortion_ET.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_ET.png; sourceTree = "<group>"; };
+		1820C6632022DFA3004E53DF /* distortion_PearFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_PearFace.png; sourceTree = "<group>"; };
+		1820C6642022DFA3004E53DF /* distortion_SmallFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_SmallFace.png; sourceTree = "<group>"; };
+		1820C6652022DFA3004E53DF /* distortion_FatFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_FatFace.png; sourceTree = "<group>"; };
+		1820C6662022DFA3004E53DF /* distortion_SquareFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_SquareFace.png; sourceTree = "<group>"; };
+		1820C6672022DFA3004E53DF /* distortion_SlimFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distortion_SlimFace.png; sourceTree = "<group>"; };
+		1820C6692022DFA3004E53DF /* automaticFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "automaticFace@2x.png"; sourceTree = "<group>"; };
+		1820C66A2022DFA3004E53DF /* switch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch@3x.png"; sourceTree = "<group>"; };
+		1820C66B2022DFA3004E53DF /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
+		1820C66C2022DFA3004E53DF /* beauty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beauty@2x.png"; sourceTree = "<group>"; };
+		1820C66D2022DFA3004E53DF /* cutoutIconDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cutoutIconDown.png; sourceTree = "<group>"; };
+		1820C66E2022DFA3004E53DF /* artwork master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork master@3x.png"; sourceTree = "<group>"; };
+		1820C66F2022DFA3004E53DF /* smiliesStickerDown_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smiliesStickerDown_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6702022DFA3004E53DF /* huiquan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huiquan@2x.png"; sourceTree = "<group>"; };
+		1820C6712022DFA3004E53DF /* xiazai@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiazai@3x.png"; sourceTree = "<group>"; };
+		1820C6722022DFA3004E53DF /* tags@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tags@2x.png"; sourceTree = "<group>"; };
+		1820C6732022DFA3004E53DF /* huangquan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huangquan@2x.png"; sourceTree = "<group>"; };
+		1820C6742022DFA3004E53DF /* filter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter@3x.png"; sourceTree = "<group>"; };
+		1820C6752022DFA3004E53DF /* filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter@2x.png"; sourceTree = "<group>"; };
+		1820C6762022DFA3004E53DF /* huangquan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huangquan@3x.png"; sourceTree = "<group>"; };
+		1820C6772022DFA3004E53DF /* tags@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tags@3x.png"; sourceTree = "<group>"; };
+		1820C6782022DFA3004E53DF /* xiazai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiazai@2x.png"; sourceTree = "<group>"; };
+		1820C6792022DFA3004E53DF /* huiquan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huiquan@3x.png"; sourceTree = "<group>"; };
+		1820C67A2022DFA3004E53DF /* smiliesStickerDown_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smiliesStickerDown_sys@3x.png"; sourceTree = "<group>"; };
+		1820C67B2022DFA3004E53DF /* artwork master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork master@2x.png"; sourceTree = "<group>"; };
+		1820C67C2022DFA3004E53DF /* beauty@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beauty@3x.png"; sourceTree = "<group>"; };
+		1820C67D2022DFA3004E53DF /* switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch@2x.png"; sourceTree = "<group>"; };
+		1820C67E2022DFA3004E53DF /* automaticFace@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "automaticFace@3x.png"; sourceTree = "<group>"; };
+		1820C67F2022DFA3004E53DF /* meiyan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meiyan@3x.png"; sourceTree = "<group>"; };
+		1820C6802022DFA3004E53DF /* ison@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ison@3x.png"; sourceTree = "<group>"; };
+		1820C6812022DFA3004E53DF /* wire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wire@2x.png"; sourceTree = "<group>"; };
+		1820C6822022DFA3004E53DF /* quanjumeiyanliang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quanjumeiyanliang@2x.png"; sourceTree = "<group>"; };
+		1820C6832022DFA3004E53DF /* cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@3x.png"; sourceTree = "<group>"; };
+		1820C6842022DFA3004E53DF /* mask@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mask@3x.png"; sourceTree = "<group>"; };
+		1820C6852022DFA3004E53DF /* tags drk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tags drk@3x.png"; sourceTree = "<group>"; };
+		1820C6862022DFA3004E53DF /* isoff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "isoff@2x.png"; sourceTree = "<group>"; };
+		1820C6872022DFA3004E53DF /* enterVideo_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enterVideo_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6882022DFA3004E53DF /* presentSticker_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presentSticker_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6892022DFA3004E53DF /* shoot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shoot@2x.png"; sourceTree = "<group>"; };
+		1820C68A2022DFA3004E53DF /* download@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@3x.png"; sourceTree = "<group>"; };
+		1820C68B2022DFA3004E53DF /* cutoutIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cutoutIcon.png; sourceTree = "<group>"; };
+		1820C68C2022DFA3004E53DF /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
+		1820C68D2022DFA3004E53DF /* shoot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shoot@3x.png"; sourceTree = "<group>"; };
+		1820C68E2022DFA3004E53DF /* presentSticker_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presentSticker_sys@3x.png"; sourceTree = "<group>"; };
+		1820C68F2022DFA3004E53DF /* enterVideo_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enterVideo_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6902022DFA3004E53DF /* isoff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "isoff@3x.png"; sourceTree = "<group>"; };
+		1820C6912022DFA3004E53DF /* tags drk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tags drk@2x.png"; sourceTree = "<group>"; };
+		1820C6922022DFA3004E53DF /* mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mask@2x.png"; sourceTree = "<group>"; };
+		1820C6932022DFA3004E53DF /* cutoutBgimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cutoutBgimage.jpg; sourceTree = "<group>"; };
+		1820C6942022DFA3004E53DF /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
+		1820C6952022DFA3004E53DF /* quanjumeiyanliang@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quanjumeiyanliang@3x.png"; sourceTree = "<group>"; };
+		1820C6962022DFA3004E53DF /* wire@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wire@3x.png"; sourceTree = "<group>"; };
+		1820C6972022DFA3004E53DF /* ison@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ison@2x.png"; sourceTree = "<group>"; };
+		1820C6982022DFA3004E53DF /* meiyan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meiyan@2x.png"; sourceTree = "<group>"; };
+		1820C6992022DFA3004E53DF /* off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@2x.png"; sourceTree = "<group>"; };
+		1820C69A2022DFA3004E53DF /* face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face@2x.png"; sourceTree = "<group>"; };
+		1820C69B2022DFA3004E53DF /* wire drk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wire drk@2x.png"; sourceTree = "<group>"; };
+		1820C69C2022DFA3004E53DF /* on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on@3x.png"; sourceTree = "<group>"; };
+		1820C69D2022DFA3004E53DF /* gesturesSticker_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesturesSticker_sys@3x.png"; sourceTree = "<group>"; };
+		1820C69E2022DFA3004E53DF /* cutoutIconDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutoutIconDown@2x.png"; sourceTree = "<group>"; };
+		1820C69F2022DFA3004E53DF /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		1820C6A02022DFA3004E53DF /* smiliesSticker_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smiliesSticker_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6A12022DFA3004E53DF /* quanjumeiyan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quanjumeiyan@3x.png"; sourceTree = "<group>"; };
+		1820C6A22022DFA3004E53DF /* presentStickerDown_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presentStickerDown_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6A32022DFA3004E53DF /* automaticFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = automaticFace.png; sourceTree = "<group>"; };
+		1820C6A42022DFA3004E53DF /* presentStickerDown_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presentStickerDown_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6A52022DFA3004E53DF /* smiliesSticker_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smiliesSticker_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6A62022DFA3004E53DF /* quanjumeiyan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quanjumeiyan@2x.png"; sourceTree = "<group>"; };
+		1820C6A72022DFA3004E53DF /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		1820C6A82022DFA3004E53DF /* cutoutIconDown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutoutIconDown@3x.png"; sourceTree = "<group>"; };
+		1820C6A92022DFA3004E53DF /* gesturesSticker_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesturesSticker_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6AA2022DFA3004E53DF /* on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "on@2x.png"; sourceTree = "<group>"; };
+		1820C6AB2022DFA3004E53DF /* wire drk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wire drk@3x.png"; sourceTree = "<group>"; };
+		1820C6AC2022DFA3004E53DF /* face@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face@3x.png"; sourceTree = "<group>"; };
+		1820C6AD2022DFA3004E53DF /* off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "off@3x.png"; sourceTree = "<group>"; };
+		1820C6AE2022DFA3004E53DF /* entranceBackground_sys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entranceBackground_sys.png; sourceTree = "<group>"; };
+		1820C6AF2022DFA3004E53DF /* closeVideo_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeVideo_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6B02022DFA3004E53DF /* meiyanliang@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meiyanliang@3x.png"; sourceTree = "<group>"; };
+		1820C6B12022DFA3004E53DF /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		1820C6B22022DFA3004E53DF /* distorting mirror@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distorting mirror@3x.png"; sourceTree = "<group>"; };
+		1820C6B32022DFA3004E53DF /* takephoto_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "takephoto_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6B42022DFA3004E53DF /* face drk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face drk@3x.png"; sourceTree = "<group>"; };
+		1820C6B52022DFA3004E53DF /* distorting mirror drk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distorting mirror drk@2x.png"; sourceTree = "<group>"; };
+		1820C6B62022DFA3004E53DF /* cutoutIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutoutIcon@2x.png"; sourceTree = "<group>"; };
+		1820C6B72022DFA3004E53DF /* beauty drk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beauty drk@3x.png"; sourceTree = "<group>"; };
+		1820C6B82022DFA3004E53DF /* gesturesStickerDown_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesturesStickerDown_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6B92022DFA3004E53DF /* gesturesStickerDown_sys@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesturesStickerDown_sys@2x.png"; sourceTree = "<group>"; };
+		1820C6BA2022DFA3004E53DF /* cutoutIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutoutIcon@3x.png"; sourceTree = "<group>"; };
+		1820C6BB2022DFA3004E53DF /* beauty drk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beauty drk@2x.png"; sourceTree = "<group>"; };
+		1820C6BC2022DFA3004E53DF /* distorting mirror drk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distorting mirror drk@3x.png"; sourceTree = "<group>"; };
+		1820C6BD2022DFA3004E53DF /* face drk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face drk@2x.png"; sourceTree = "<group>"; };
+		1820C6BE2022DFA3004E53DF /* distorting mirror@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distorting mirror@2x.png"; sourceTree = "<group>"; };
+		1820C6BF2022DFA3004E53DF /* takephoto_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "takephoto_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6C02022DFA3004E53DF /* button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@3x.png"; sourceTree = "<group>"; };
+		1820C6C12022DFA3004E53DF /* meiyanliang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meiyanliang@2x.png"; sourceTree = "<group>"; };
+		1820C6C22022DFA3004E53DF /* yellowBorderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowBorderBackground.png; sourceTree = "<group>"; };
+		1820C6C32022DFA3004E53DF /* closeVideo_sys@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeVideo_sys@3x.png"; sourceTree = "<group>"; };
+		1820C6C42022DFA3004E53DF /* KWResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KWResource.bundle; sourceTree = "<group>"; };
+		1820C6C62022DFA3004E53DF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1820C6C72022DFA3004E53DF /* KWSaveData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWSaveData.m; sourceTree = "<group>"; };
+		1820C6C82022DFA3004E53DF /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		1820C6C92022DFA3004E53DF /* UIDevice+DeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceModel.h"; sourceTree = "<group>"; };
+		1820C6CA2022DFA3004E53DF /* ColorFilterConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorFilterConst.h; sourceTree = "<group>"; };
+		1820C6CB2022DFA3004E53DF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1820C6CC2022DFA3004E53DF /* KWConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWConst.h; sourceTree = "<group>"; };
+		1820C6CD2022DFA3004E53DF /* KWSaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWSaveData.h; sourceTree = "<group>"; };
+		1820C6CE2022DFA3004E53DF /* UIDevice+DeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceModel.m"; sourceTree = "<group>"; };
+		1820C6D02022DFA3004E53DF /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
+		1820C6D12022DFA3004E53DF /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
+		1820C6D22022DFA3004E53DF /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		1820C6D32022DFA3004E53DF /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		1820C6D42022DFA3004E53DF /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		1820C6D52022DFA3004E53DF /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		1820C6D62022DFA3004E53DF /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		1820C6D72022DFA3004E53DF /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		1820C6D82022DFA3004E53DF /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		1820C6D92022DFA3004E53DF /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		1820C6DA2022DFA3004E53DF /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		1820C6DB2022DFA3004E53DF /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		1820C6DC2022DFA3004E53DF /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		1820C6DD2022DFA3004E53DF /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		1820C6DE2022DFA3004E53DF /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		1820C6DF2022DFA3004E53DF /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		1820C6E02022DFA3004E53DF /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
+		1820C6E12022DFA3004E53DF /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
+		1820C6E22022DFA3004E53DF /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		1820C6E32022DFA3004E53DF /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		1820C6E42022DFA3004E53DF /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		1820C6E52022DFA3004E53DF /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		1820C6E62022DFA3004E53DF /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		1820C6E72022DFA3004E53DF /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		1820C6E82022DFA3004E53DF /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		1820C6E92022DFA3004E53DF /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		1820C6EA2022DFA3004E53DF /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		1820C6EB2022DFA3004E53DF /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		1820C6EC2022DFA3004E53DF /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		1820C6ED2022DFA3004E53DF /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		1820C6EE2022DFA3004E53DF /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		1820C6EF2022DFA3004E53DF /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		1820C6F02022DFA3004E53DF /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		1820C6F32022DFA3004E53DF /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		1820C6F42022DFA3004E53DF /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		1820C6F52022DFA3004E53DF /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		1820C6F62022DFA3004E53DF /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		1820C6F72022DFA3004E53DF /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		1820C6F82022DFA3004E53DF /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		1820C6F92022DFA3004E53DF /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		1820C6FA2022DFA3004E53DF /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		1820C6FB2022DFA3004E53DF /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		1820C6FC2022DFA3004E53DF /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		1820C6FD2022DFA3004E53DF /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		182CC30D201F21CE0044F5D4 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		182CC30E201F21CE0044F5D4 /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
+		182CC30F201F21CE0044F5D4 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		182CC310201F21CE0044F5D4 /* AgoraConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgoraConst.m; path = RCTAgora/AgoraConst.m; sourceTree = "<group>"; };
+		182CC311201F21CE0044F5D4 /* RCTAgoraVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTAgoraVideoView.h; path = RCTAgora/RCTAgoraVideoView.h; sourceTree = "<group>"; };
+		182CC312201F21CE0044F5D4 /* RCTAgoraVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTAgoraVideoView.m; path = RCTAgora/RCTAgoraVideoView.m; sourceTree = "<group>"; };
+		182CC313201F21CE0044F5D4 /* RCTAgoraViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTAgoraViewManager.m; path = RCTAgora/RCTAgoraViewManager.m; sourceTree = "<group>"; };
+		182CC314201F21CE0044F5D4 /* RCTAgora.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTAgora.m; path = RCTAgora/RCTAgora.m; sourceTree = "<group>"; };
+		182CC520201F21CF0044F5D4 /* RCTAgora.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTAgora.h; path = RCTAgora/RCTAgora.h; sourceTree = "<group>"; };
+		182CC521201F21CF0044F5D4 /* AgoraConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgoraConst.h; path = RCTAgora/AgoraConst.h; sourceTree = "<group>"; };
+		182CC522201F21CF0044F5D4 /* RCTAgoraViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTAgoraViewManager.h; path = RCTAgora/RCTAgoraViewManager.h; sourceTree = "<group>"; };
 		23AF281C1EEFECD800D771AB /* libRCTAgora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAgora.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		23AF281F1EEFECD800D771AB /* RCTAgora.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAgora.h; sourceTree = "<group>"; };
-		23AF28201EEFECD800D771AB /* RCTAgora.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAgora.m; sourceTree = "<group>"; };
-		23C20DCB1F0A6ED80095F60C /* AgoraConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraConst.h; sourceTree = "<group>"; };
-		23C20DCC1F0A6ED80095F60C /* AgoraConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraConst.m; sourceTree = "<group>"; };
-		23C20DCD1F0A6ED80095F60C /* RCTAgoraVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgoraVideoView.h; sourceTree = "<group>"; };
-		23C20DCE1F0A6ED80095F60C /* RCTAgoraVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraVideoView.m; sourceTree = "<group>"; };
-		23C20DCF1F0A6ED80095F60C /* RCTAgoraViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgoraViewManager.h; sourceTree = "<group>"; };
-		23C20DD01F0A6ED80095F60C /* RCTAgoraViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,16 +627,738 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182CC525201F21D00044F5D4 /* AgoraRtcEngineKit.framework in Frameworks */,
+				182CC523201F21D00044F5D4 /* libcrypto.a in Frameworks */,
+				1820C7322022DFA3004E53DF /* libKwSDK.a in Frameworks */,
+				1820C7302022DFA3004E53DF /* libGPUImage.a in Frameworks */,
+				1820C7312022DFA3004E53DF /* libfaceTrackerSDK.a in Frameworks */,
+				182CC524201F21D00044F5D4 /* AgoraRtcCryptoLoader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1820C4F42022DFA2004E53DF /* KiwiFaceSDK */ = {
+			isa = PBXGroup;
+			children = (
+				1820C4F52022DFA2004E53DF /* KWRenderManager.h */,
+				1820C4F62022DFA2004E53DF /* UI */,
+				1820C4FE2022DFA2004E53DF /* KWUIManager.m */,
+				1820C4FF2022DFA2004E53DF /* GlobalFilterManager */,
+				1820C54F2022DFA2004E53DF /* NV12YUV */,
+				1820C5942022DFA2004E53DF /* GPUImage */,
+				1820C63E2022DFA3004E53DF /* Render */,
+				1820C64D2022DFA3004E53DF /* Tracker */,
+				1820C6502022DFA3004E53DF /* libKwSDK.a */,
+				1820C6512022DFA3004E53DF /* KWRenderManager.m */,
+				1820C6522022DFA3004E53DF /* StickerManager */,
+				1820C65E2022DFA3004E53DF /* KWUIManager.h */,
+				1820C65F2022DFA3004E53DF /* Resource */,
+				1820C6C52022DFA3004E53DF /* Tool */,
+			);
+			path = KiwiFaceSDK;
+			sourceTree = "<group>";
+		};
+		1820C4F62022DFA2004E53DF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1820C4F72022DFA2004E53DF /* Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1820C4F72022DFA2004E53DF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1820C4F82022DFA2004E53DF /* KWDistortionCell.m */,
+				1820C4F92022DFA2004E53DF /* KWStickerCell.h */,
+				1820C4FA2022DFA2004E53DF /* KWFilterCell.h */,
+				1820C4FB2022DFA2004E53DF /* KWStickerCell.m */,
+				1820C4FC2022DFA2004E53DF /* KWDistortionCell.h */,
+				1820C4FD2022DFA2004E53DF /* KWFilterCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1820C4FF2022DFA2004E53DF /* GlobalFilterManager */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5002022DFA2004E53DF /* CustomFilters */,
+				1820C51A2022DFA2004E53DF /* KWGlobalFilter.m */,
+				1820C51B2022DFA2004E53DF /* FiltersImage */,
+				1820C54B2022DFA2004E53DF /* KWGlobalFilterManager.h */,
+				1820C54C2022DFA2004E53DF /* KWGlobalFilter.h */,
+				1820C54D2022DFA2004E53DF /* filters.json */,
+				1820C54E2022DFA2004E53DF /* KWGlobalFilterManager.m */,
+			);
+			path = GlobalFilterManager;
+			sourceTree = "<group>";
+		};
+		1820C5002022DFA2004E53DF /* CustomFilters */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5012022DFA2004E53DF /* Lomo.h */,
+				1820C5022022DFA2004E53DF /* Valencia.h */,
+				1820C5032022DFA2004E53DF /* BaseFilter */,
+				1820C5072022DFA2004E53DF /* Years1977.h */,
+				1820C5082022DFA2004E53DF /* Sutro.h */,
+				1820C5092022DFA2004E53DF /* Hefe.h */,
+				1820C50A2022DFA2004E53DF /* Sierra.h */,
+				1820C50B2022DFA2004E53DF /* Nashville.h */,
+				1820C50C2022DFA2004E53DF /* Hudson.h */,
+				1820C50D2022DFA2004E53DF /* Toaster.h */,
+				1820C50E2022DFA2004E53DF /* Brannan.h */,
+				1820C50F2022DFA2004E53DF /* Amaro.h */,
+				1820C5102022DFA2004E53DF /* Rise.h */,
+				1820C5112022DFA2004E53DF /* Freud.h */,
+				1820C5122022DFA2004E53DF /* Lut.h */,
+				1820C5132022DFA2004E53DF /* Pixar.h */,
+				1820C5142022DFA2004E53DF /* Inkwell.h */,
+				1820C5152022DFA2004E53DF /* Walden.h */,
+				1820C5162022DFA2004E53DF /* XproII.h */,
+				1820C5172022DFA2004E53DF /* Brooklyn.h */,
+				1820C5182022DFA2004E53DF /* Kevin.h */,
+				1820C5192022DFA2004E53DF /* Earlybird.h */,
+			);
+			path = CustomFilters;
+			sourceTree = "<group>";
+		};
+		1820C5032022DFA2004E53DF /* BaseFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5042022DFA2004E53DF /* GPUImageFourInputFilter.h */,
+				1820C5052022DFA2004E53DF /* SixInputFilter.h */,
+				1820C5062022DFA2004E53DF /* FiveInputFilter.h */,
+			);
+			path = BaseFilter;
+			sourceTree = "<group>";
+		};
+		1820C51B2022DFA2004E53DF /* FiltersImage */ = {
+			isa = PBXGroup;
+			children = (
+				1820C51C2022DFA2004E53DF /* vignetteMap.png */,
+				1820C51D2022DFA2004E53DF /* sutroMetal.png */,
+				1820C51E2022DFA2004E53DF /* overlayMap.png */,
+				1820C51F2022DFA2004E53DF /* sutroEdgeBurn.png */,
+				1820C5202022DFA2004E53DF /* nashvilleMap.png */,
+				1820C5212022DFA2004E53DF /* lomoMap.png */,
+				1820C5222022DFA2004E53DF /* 1977blowout.png */,
+				1820C5232022DFA2004E53DF /* xproMap.png */,
+				1820C5242022DFA2004E53DF /* inkwellMap.png */,
+				1820C5252022DFA2004E53DF /* hefeMetal.png */,
+				1820C5262022DFA2004E53DF /* brannanLuma.png */,
+				1820C5272022DFA2004E53DF /* brannanProcess.png */,
+				1820C5282022DFA2004E53DF /* valenciaMap.png */,
+				1820C5292022DFA2004E53DF /* riseMap.png */,
+				1820C52A2022DFA2004E53DF /* earlybirdBlowout.png */,
+				1820C52B2022DFA2004E53DF /* filter_map_first.png */,
+				1820C52C2022DFA2004E53DF /* blackboard1024.png */,
+				1820C52D2022DFA2004E53DF /* waldenMap.png */,
+				1820C52E2022DFA2004E53DF /* toasterMetal.png */,
+				1820C52F2022DFA2004E53DF /* earlyBirdCurves.png */,
+				1820C5302022DFA2004E53DF /* hefeMap.png */,
+				1820C5312022DFA2004E53DF /* hefeGradientMap.png */,
+				1820C5322022DFA2004E53DF /* toasterCurves.png */,
+				1820C5332022DFA2004E53DF /* hudsonBackground.png */,
+				1820C5342022DFA2004E53DF /* brannanBlowout.png */,
+				1820C5352022DFA2004E53DF /* toasterOverlayMapWarm.png */,
+				1820C5362022DFA2004E53DF /* earlybirdMap.png */,
+				1820C5372022DFA2004E53DF /* sutroCurves.png */,
+				1820C5382022DFA2004E53DF /* brannanScreen.png */,
+				1820C5392022DFA2004E53DF /* freud_rand.png */,
+				1820C53A2022DFA2004E53DF /* toasterColorShift.png */,
+				1820C53B2022DFA2004E53DF /* amaroMap.png */,
+				1820C53C2022DFA2004E53DF /* hudsonMap.png */,
+				1820C53D2022DFA2004E53DF /* kelvinMap.png */,
+				1820C53E2022DFA2004E53DF /* sierraMap.png */,
+				1820C53F2022DFA2004E53DF /* valenciaGradientMap.png */,
+				1820C5402022DFA2004E53DF /* edgeBurn.png */,
+				1820C5412022DFA2004E53DF /* brooklynCurves2.png */,
+				1820C5422022DFA2004E53DF /* brannanContrast.png */,
+				1820C5432022DFA2004E53DF /* 1977map.png */,
+				1820C5442022DFA2004E53DF /* hefeSoftLight.png */,
+				1820C5452022DFA2004E53DF /* toasterSoftLight.png */,
+				1820C5462022DFA2004E53DF /* sierraVignette.png */,
+				1820C5472022DFA2004E53DF /* earlybirdOverlayMap.png */,
+				1820C5482022DFA2004E53DF /* brooklynCurves1.png */,
+				1820C5492022DFA2004E53DF /* softLight.png */,
+				1820C54A2022DFA2004E53DF /* pixar_curves.png */,
+			);
+			path = FiltersImage;
+			sourceTree = "<group>";
+		};
+		1820C54F2022DFA2004E53DF /* NV12YUV */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5502022DFA2004E53DF /* include */,
+				1820C5672022DFA2004E53DF /* source */,
+			);
+			path = NV12YUV;
+			sourceTree = "<group>";
+		};
+		1820C5502022DFA2004E53DF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5512022DFA2004E53DF /* libyuv.h */,
+				1820C5522022DFA2004E53DF /* libyuv */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		1820C5522022DFA2004E53DF /* libyuv */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5532022DFA2004E53DF /* scale_row.h */,
+				1820C5542022DFA2004E53DF /* scale.h */,
+				1820C5552022DFA2004E53DF /* version.h */,
+				1820C5562022DFA2004E53DF /* cpu_id.h */,
+				1820C5572022DFA2004E53DF /* video_common.h */,
+				1820C5582022DFA2004E53DF /* compare_row.h */,
+				1820C5592022DFA2004E53DF /* mjpeg_decoder.h */,
+				1820C55A2022DFA2004E53DF /* rotate_row.h */,
+				1820C55B2022DFA2004E53DF /* planar_functions.h */,
+				1820C55C2022DFA2004E53DF /* scale_argb.h */,
+				1820C55D2022DFA2004E53DF /* compare.h */,
+				1820C55E2022DFA2004E53DF /* convert_argb.h */,
+				1820C55F2022DFA2004E53DF /* rotate.h */,
+				1820C5602022DFA2004E53DF /* convert_from_argb.h */,
+				1820C5612022DFA2004E53DF /* basic_types.h */,
+				1820C5622022DFA2004E53DF /* convert_from.h */,
+				1820C5632022DFA2004E53DF /* convert.h */,
+				1820C5642022DFA2004E53DF /* rotate_argb.h */,
+				1820C5652022DFA2004E53DF /* macros_msa.h */,
+				1820C5662022DFA2004E53DF /* row.h */,
+			);
+			path = libyuv;
+			sourceTree = "<group>";
+		};
+		1820C5672022DFA2004E53DF /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5682022DFA2004E53DF /* rotate_common.cc */,
+				1820C5692022DFA2004E53DF /* rotate_any.cc */,
+				1820C56A2022DFA2004E53DF /* rotate.cc */,
+				1820C56B2022DFA2004E53DF /* scale_gcc.cc */,
+				1820C56C2022DFA2004E53DF /* convert_jpeg.cc */,
+				1820C56D2022DFA2004E53DF /* compare_win.cc */,
+				1820C56E2022DFA2004E53DF /* cpu_id.cc */,
+				1820C56F2022DFA2004E53DF /* row_win.cc */,
+				1820C5702022DFA2004E53DF /* mjpeg_decoder.cc */,
+				1820C5712022DFA2004E53DF /* row_neon.cc */,
+				1820C5722022DFA2004E53DF /* rotate_neon64.cc */,
+				1820C5732022DFA2004E53DF /* scale.cc */,
+				1820C5742022DFA2004E53DF /* compare.cc */,
+				1820C5752022DFA2004E53DF /* row_neon64.cc */,
+				1820C5762022DFA2004E53DF /* convert_from_argb.cc */,
+				1820C5772022DFA2004E53DF /* planar_functions.cc */,
+				1820C5782022DFA2004E53DF /* row_msa.cc */,
+				1820C5792022DFA2004E53DF /* convert_argb.cc */,
+				1820C57A2022DFA2004E53DF /* rotate_mips.cc */,
+				1820C57B2022DFA2004E53DF /* scale_mips.cc */,
+				1820C57C2022DFA2004E53DF /* row_common.cc */,
+				1820C57D2022DFA2004E53DF /* scale_any.cc */,
+				1820C57E2022DFA2004E53DF /* rotate_gcc.cc */,
+				1820C57F2022DFA2004E53DF /* convert.cc */,
+				1820C5802022DFA2004E53DF /* convert_from.cc */,
+				1820C5812022DFA2004E53DF /* scale_common.cc */,
+				1820C5822022DFA2004E53DF /* row_mips.cc */,
+				1820C5832022DFA2004E53DF /* row_any.cc */,
+				1820C5842022DFA2004E53DF /* convert_to_argb.cc */,
+				1820C5852022DFA2004E53DF /* compare_neon.cc */,
+				1820C5862022DFA2004E53DF /* rotate_win.cc */,
+				1820C5872022DFA2004E53DF /* scale_neon64.cc */,
+				1820C5882022DFA2004E53DF /* mjpeg_validate.cc */,
+				1820C5892022DFA2004E53DF /* scale_win.cc */,
+				1820C58A2022DFA2004E53DF /* compare_common.cc */,
+				1820C58B2022DFA2004E53DF /* scale_neon.cc */,
+				1820C58C2022DFA2004E53DF /* rotate_neon.cc */,
+				1820C58D2022DFA2004E53DF /* video_common.cc */,
+				1820C58E2022DFA2004E53DF /* convert_to_i420.cc */,
+				1820C58F2022DFA2004E53DF /* row_gcc.cc */,
+				1820C5902022DFA2004E53DF /* rotate_argb.cc */,
+				1820C5912022DFA2004E53DF /* compare_gcc.cc */,
+				1820C5922022DFA2004E53DF /* compare_neon64.cc */,
+				1820C5932022DFA2004E53DF /* scale_argb.cc */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		1820C5942022DFA2004E53DF /* GPUImage */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5952022DFA2004E53DF /* GPUImageBuffer.h */,
+				1820C5962022DFA2004E53DF /* GPUImageShiTomasiFeatureDetectionFilter.h */,
+				1820C5972022DFA2004E53DF /* GPUImageThreeInputFilter.h */,
+				1820C5982022DFA2004E53DF /* GPUImageSmoothToonFilter.h */,
+				1820C5992022DFA2004E53DF /* GPUImageVoronoiConsumerFilter.h */,
+				1820C59A2022DFA2004E53DF /* GPUImageMovieComposition.h */,
+				1820C59B2022DFA2004E53DF /* GPUImageRawDataOutput.h */,
+				1820C59C2022DFA2004E53DF /* GPUImageContrastFilter.h */,
+				1820C59D2022DFA2004E53DF /* GPUImageHalftoneFilter.h */,
+				1820C59E2022DFA2004E53DF /* GPUImageHazeFilter.h */,
+				1820C59F2022DFA2004E53DF /* GPUImageRGBDilationFilter.h */,
+				1820C5A02022DFA2004E53DF /* GPUImageCrosshairGenerator.h */,
+				1820C5A12022DFA2004E53DF /* GPUImageAverageColor.h */,
+				1820C5A22022DFA2004E53DF /* GPUImageColorBlendFilter.h */,
+				1820C5A32022DFA2004E53DF /* GPUImageSubtractBlendFilter.h */,
+				1820C5A42022DFA2004E53DF /* GPUImageMaskFilter.h */,
+				1820C5A52022DFA2004E53DF /* GPUImageSwirlFilter.h */,
+				1820C5A62022DFA2004E53DF /* GPUImageSoftLightBlendFilter.h */,
+				1820C5A72022DFA2004E53DF /* GPUImageLuminosity.h */,
+				1820C5A82022DFA2004E53DF /* GPUImageGaussianSelectiveBlurFilter.h */,
+				1820C5A92022DFA2004E53DF /* GPUImageSharpenFilter.h */,
+				1820C5AA2022DFA2004E53DF /* GPUImagePoissonBlendFilter.h */,
+				1820C5AB2022DFA2004E53DF /* GPUImageMotionBlurFilter.h */,
+				1820C5AC2022DFA2004E53DF /* GPUImageGlassSphereFilter.h */,
+				1820C5AD2022DFA2004E53DF /* GPUImageScreenBlendFilter.h */,
+				1820C5AE2022DFA2004E53DF /* GPUImageTwoInputCrossTextureSamplingFilter.h */,
+				1820C5AF2022DFA2004E53DF /* GPUImagePinchDistortionFilter.h */,
+				1820C5B02022DFA2004E53DF /* GPUImageMedianFilter.h */,
+				1820C5B12022DFA2004E53DF /* GPUImageLinearBurnBlendFilter.h */,
+				1820C5B22022DFA2004E53DF /* GPUImageLocalBinaryPatternFilter.h */,
+				1820C5B32022DFA2004E53DF /* GPUImageDirectionalNonMaximumSuppressionFilter.h */,
+				1820C5B42022DFA2004E53DF /* GPUImageClosingFilter.h */,
+				1820C5B52022DFA2004E53DF /* GPUImageMotionDetector.h */,
+				1820C5B62022DFA2004E53DF /* GPUImageMonochromeFilter.h */,
+				1820C5B72022DFA2004E53DF /* GPUImageHoughTransformLineDetector.h */,
+				1820C5B82022DFA2004E53DF /* GPUImageRGBErosionFilter.h */,
+				1820C5B92022DFA2004E53DF /* GPUImageLowPassFilter.h */,
+				1820C5BA2022DFA2004E53DF /* GPUImageRGBOpeningFilter.h */,
+				1820C5BB2022DFA2004E53DF /* GPUImageWhiteBalanceFilter.h */,
+				1820C5BC2022DFA2004E53DF /* GPUImageRawDataInput.h */,
+				1820C5BD2022DFA2004E53DF /* GPUImageThresholdSketchFilter.h */,
+				1820C5BE2022DFA2004E53DF /* GPUImageMosaicFilter.h */,
+				1820C5BF2022DFA2004E53DF /* GPUImageSingleComponentGaussianBlurFilter.h */,
+				1820C5C02022DFA2004E53DF /* GPUImageKuwaharaFilter.h */,
+				1820C5C12022DFA2004E53DF /* GPUImageCrosshatchFilter.h */,
+				1820C5C22022DFA2004E53DF /* GPUImageNobleCornerDetectionFilter.h */,
+				1820C5C32022DFA2004E53DF /* GPUImageHighlightShadowFilter.h */,
+				1820C5C42022DFA2004E53DF /* libGPUImage.a */,
+				1820C5C52022DFA2004E53DF /* GPUImage3x3ConvolutionFilter.h */,
+				1820C5C62022DFA2004E53DF /* GPUImageNormalBlendFilter.h */,
+				1820C5C72022DFA2004E53DF /* GPUImageDilationFilter.h */,
+				1820C5C82022DFA2004E53DF /* GPUImageAddBlendFilter.h */,
+				1820C5C92022DFA2004E53DF /* GPUImageHSBFilter.h */,
+				1820C5CA2022DFA2004E53DF /* GPUImageHueBlendFilter.h */,
+				1820C5CB2022DFA2004E53DF /* GPUImagePerlinNoiseFilter.h */,
+				1820C5CC2022DFA2004E53DF /* GPUImageTextureOutput.h */,
+				1820C5CD2022DFA2004E53DF /* GPUImagePrewittEdgeDetectionFilter.h */,
+				1820C5CE2022DFA2004E53DF /* GPUImageVideoCamera.h */,
+				1820C5CF2022DFA2004E53DF /* GPUImageDarkenBlendFilter.h */,
+				1820C5D02022DFA2004E53DF /* GPUImageCGAColorspaceFilter.h */,
+				1820C5D12022DFA2004E53DF /* GPUImageLightenBlendFilter.h */,
+				1820C5D22022DFA2004E53DF /* GPUImageStillCamera.h */,
+				1820C5D32022DFA2004E53DF /* GPUImageFilter.h */,
+				1820C5D42022DFA2004E53DF /* GPUImageLookupFilter.h */,
+				1820C5D52022DFA2004E53DF /* GPUImageBulgeDistortionFilter.h */,
+				1820C5D62022DFA2004E53DF /* GPUImageFalseColorFilter.h */,
+				1820C5D72022DFA2004E53DF /* GPUImagePolkaDotFilter.h */,
+				1820C5D82022DFA2004E53DF /* GPUImageChromaKeyBlendFilter.h */,
+				1820C5D92022DFA2004E53DF /* GPUImageLuminanceRangeFilter.h */,
+				1820C5DA2022DFA2004E53DF /* GPUImageLuminosityBlendFilter.h */,
+				1820C5DB2022DFA2004E53DF /* GPUImageExposureFilter.h */,
+				1820C5DC2022DFA2004E53DF /* iOS */,
+				1820C5E42022DFA2004E53DF /* GPUImageTwoInputFilter.h */,
+				1820C5E52022DFA2004E53DF /* GPUImageColorInvertFilter.h */,
+				1820C5E62022DFA2004E53DF /* GPUImageEmbossFilter.h */,
+				1820C5E72022DFA2004E53DF /* GPUImageGrayscaleFilter.h */,
+				1820C5E82022DFA2004E53DF /* GPUImageNonMaximumSuppressionFilter.h */,
+				1820C5E92022DFA2004E53DF /* GPUImageWeakPixelInclusionFilter.h */,
+				1820C5EA2022DFA2004E53DF /* GPUImageUIElement.h */,
+				1820C5EB2022DFA2004E53DF /* GPUImageColorPackingFilter.h */,
+				1820C5EC2022DFA2004E53DF /* GPUImageGaussianBlurPositionFilter.h */,
+				1820C5ED2022DFA2004E53DF /* GPUImageSoftEleganceFilter.h */,
+				1820C5EE2022DFA2004E53DF /* GPUImageTwoPassFilter.h */,
+				1820C5EF2022DFA2004E53DF /* GPUImageHighPassFilter.h */,
+				1820C5F02022DFA2004E53DF /* GPUImageSobelEdgeDetectionFilter.h */,
+				1820C5F12022DFA2004E53DF /* GPUImageFilterGroup.h */,
+				1820C5F22022DFA2004E53DF /* GPUImageParallelCoordinateLineTransformFilter.h */,
+				1820C5F32022DFA2004E53DF /* GPUImageLuminanceThresholdFilter.h */,
+				1820C5F42022DFA2004E53DF /* GPUImageChromaKeyFilter.h */,
+				1820C5F52022DFA2004E53DF /* GPUImageThresholdEdgeDetectionFilter.h */,
+				1820C5F62022DFA2004E53DF /* GPUImageColorBurnBlendFilter.h */,
+				1820C5F72022DFA2004E53DF /* GPUImageTwoPassTextureSamplingFilter.h */,
+				1820C5F82022DFA2004E53DF /* GPUImageUnsharpMaskFilter.h */,
+				1820C5F92022DFA2004E53DF /* GPUImageGammaFilter.h */,
+				1820C5FA2022DFA2004E53DF /* GPUImageAlphaBlendFilter.h */,
+				1820C5FB2022DFA2004E53DF /* GPUImageHistogramGenerator.h */,
+				1820C5FC2022DFA2004E53DF /* GPUImageBilateralFilter.h */,
+				1820C5FD2022DFA2004E53DF /* GPUImageKuwaharaRadius3Filter.h */,
+				1820C5FE2022DFA2004E53DF /* GPUImageThresholdedNonMaximumSuppressionFilter.h */,
+				1820C5FF2022DFA2004E53DF /* GPUImageAmatorkaFilter.h */,
+				1820C6002022DFA2004E53DF /* GPUImageTransformFilter.h */,
+				1820C6012022DFA2004E53DF /* GPUImageHueFilter.h */,
+				1820C6022022DFA2004E53DF /* GPUImageJFAVoronoiFilter.h */,
+				1820C6032022DFA2004E53DF /* GPUImageiOSBlurFilter.h */,
+				1820C6042022DFA2004E53DF /* GPUImageSketchFilter.h */,
+				1820C6052022DFA2004E53DF /* GPUImageVignetteFilter.h */,
+				1820C6062022DFA3004E53DF /* GPUImageHistogramEqualizationFilter.h */,
+				1820C6072022DFA3004E53DF /* GPUImageMissEtikateFilter.h */,
+				1820C6082022DFA3004E53DF /* GPUImagePixellatePositionFilter.h */,
+				1820C6092022DFA3004E53DF /* GPUImageHistogramFilter.h */,
+				1820C60A2022DFA3004E53DF /* GPUImageFASTCornerDetectionFilter.h */,
+				1820C60B2022DFA3004E53DF /* GPUImageLevelsFilter.h */,
+				1820C60C2022DFA3004E53DF /* GPUImageMovie.h */,
+				1820C60D2022DFA3004E53DF /* GPUImageCannyEdgeDetectionFilter.h */,
+				1820C60E2022DFA3004E53DF /* GPUImageLineGenerator.h */,
+				1820C60F2022DFA3004E53DF /* GPUImageSepiaFilter.h */,
+				1820C6102022DFA3004E53DF /* GPUImage3x3TextureSamplingFilter.h */,
+				1820C6112022DFA3004E53DF /* GPUImageSphereRefractionFilter.h */,
+				1820C6122022DFA3004E53DF /* GPUImageRGBClosingFilter.h */,
+				1820C6132022DFA3004E53DF /* GPUImageTextureInput.h */,
+				1820C6142022DFA3004E53DF /* GPUImageOpacityFilter.h */,
+				1820C6152022DFA3004E53DF /* GPUImagePixellateFilter.h */,
+				1820C6162022DFA3004E53DF /* GPUImageCropFilter.h */,
+				1820C6172022DFA3004E53DF /* GPUImageDissolveBlendFilter.h */,
+				1820C6182022DFA3004E53DF /* GPUImageToonFilter.h */,
+				1820C6192022DFA3004E53DF /* GPUImageErosionFilter.h */,
+				1820C61A2022DFA3004E53DF /* GPUImageSaturationFilter.h */,
+				1820C61B2022DFA3004E53DF /* GPUImageOpeningFilter.h */,
+				1820C61C2022DFA3004E53DF /* GPUImagePolarPixellateFilter.h */,
+				1820C61D2022DFA3004E53DF /* GPUImageAdaptiveThresholdFilter.h */,
+				1820C61E2022DFA3004E53DF /* GPUImageHardLightBlendFilter.h */,
+				1820C61F2022DFA3004E53DF /* GPUImageZoomBlurFilter.h */,
+				1820C6202022DFA3004E53DF /* GPUImageHarrisCornerDetectionFilter.h */,
+				1820C6212022DFA3004E53DF /* GPUImageMultiplyBlendFilter.h */,
+				1820C6222022DFA3004E53DF /* GPUImageOverlayBlendFilter.h */,
+				1820C6232022DFA3004E53DF /* GPUImageColorMatrixFilter.h */,
+				1820C6242022DFA3004E53DF /* GPUImageSolidColorGenerator.h */,
+				1820C6252022DFA3004E53DF /* GPUImageExclusionBlendFilter.h */,
+				1820C6262022DFA3004E53DF /* GPUImageToneCurveFilter.h */,
+				1820C6272022DFA3004E53DF /* GPUImageGaussianBlurFilter.h */,
+				1820C6282022DFA3004E53DF /* GPUImageFramebufferCache.h */,
+				1820C6292022DFA3004E53DF /* GPUImageTiltShiftFilter.h */,
+				1820C62A2022DFA3004E53DF /* GPUImageSaturationBlendFilter.h */,
+				1820C62B2022DFA3004E53DF /* GPUImage.h */,
+				1820C62C2022DFA3004E53DF /* GPUImageRGBFilter.h */,
+				1820C62D2022DFA3004E53DF /* GPUImageBoxBlurFilter.h */,
+				1820C62E2022DFA3004E53DF /* GPUImageSourceOverBlendFilter.h */,
+				1820C62F2022DFA3004E53DF /* GPUImageFramebuffer.h */,
+				1820C6302022DFA3004E53DF /* GPUImageLaplacianFilter.h */,
+				1820C6312022DFA3004E53DF /* GPUImageLanczosResamplingFilter.h */,
+				1820C6322022DFA3004E53DF /* GPUImageFilterPipeline.h */,
+				1820C6332022DFA3004E53DF /* GPUImageXYDerivativeFilter.h */,
+				1820C6342022DFA3004E53DF /* GPUImageColorDodgeBlendFilter.h */,
+				1820C6352022DFA3004E53DF /* GPUImageAverageLuminanceThresholdFilter.h */,
+				1820C6362022DFA3004E53DF /* GPUImageOutput.h */,
+				1820C6372022DFA3004E53DF /* GPUImagePosterizeFilter.h */,
+				1820C6382022DFA3004E53DF /* GPUImageDirectionalSobelEdgeDetectionFilter.h */,
+				1820C6392022DFA3004E53DF /* GPUImageBrightnessFilter.h */,
+				1820C63A2022DFA3004E53DF /* GPUImageDifferenceBlendFilter.h */,
+				1820C63B2022DFA3004E53DF /* GPUImageDivideBlendFilter.h */,
+				1820C63C2022DFA3004E53DF /* GPUImageStretchDistortionFilter.h */,
+				1820C63D2022DFA3004E53DF /* GLProgram.h */,
+			);
+			path = GPUImage;
+			sourceTree = "<group>";
+		};
+		1820C5DC2022DFA2004E53DF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5DD2022DFA2004E53DF /* GPUImageView.h */,
+				1820C5DE2022DFA2004E53DF /* Framework */,
+				1820C5E02022DFA2004E53DF /* GPUImageContext.h */,
+				1820C5E12022DFA2004E53DF /* GPUImageMovieWriter.h */,
+				1820C5E22022DFA2004E53DF /* GPUImagePicture.h */,
+				1820C5E32022DFA2004E53DF /* GPUImagePicture+TextureSubimage.h */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		1820C5DE2022DFA2004E53DF /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				1820C5DF2022DFA2004E53DF /* GPUImageFramework.h */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		1820C63E2022DFA3004E53DF /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				1820C63F2022DFA3004E53DF /* FatFaceDistortionFilter.h */,
+				1820C6402022DFA3004E53DF /* SmallFaceBigEyeFilter.h */,
+				1820C6412022DFA3004E53DF /* KWBeautyFilter.h */,
+				1820C6422022DFA3004E53DF /* KWSmiliesStickerRenderer.h */,
+				1820C6432022DFA3004E53DF /* KWPresentStickerRenderer.h */,
+				1820C6442022DFA3004E53DF /* KWStickerRenderer.h */,
+				1820C6452022DFA3004E53DF /* KWColorFilter.h */,
+				1820C6462022DFA3004E53DF /* KWRenderer.h */,
+				1820C6472022DFA3004E53DF /* KWRenderProtocol.h */,
+				1820C6482022DFA3004E53DF /* SlimFaceDistortionFilter.h */,
+				1820C6492022DFA3004E53DF /* SquareFaceDistortionFilter.h */,
+				1820C64A2022DFA3004E53DF /* KWPointsRenderer.h */,
+				1820C64B2022DFA3004E53DF /* PearFaceDistortionFilter.h */,
+				1820C64C2022DFA3004E53DF /* ETDistortionFilter.h */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		1820C64D2022DFA3004E53DF /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1820C64E2022DFA3004E53DF /* FaceTracker.h */,
+				1820C64F2022DFA3004E53DF /* libfaceTrackerSDK.a */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		1820C6522022DFA3004E53DF /* StickerManager */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6532022DFA3004E53DF /* KWStickerManager.m */,
+				1820C6542022DFA3004E53DF /* KWPresentStickerManager.m */,
+				1820C6552022DFA3004E53DF /* stickers.json */,
+				1820C6562022DFA3004E53DF /* KWPoint.h */,
+				1820C6572022DFA3004E53DF /* KWSticker.h */,
+				1820C6582022DFA3004E53DF /* KWStickerDownloadManager.m */,
+				1820C6592022DFA3004E53DF /* stickers_gift.json */,
+				1820C65A2022DFA3004E53DF /* KWStickerManager.h */,
+				1820C65B2022DFA3004E53DF /* KWPresentStickerManager.h */,
+				1820C65C2022DFA3004E53DF /* KWStickerDownloadManager.h */,
+				1820C65D2022DFA3004E53DF /* KWSticker.m */,
+			);
+			path = StickerManager;
+			sourceTree = "<group>";
+		};
+		1820C65F2022DFA3004E53DF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6602022DFA3004E53DF /* image */,
+				1820C6C42022DFA3004E53DF /* KWResource.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1820C6602022DFA3004E53DF /* image */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6612022DFA3004E53DF /* distortion */,
+				1820C6682022DFA3004E53DF /* icon */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		1820C6612022DFA3004E53DF /* distortion */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6622022DFA3004E53DF /* distortion_ET.png */,
+				1820C6632022DFA3004E53DF /* distortion_PearFace.png */,
+				1820C6642022DFA3004E53DF /* distortion_SmallFace.png */,
+				1820C6652022DFA3004E53DF /* distortion_FatFace.png */,
+				1820C6662022DFA3004E53DF /* distortion_SquareFace.png */,
+				1820C6672022DFA3004E53DF /* distortion_SlimFace.png */,
+			);
+			path = distortion;
+			sourceTree = "<group>";
+		};
+		1820C6682022DFA3004E53DF /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6692022DFA3004E53DF /* automaticFace@2x.png */,
+				1820C66A2022DFA3004E53DF /* switch@3x.png */,
+				1820C66B2022DFA3004E53DF /* watermark.png */,
+				1820C66C2022DFA3004E53DF /* beauty@2x.png */,
+				1820C66D2022DFA3004E53DF /* cutoutIconDown.png */,
+				1820C66E2022DFA3004E53DF /* artwork master@3x.png */,
+				1820C66F2022DFA3004E53DF /* smiliesStickerDown_sys@2x.png */,
+				1820C6702022DFA3004E53DF /* huiquan@2x.png */,
+				1820C6712022DFA3004E53DF /* xiazai@3x.png */,
+				1820C6722022DFA3004E53DF /* tags@2x.png */,
+				1820C6732022DFA3004E53DF /* huangquan@2x.png */,
+				1820C6742022DFA3004E53DF /* filter@3x.png */,
+				1820C6752022DFA3004E53DF /* filter@2x.png */,
+				1820C6762022DFA3004E53DF /* huangquan@3x.png */,
+				1820C6772022DFA3004E53DF /* tags@3x.png */,
+				1820C6782022DFA3004E53DF /* xiazai@2x.png */,
+				1820C6792022DFA3004E53DF /* huiquan@3x.png */,
+				1820C67A2022DFA3004E53DF /* smiliesStickerDown_sys@3x.png */,
+				1820C67B2022DFA3004E53DF /* artwork master@2x.png */,
+				1820C67C2022DFA3004E53DF /* beauty@3x.png */,
+				1820C67D2022DFA3004E53DF /* switch@2x.png */,
+				1820C67E2022DFA3004E53DF /* automaticFace@3x.png */,
+				1820C67F2022DFA3004E53DF /* meiyan@3x.png */,
+				1820C6802022DFA3004E53DF /* ison@3x.png */,
+				1820C6812022DFA3004E53DF /* wire@2x.png */,
+				1820C6822022DFA3004E53DF /* quanjumeiyanliang@2x.png */,
+				1820C6832022DFA3004E53DF /* cancel@3x.png */,
+				1820C6842022DFA3004E53DF /* mask@3x.png */,
+				1820C6852022DFA3004E53DF /* tags drk@3x.png */,
+				1820C6862022DFA3004E53DF /* isoff@2x.png */,
+				1820C6872022DFA3004E53DF /* enterVideo_sys@3x.png */,
+				1820C6882022DFA3004E53DF /* presentSticker_sys@2x.png */,
+				1820C6892022DFA3004E53DF /* shoot@2x.png */,
+				1820C68A2022DFA3004E53DF /* download@3x.png */,
+				1820C68B2022DFA3004E53DF /* cutoutIcon.png */,
+				1820C68C2022DFA3004E53DF /* download@2x.png */,
+				1820C68D2022DFA3004E53DF /* shoot@3x.png */,
+				1820C68E2022DFA3004E53DF /* presentSticker_sys@3x.png */,
+				1820C68F2022DFA3004E53DF /* enterVideo_sys@2x.png */,
+				1820C6902022DFA3004E53DF /* isoff@3x.png */,
+				1820C6912022DFA3004E53DF /* tags drk@2x.png */,
+				1820C6922022DFA3004E53DF /* mask@2x.png */,
+				1820C6932022DFA3004E53DF /* cutoutBgimage.jpg */,
+				1820C6942022DFA3004E53DF /* cancel@2x.png */,
+				1820C6952022DFA3004E53DF /* quanjumeiyanliang@3x.png */,
+				1820C6962022DFA3004E53DF /* wire@3x.png */,
+				1820C6972022DFA3004E53DF /* ison@2x.png */,
+				1820C6982022DFA3004E53DF /* meiyan@2x.png */,
+				1820C6992022DFA3004E53DF /* off@2x.png */,
+				1820C69A2022DFA3004E53DF /* face@2x.png */,
+				1820C69B2022DFA3004E53DF /* wire drk@2x.png */,
+				1820C69C2022DFA3004E53DF /* on@3x.png */,
+				1820C69D2022DFA3004E53DF /* gesturesSticker_sys@3x.png */,
+				1820C69E2022DFA3004E53DF /* cutoutIconDown@2x.png */,
+				1820C69F2022DFA3004E53DF /* logo@3x.png */,
+				1820C6A02022DFA3004E53DF /* smiliesSticker_sys@2x.png */,
+				1820C6A12022DFA3004E53DF /* quanjumeiyan@3x.png */,
+				1820C6A22022DFA3004E53DF /* presentStickerDown_sys@2x.png */,
+				1820C6A32022DFA3004E53DF /* automaticFace.png */,
+				1820C6A42022DFA3004E53DF /* presentStickerDown_sys@3x.png */,
+				1820C6A52022DFA3004E53DF /* smiliesSticker_sys@3x.png */,
+				1820C6A62022DFA3004E53DF /* quanjumeiyan@2x.png */,
+				1820C6A72022DFA3004E53DF /* logo@2x.png */,
+				1820C6A82022DFA3004E53DF /* cutoutIconDown@3x.png */,
+				1820C6A92022DFA3004E53DF /* gesturesSticker_sys@2x.png */,
+				1820C6AA2022DFA3004E53DF /* on@2x.png */,
+				1820C6AB2022DFA3004E53DF /* wire drk@3x.png */,
+				1820C6AC2022DFA3004E53DF /* face@3x.png */,
+				1820C6AD2022DFA3004E53DF /* off@3x.png */,
+				1820C6AE2022DFA3004E53DF /* entranceBackground_sys.png */,
+				1820C6AF2022DFA3004E53DF /* closeVideo_sys@2x.png */,
+				1820C6B02022DFA3004E53DF /* meiyanliang@3x.png */,
+				1820C6B12022DFA3004E53DF /* button@2x.png */,
+				1820C6B22022DFA3004E53DF /* distorting mirror@3x.png */,
+				1820C6B32022DFA3004E53DF /* takephoto_sys@2x.png */,
+				1820C6B42022DFA3004E53DF /* face drk@3x.png */,
+				1820C6B52022DFA3004E53DF /* distorting mirror drk@2x.png */,
+				1820C6B62022DFA3004E53DF /* cutoutIcon@2x.png */,
+				1820C6B72022DFA3004E53DF /* beauty drk@3x.png */,
+				1820C6B82022DFA3004E53DF /* gesturesStickerDown_sys@3x.png */,
+				1820C6B92022DFA3004E53DF /* gesturesStickerDown_sys@2x.png */,
+				1820C6BA2022DFA3004E53DF /* cutoutIcon@3x.png */,
+				1820C6BB2022DFA3004E53DF /* beauty drk@2x.png */,
+				1820C6BC2022DFA3004E53DF /* distorting mirror drk@3x.png */,
+				1820C6BD2022DFA3004E53DF /* face drk@2x.png */,
+				1820C6BE2022DFA3004E53DF /* distorting mirror@2x.png */,
+				1820C6BF2022DFA3004E53DF /* takephoto_sys@3x.png */,
+				1820C6C02022DFA3004E53DF /* button@3x.png */,
+				1820C6C12022DFA3004E53DF /* meiyanliang@2x.png */,
+				1820C6C22022DFA3004E53DF /* yellowBorderBackground.png */,
+				1820C6C32022DFA3004E53DF /* closeVideo_sys@3x.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+		1820C6C52022DFA3004E53DF /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6C62022DFA3004E53DF /* Reachability.m */,
+				1820C6C72022DFA3004E53DF /* KWSaveData.m */,
+				1820C6C82022DFA3004E53DF /* Global.h */,
+				1820C6C92022DFA3004E53DF /* UIDevice+DeviceModel.h */,
+				1820C6CA2022DFA3004E53DF /* ColorFilterConst.h */,
+				1820C6CB2022DFA3004E53DF /* Reachability.h */,
+				1820C6CC2022DFA3004E53DF /* KWConst.h */,
+				1820C6CD2022DFA3004E53DF /* KWSaveData.h */,
+				1820C6CE2022DFA3004E53DF /* UIDevice+DeviceModel.m */,
+				1820C6CF2022DFA3004E53DF /* SDWebImage */,
+				1820C6F12022DFA3004E53DF /* SSZipArchive */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		1820C6CF2022DFA3004E53DF /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6D02022DFA3004E53DF /* UIImage+WebP.m */,
+				1820C6D12022DFA3004E53DF /* MKAnnotationView+WebCache.m */,
+				1820C6D22022DFA3004E53DF /* UIImageView+WebCache.h */,
+				1820C6D32022DFA3004E53DF /* NSData+ImageContentType.h */,
+				1820C6D42022DFA3004E53DF /* SDWebImageManager.m */,
+				1820C6D52022DFA3004E53DF /* SDWebImageDecoder.m */,
+				1820C6D62022DFA3004E53DF /* SDWebImageDownloaderOperation.h */,
+				1820C6D72022DFA3004E53DF /* UIImageView+HighlightedWebCache.m */,
+				1820C6D82022DFA3004E53DF /* SDImageCache.h */,
+				1820C6D92022DFA3004E53DF /* SDWebImageDownloader.m */,
+				1820C6DA2022DFA3004E53DF /* UIImage+GIF.m */,
+				1820C6DB2022DFA3004E53DF /* UIButton+WebCache.h */,
+				1820C6DC2022DFA3004E53DF /* UIImage+MultiFormat.m */,
+				1820C6DD2022DFA3004E53DF /* SDWebImageCompat.m */,
+				1820C6DE2022DFA3004E53DF /* SDWebImagePrefetcher.m */,
+				1820C6DF2022DFA3004E53DF /* UIView+WebCacheOperation.h */,
+				1820C6E02022DFA3004E53DF /* MKAnnotationView+WebCache.h */,
+				1820C6E12022DFA3004E53DF /* UIImage+WebP.h */,
+				1820C6E22022DFA3004E53DF /* SDImageCache.m */,
+				1820C6E32022DFA3004E53DF /* UIImageView+HighlightedWebCache.h */,
+				1820C6E42022DFA3004E53DF /* SDWebImageDownloaderOperation.m */,
+				1820C6E52022DFA3004E53DF /* SDWebImageDecoder.h */,
+				1820C6E62022DFA3004E53DF /* SDWebImageManager.h */,
+				1820C6E72022DFA3004E53DF /* NSData+ImageContentType.m */,
+				1820C6E82022DFA3004E53DF /* UIImageView+WebCache.m */,
+				1820C6E92022DFA3004E53DF /* SDWebImageOperation.h */,
+				1820C6EA2022DFA3004E53DF /* SDWebImageDownloader.h */,
+				1820C6EB2022DFA3004E53DF /* UIView+WebCacheOperation.m */,
+				1820C6EC2022DFA3004E53DF /* SDWebImagePrefetcher.h */,
+				1820C6ED2022DFA3004E53DF /* SDWebImageCompat.h */,
+				1820C6EE2022DFA3004E53DF /* UIImage+MultiFormat.h */,
+				1820C6EF2022DFA3004E53DF /* UIButton+WebCache.m */,
+				1820C6F02022DFA3004E53DF /* UIImage+GIF.h */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		1820C6F12022DFA3004E53DF /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6F22022DFA3004E53DF /* minizip */,
+				1820C6FC2022DFA3004E53DF /* SSZipArchive.h */,
+				1820C6FD2022DFA3004E53DF /* SSZipArchive.m */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		1820C6F22022DFA3004E53DF /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				1820C6F32022DFA3004E53DF /* unzip.c */,
+				1820C6F42022DFA3004E53DF /* zip.c */,
+				1820C6F52022DFA3004E53DF /* ioapi.c */,
+				1820C6F62022DFA3004E53DF /* mztools.c */,
+				1820C6F72022DFA3004E53DF /* crypt.h */,
+				1820C6F82022DFA3004E53DF /* zip.h */,
+				1820C6F92022DFA3004E53DF /* unzip.h */,
+				1820C6FA2022DFA3004E53DF /* mztools.h */,
+				1820C6FB2022DFA3004E53DF /* ioapi.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		182CC30C201F21CE0044F5D4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				1820C4F42022DFA2004E53DF /* KiwiFaceSDK */,
+				182CC30D201F21CE0044F5D4 /* libcrypto.a */,
+				182CC30E201F21CE0044F5D4 /* AgoraRtcCryptoLoader.framework */,
+				182CC30F201F21CE0044F5D4 /* AgoraRtcEngineKit.framework */,
+			);
+			name = libs;
+			path = RCTAgora/libs;
+			sourceTree = "<group>";
+		};
 		23AF28131EEFECD800D771AB = {
 			isa = PBXGroup;
 			children = (
-				23AF281E1EEFECD800D771AB /* RCTAgora */,
+				182CC30C201F21CE0044F5D4 /* libs */,
+				182CC520201F21CF0044F5D4 /* RCTAgora.h */,
+				182CC314201F21CE0044F5D4 /* RCTAgora.m */,
+				182CC311201F21CE0044F5D4 /* RCTAgoraVideoView.h */,
+				182CC312201F21CE0044F5D4 /* RCTAgoraVideoView.m */,
+				182CC522201F21CF0044F5D4 /* RCTAgoraViewManager.h */,
+				182CC313201F21CE0044F5D4 /* RCTAgoraViewManager.m */,
+				182CC521201F21CF0044F5D4 /* AgoraConst.h */,
+				182CC310201F21CE0044F5D4 /* AgoraConst.m */,
 				23AF281D1EEFECD800D771AB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,22 +1369,6 @@
 				23AF281C1EEFECD800D771AB /* libRCTAgora.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		23AF281E1EEFECD800D771AB /* RCTAgora */ = {
-			isa = PBXGroup;
-			children = (
-				23ACF47C1EF0CF9500801BC7 /* libs */,
-				23C20DCB1F0A6ED80095F60C /* AgoraConst.h */,
-				23C20DCC1F0A6ED80095F60C /* AgoraConst.m */,
-				23C20DCD1F0A6ED80095F60C /* RCTAgoraVideoView.h */,
-				23C20DCE1F0A6ED80095F60C /* RCTAgoraVideoView.m */,
-				23C20DCF1F0A6ED80095F60C /* RCTAgoraViewManager.h */,
-				23C20DD01F0A6ED80095F60C /* RCTAgoraViewManager.m */,
-				23AF281F1EEFECD800D771AB /* RCTAgora.h */,
-				23AF28201EEFECD800D771AB /* RCTAgora.m */,
-			);
-			path = RCTAgora;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +1429,89 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23C20DD21F0A6ED80095F60C /* RCTAgoraVideoView.m in Sources */,
-				23C20DD31F0A6ED80095F60C /* RCTAgoraViewManager.m in Sources */,
-				23C20DD11F0A6ED80095F60C /* AgoraConst.m in Sources */,
-				23AF28211EEFECD800D771AB /* RCTAgora.m in Sources */,
+				1820C7452022DFA3004E53DF /* SDImageCache.m in Sources */,
+				1820C7082022DFA3004E53DF /* convert_jpeg.cc in Sources */,
+				1820C7212022DFA3004E53DF /* compare_neon.cc in Sources */,
+				1820C71C2022DFA3004E53DF /* convert_from.cc in Sources */,
+				1820C7462022DFA3004E53DF /* SDWebImageDownloaderOperation.m in Sources */,
+				182CC529201F21D00044F5D4 /* RCTAgora.m in Sources */,
+				1820C72C2022DFA3004E53DF /* rotate_argb.cc in Sources */,
+				1820C7112022DFA3004E53DF /* row_neon64.cc in Sources */,
+				1820C7172022DFA3004E53DF /* scale_mips.cc in Sources */,
+				1820C7202022DFA3004E53DF /* convert_to_argb.cc in Sources */,
+				1820C7482022DFA3004E53DF /* UIImageView+WebCache.m in Sources */,
+				182CC528201F21D00044F5D4 /* RCTAgoraViewManager.m in Sources */,
+				1820C7442022DFA3004E53DF /* SDWebImagePrefetcher.m in Sources */,
+				1820C7362022DFA3004E53DF /* KWStickerDownloadManager.m in Sources */,
+				1820C7232022DFA3004E53DF /* scale_neon64.cc in Sources */,
+				1820C70E2022DFA3004E53DF /* rotate_neon64.cc in Sources */,
+				1820C7402022DFA3004E53DF /* SDWebImageDownloader.m in Sources */,
+				1820C72A2022DFA3004E53DF /* convert_to_i420.cc in Sources */,
+				1820C7282022DFA3004E53DF /* rotate_neon.cc in Sources */,
+				1820C7412022DFA3004E53DF /* UIImage+GIF.m in Sources */,
+				1820C71D2022DFA3004E53DF /* scale_common.cc in Sources */,
+				1820C72E2022DFA3004E53DF /* compare_neon64.cc in Sources */,
+				1820C73E2022DFA3004E53DF /* SDWebImageDecoder.m in Sources */,
+				1820C7392022DFA3004E53DF /* KWSaveData.m in Sources */,
+				1820C70C2022DFA3004E53DF /* mjpeg_decoder.cc in Sources */,
+				1820C73F2022DFA3004E53DF /* UIImageView+HighlightedWebCache.m in Sources */,
+				1820C7032022DFA3004E53DF /* KWGlobalFilterManager.m in Sources */,
+				1820C7002022DFA3004E53DF /* KWFilterCell.m in Sources */,
+				1820C74F2022DFA3004E53DF /* SSZipArchive.m in Sources */,
+				1820C72F2022DFA3004E53DF /* scale_argb.cc in Sources */,
+				1820C7102022DFA3004E53DF /* compare.cc in Sources */,
+				1820C7062022DFA3004E53DF /* rotate.cc in Sources */,
+				1820C7092022DFA3004E53DF /* compare_win.cc in Sources */,
+				1820C7222022DFA3004E53DF /* rotate_win.cc in Sources */,
+				1820C72B2022DFA3004E53DF /* row_gcc.cc in Sources */,
+				1820C7022022DFA3004E53DF /* KWGlobalFilter.m in Sources */,
+				1820C7072022DFA3004E53DF /* scale_gcc.cc in Sources */,
+				1820C7132022DFA3004E53DF /* planar_functions.cc in Sources */,
+				1820C7192022DFA3004E53DF /* scale_any.cc in Sources */,
+				1820C7012022DFA3004E53DF /* KWUIManager.m in Sources */,
+				1820C7332022DFA3004E53DF /* KWRenderManager.m in Sources */,
+				1820C7182022DFA3004E53DF /* row_common.cc in Sources */,
+				1820C73C2022DFA3004E53DF /* MKAnnotationView+WebCache.m in Sources */,
+				1820C74D2022DFA3004E53DF /* ioapi.c in Sources */,
+				1820C7432022DFA3004E53DF /* SDWebImageCompat.m in Sources */,
+				1820C7342022DFA3004E53DF /* KWStickerManager.m in Sources */,
+				1820C7152022DFA3004E53DF /* convert_argb.cc in Sources */,
+				1820C7382022DFA3004E53DF /* Reachability.m in Sources */,
+				1820C71B2022DFA3004E53DF /* convert.cc in Sources */,
+				1820C71A2022DFA3004E53DF /* rotate_gcc.cc in Sources */,
+				1820C70A2022DFA3004E53DF /* cpu_id.cc in Sources */,
+				1820C7142022DFA3004E53DF /* row_msa.cc in Sources */,
+				182CC526201F21D00044F5D4 /* AgoraConst.m in Sources */,
+				1820C7262022DFA3004E53DF /* compare_common.cc in Sources */,
+				1820C7052022DFA3004E53DF /* rotate_any.cc in Sources */,
+				1820C7162022DFA3004E53DF /* rotate_mips.cc in Sources */,
+				1820C7372022DFA3004E53DF /* KWSticker.m in Sources */,
+				1820C7292022DFA3004E53DF /* video_common.cc in Sources */,
+				1820C73B2022DFA3004E53DF /* UIImage+WebP.m in Sources */,
+				1820C7422022DFA3004E53DF /* UIImage+MultiFormat.m in Sources */,
+				1820C71E2022DFA3004E53DF /* row_mips.cc in Sources */,
+				1820C7492022DFA3004E53DF /* UIView+WebCacheOperation.m in Sources */,
+				1820C71F2022DFA3004E53DF /* row_any.cc in Sources */,
+				1820C74A2022DFA3004E53DF /* UIButton+WebCache.m in Sources */,
+				1820C70B2022DFA3004E53DF /* row_win.cc in Sources */,
+				1820C73A2022DFA3004E53DF /* UIDevice+DeviceModel.m in Sources */,
+				1820C72D2022DFA3004E53DF /* compare_gcc.cc in Sources */,
+				1820C74B2022DFA3004E53DF /* unzip.c in Sources */,
+				1820C7272022DFA3004E53DF /* scale_neon.cc in Sources */,
+				1820C70F2022DFA3004E53DF /* scale.cc in Sources */,
+				1820C7352022DFA3004E53DF /* KWPresentStickerManager.m in Sources */,
+				1820C7242022DFA3004E53DF /* mjpeg_validate.cc in Sources */,
+				1820C73D2022DFA3004E53DF /* SDWebImageManager.m in Sources */,
+				1820C6FF2022DFA3004E53DF /* KWStickerCell.m in Sources */,
+				1820C7122022DFA3004E53DF /* convert_from_argb.cc in Sources */,
+				1820C74C2022DFA3004E53DF /* zip.c in Sources */,
+				1820C7042022DFA3004E53DF /* rotate_common.cc in Sources */,
+				1820C7472022DFA3004E53DF /* NSData+ImageContentType.m in Sources */,
+				182CC527201F21D00044F5D4 /* RCTAgoraVideoView.m in Sources */,
+				1820C7252022DFA3004E53DF /* scale_win.cc in Sources */,
+				1820C70D2022DFA3004E53DF /* row_neon.cc in Sources */,
+				1820C74E2022DFA3004E53DF /* mztools.c in Sources */,
+				1820C6FE2022DFA3004E53DF /* KWDistortionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +1615,21 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 342K4Q49RK;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/RCTAgora/libs\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/RCTAgora/libs\"",
+					"$(PROJECT_DIR)/RCTAgora/libs",
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../react-native/React\"/**",
 					"\"$(SRCROOT)/../../react-native/Libraries\"/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCTAgora/libs",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/GPUImage",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/Tracker",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -265,12 +1641,21 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 342K4Q49RK;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/RCTAgora/libs\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/RCTAgora/libs\"",
+					"$(PROJECT_DIR)/RCTAgora/libs",
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../react-native/React\"/**",
 					"\"$(SRCROOT)/../../react-native/Libraries\"/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCTAgora/libs",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/GPUImage",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/Tracker",
+					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
