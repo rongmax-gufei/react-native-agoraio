@@ -12,8 +12,8 @@
 
 ## 功能介绍
 
-- 支持 iOS Android  声网Agora视频通讯SDK
-- 支持 多人互动直播 语音 美颜 人脸捕捉特效 滤镜 功能
+- 支持 iOS、Android 声网Agora多人互动直播
+- 支持 Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜）
 
 ## todo
 
