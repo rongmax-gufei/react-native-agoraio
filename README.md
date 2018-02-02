@@ -89,10 +89,11 @@ Add following to `AndroidManifest.xml`
 | init                             | <br>{<br>appid: 'agora注册的应用id', <br>channelProfile: '频道模式', <br>videoProfile: '视频模式', <br>clientRole: '角色', <br>swapWidthAndHeight: 'bool值'<br>} | 初始化Agora引擎                            |
 | joinChannel                      | string: channelName（房间名称)<br>number: uid（uid=0系统自动分配） | 加入房间                                  |
 | leaveChannel                     |                                          | 离开频道                                |
+| changeRole                       |                                          | 切换角色                                 |
 | destroy                          |                                          | 销毁引擎实例                             |
 | configPublisher                  | object{} config参数请前往Agora文档查看      | 配置旁路直播推流方法                               |
-| setLocalRenderMode               | number: mode (1 2 3)                      | 设置本地视频显示模式                                |
-| setRemoteRenderMode              | number: uid <br>number: mode (1 2 3)       | 设置远端视频显示模式                                |
+| setLocalRenderMode               | number: mode (1 2 3)                     | 设置本地视频显示模式                                |
+| setRemoteRenderMode              | number: uid <br>number: mode (1 2 3)     | 设置远端视频显示模式                                |
 | enableAudioVolumeIndication      | number: interval (时间间隔) <br>number: smooth(平滑系数，可以设置为3)                                         | 启用说话者音量提示                                |
 | startPreview                     |                                          | 开启视频预览                                |
 | stopPreview                      |                                          | 关闭视频预览                                |
@@ -113,6 +114,8 @@ Add following to `AndroidManifest.xml`
 | startRecordingService (iOS only) | string: recordingKey                     | 启动服务端录制服务                             |
 | stopRecordingService (iOS only)  | string: recordingKey                     | 停止服务端录制服务                             |
 | getSdkVersion                    | callback                                 | 获取版本号                                 |
+| openMask                         |                                          | 打开贴纸，可设置瘦脸、大眼、美颜、人脸捕捉特效 |
+| openFilter                       |                                          | 打开滤镜                                 |
 
 ##### 原生通知事件
 
@@ -168,7 +171,7 @@ RtcEngine.eventEmitter({
 [Experience Package](https://fir.im/agoraio?release_id=5a6aa486959d695df764b1c8)<br>
 
 <figure class="third">
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"><img width="320" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"/></a>
     <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"/></a>
     <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"/></a>
 </figure>
@@ -177,7 +180,8 @@ RtcEngine.eventEmitter({
 
 #### 1.10.12 
 
- - Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜） - iOS版
+ - 集成Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜） - iOS版
+ - 新增切换角色方法
 
 #### 1.10.10
 
