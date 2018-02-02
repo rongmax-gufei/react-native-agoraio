@@ -78,8 +78,8 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     [self.rtcEngine enableWebSdkInteroperability:YES];
 }
 
-RCT_EXPORT_METHOD(initKiwiUI) {
-  // 初始化Kiwi美颜环境
+// 初始化Kiwi美颜环境
+RCT_EXPORT_METHOD(initKiwiEnv) {
   [self initRenderManager];
   [self initKiwiFaceUI];
   [AGVideoPreProcessing registerVideoPreprocessing:self.rtcEngine];
