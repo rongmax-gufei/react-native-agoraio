@@ -167,9 +167,10 @@ RtcEngine.eventEmitter({
 [Example](https://github.com/midas-gufei/RNAgoraExample)<br>
 [Experience Package](https://fir.im/agoraio?release_id=5a6aa486959d695df764b1c8)<br>
 
-<figure class="half">
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.png"/></a>
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"/></a>
+<figure class="third">
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"/></a>
 </figure>
 
 ## 更新信息
