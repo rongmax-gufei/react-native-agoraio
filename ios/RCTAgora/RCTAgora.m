@@ -15,21 +15,20 @@
 #import <React/RCTBridge.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTView.h>
-#import "AGVideoPreProcessing.h"
-#import "AGUIManager.h"
-#import "FaceTracker.h"
-#import "Global.h"
+
+#import <videoprp/AgoraYuvEnhancerObjc.h>
+
 #import "AgoraConst.h"
 #import "UIUtils.h"
+#import "BundleTools.h"
 
 @interface RCTAgora ()<AgoraRtcEngineDelegate>
 
 @property(strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
-@property(nonatomic, strong) AGUIManager *AGSDKUI;
-@property(nonatomic, strong) AGRenderManager *renderManager;
 
-@property(nonatomic, copy) NSString *modelPath;
 @property(nonatomic, assign) BOOL isBroadcaster;
+
+@property(strong, nonatomic) AgoraYuvEnhancerObjc *agoraEnhancer;
 
 @end
 
@@ -58,7 +57,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     AgoraRtcVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
     BOOL swapWidthAndHeight                = [options[@"swapWidthAndHeight"] boolValue];
     AgoraRtcClientRole role                = [options[@"clientRole"] integerValue];
-  
+    
     [AgoraConst share].appid = appid;
     self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
   
@@ -78,13 +77,6 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     [self.rtcEngine enableWebSdkInteroperability:YES];
 }
 
-// 初始化Kiwi美颜环境
-RCT_EXPORT_METHOD(initKiwiEnv) {
-  [self initRenderManager];
-  [self initKiwiFaceUI];
-  [AGVideoPreProcessing registerVideoPreprocessing:self.rtcEngine];
-}
-
 //加入房间
 RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
     //保存一下uid 在自定义视图使用
@@ -94,8 +86,6 @@ RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
 
 //离开频道
 RCT_EXPORT_METHOD(leaveChannel) {
-  
-    [AGVideoPreProcessing deregisterVideoPreprocessing:self.rtcEngine];
     [self.rtcEngine setupLocalVideo:nil];
     
     [self.rtcEngine leaveChannel:^(AgoraRtcStats *stat) {
@@ -108,10 +98,6 @@ RCT_EXPORT_METHOD(leaveChannel) {
     if (self.isBroadcaster) {
       [self.rtcEngine stopPreview];
     }
-  
-    //释放内存
-    [self.renderManager releaseManager];
-    [self.AGSDKUI releaseManager];
 }
 
 //销毁引擎实例
@@ -290,53 +276,17 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     callback(@[[AgoraRtcEngineKit getSdkVersion]]);
 }
 
-#pragma mask KiwiFace EXPORT_METHODS
-//打开蒙版
-RCT_EXPORT_METHOD(openMask) {
-  [self.AGSDKUI openStickerSetBtnOnClick];
+#pragma mask BeautityFace EXPORT_METHODS
+//打开美颜
+RCT_EXPORT_METHOD(openBeautityFace) {
+    AgoraYuvEnhancerObjc *enhancer = [[AgoraYuvEnhancerObjc alloc] init];
+    [enhancer turnOn];
+    self.agoraEnhancer = enhancer;
 }
 
-//打开滤镜
-RCT_EXPORT_METHOD(openFilter) {
-  [self.AGSDKUI openFilterSetBtnOnClick];
-}
-
-/*
- * 初始美颜 KiwiFaceSDK
- */
-#pragma mark KiwiFaceSDK
-- (void)initRenderManager {
-  
-  //1.创建 KWRenderManager对象,指定models文件路径 若不传则默认路径是KWResource.bundle/models
-  self.renderManager = [[AGRenderManager alloc] initWithModelPath:nil isCameraPositionBack:NO];
-  
-  //2.加载贴纸滤镜
-  [self.renderManager loadRender];
-  
-  //3.鉴权kiwi AgLenses.lic
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verifyFailed) name:AGVerifyFailededNotification object:nil];
-}
-
-/*
- * 初始化KiwiFace的演示UI
- */
-- (void)initKiwiFaceUI {
-  //1.初始化UIManager
-  self.AGSDKUI = [[AGUIManager alloc] initWithRenderManager:self.renderManager delegate:nil superView:UIUtils.currentRootView];
-  
-  //2.是否清除原UI
-  self.AGSDKUI.isClearOldUI = NO;
-  
-  /*
-   3.创建内置UI
-   createUI 要放在最后
-   */
-  [self.AGSDKUI createUI];
-}
-
-- (void)verifyFailed {
-  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"KiwiFaceSDK初始化失败,错误码: %d", [AGRenderManager renderInitCode]] message:@"可在FaceTracker.h中查看错误码" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-  [alertView show];
+//关闭美颜
+RCT_EXPORT_METHOD(closeBeautityFace) {
+    [self.agoraEnhancer turnOff];
 }
 
 /*

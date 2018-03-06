@@ -1,31 +1,31 @@
 {
   "_args": [
     [
-      "react-native-agoraio@1.10.14",
+      "react-native-agoraio@1.10.17",
       "/Users/apple/learnta/project/agora/RNAgoraExample.git"
     ]
   ],
-  "_from": "react-native-agoraio@1.10.14",
-  "_id": "react-native-agoraio@1.10.14",
+  "_from": "react-native-agoraio@1.10.17",
+  "_id": "react-native-agoraio@1.10.17",
   "_inBundle": false,
-  "_integrity": "sha512-ZfDaUyc0UKLe72H3PDbEfIu8pFo7Tmls4eS4bJcL7gjMwg36yrgKzJlkHsC81frseFUd3R92Nq9j9XPImSReWg==",
+  "_integrity": "sha512-VRepBHvTpB3L9xV0FmKihb+csoD5swFVxFa/slvW6DBydcPr8gRlMY/sJg8DDXhl/ihBdviXGM2ZYZO5iMiYbw==",
   "_location": "/react-native-agoraio",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "react-native-agoraio@1.10.14",
+    "raw": "react-native-agoraio@1.10.17",
     "name": "react-native-agoraio",
     "escapedName": "react-native-agoraio",
-    "rawSpec": "1.10.14",
+    "rawSpec": "1.10.17",
     "saveSpec": null,
-    "fetchSpec": "1.10.14"
+    "fetchSpec": "1.10.17"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-native-agoraio/-/react-native-agoraio-1.10.14.tgz",
-  "_spec": "1.10.14",
+  "_resolved": "https://registry.npmjs.org/react-native-agoraio/-/react-native-agoraio-1.10.17.tgz",
+  "_spec": "1.10.17",
   "_where": "/Users/apple/learnta/project/agora/RNAgoraExample.git",
   "author": {
     "name": "gufei"
