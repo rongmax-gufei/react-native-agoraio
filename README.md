@@ -39,19 +39,19 @@ TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，选择
     
 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择
 ```
-  node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/libcrypto.a
-  node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcCryptoLoader.framework
-  node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework
-  node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/videoprp.framework
+node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/libcrypto.a
+node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcCryptoLoader.framework
+node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework
+node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/videoprp.framework
 ```
 TARGETS->Build Settings->Search Paths->Framework Search Paths添加
-
-    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
-    
+```
+"$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
+```    
 TARGETS->Build Settings->Search Paths->Library Search Paths添加
-
-    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
-    
+```
+"$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
+```   
 TARGETS->Build Settings->Enable Bitcode设置为No
 
 TARGETS->Capabilities->Background Modes->Modes勾选Audio,AirPlay,and Picture In Picture
@@ -167,9 +167,8 @@ RtcEngine.eventEmitter({
 [Experience Package](https://fir.im/agoraio?release_id=5a6aa486959d695df764b1c8)<br>
 
 <figure class="third">
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_normal.png"/></a>
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_mask.png"/></a>
-    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios_filter.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/ios.png"/></a>
+    <a href="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.jpeg"><img width="375" height="667" src="https://raw.githubusercontent.com/midas-gufei/react-native-agora/master/screenshot/android.jpeg"/></a>
 </figure>
 
 ## 更新信息
