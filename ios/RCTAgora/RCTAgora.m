@@ -114,6 +114,7 @@ RCT_EXPORT_METHOD(destroy) {
 //切换角色
 RCT_EXPORT_METHOD(changeRole) {
     AgoraRtcClientRole role = self.isBroadcaster ? AgoraRtc_ClientRole_Audience : AgoraRtc_ClientRole_Broadcaster;
+    self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
     [self.rtcEngine setClientRole:role withKey:nil];
 }
 

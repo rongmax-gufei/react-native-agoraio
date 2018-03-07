@@ -34,12 +34,30 @@ public class AgoraManager {
     private Context context;
 
     private int mLocalUid = 0;
+    private boolean isBroadcaster;
 
     private AgoraManager() {
         mSurfaceViews = new SparseArray<SurfaceView>();
     }
 
     private SparseArray<SurfaceView> mSurfaceViews;
+
+    public enum AgoraRtcClientRole {
+
+        Broadcaster(1), Audience(2);
+
+        private int value;
+
+        AgoraRtcClientRole(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(this.value);
+        }
+
+    }
 
     public static AgoraManager getInstance() {
         if (sAgoraManager == null) {
@@ -57,18 +75,29 @@ public class AgoraManager {
      */
     public void init(Context context, IRtcEngineEventHandler mRtcEventHandler, ReadableMap options) {
         this.context = context;
+
+        String appid = options.getString("appid");
+        int videoProfile = options.getInt("videoProfile");
+        boolean swapWidthAndHeight = options.getBoolean("swapWidthAndHeight");
+        int channelProfile = options.getInt("channelProfile");
+        int role = options.getInt("clientRole");
+
         //创建RtcEngine对象，mRtcEventHandler为RtcEngine的回调
         try {
-            mRtcEngine = RtcEngine.create(context, options.getString("appid"), mRtcEventHandler);
+            mRtcEngine = RtcEngine.create(context, appid, mRtcEventHandler);
         } catch (Exception e) {
             throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
         }
+
         //开启视频功能
         mRtcEngine.enableVideo();
-        mRtcEngine.setVideoProfile(options.getInt("videoProfile"), options.getBoolean("swapWidthAndHeight")); //视频配置，
+        mRtcEngine.setVideoProfile(videoProfile, swapWidthAndHeight); //视频配置，
         mRtcEngine.enableWebSdkInteroperability(true);  //设置和web通信
-        mRtcEngine.setChannelProfile(options.getInt("channelProfile")); //设置模式
-        mRtcEngine.setClientRole(options.getInt("clientRole"), null); //设置角色
+        mRtcEngine.setChannelProfile(channelProfile); //设置模式
+        mRtcEngine.setClientRole(role, null); //设置角色
+
+        isBroadcaster = (role == AgoraRtcClientRole.Broadcaster.value);
+
         // 打开美颜
         openBeautityFace();
     }
@@ -101,6 +130,23 @@ public class AgoraManager {
         return this;
     }
 
+    public void leaveChannel() {
+        mRtcEngine.leaveChannel();
+        // 主播，关闭预览
+        if (isBroadcaster)
+            this.stopPreview();
+        // 关闭美颜
+        closeBeautityFace();
+    }
+
+    public void startPreview() {
+        mRtcEngine.startPreview();
+    }
+
+    public void stopPreview() {
+        mRtcEngine.stopPreview();
+    }
+
     /**
      * 打开美颜
      */
@@ -115,24 +161,19 @@ public class AgoraManager {
      * 关闭美颜
      */
     private void closeBeautityFace() {
-        if(null != yuvEnhancer) {
+        if (null != yuvEnhancer) {
             yuvEnhancer.StopPreProcess();
             yuvEnhancer = null;
         }
     }
 
-    public void startPreview() {
-        mRtcEngine.startPreview();
-    }
-
-    public void stopPreview() {
-        mRtcEngine.stopPreview();
-    }
-
-    public void leaveChannel() {
-        mRtcEngine.leaveChannel();
-        // 关闭美颜
-        closeBeautityFace();
+    /**
+     * 改变角色
+     */
+    public void changeRole() {
+        int role = this.isBroadcaster ? AgoraRtcClientRole.Audience.value : AgoraRtcClientRole.Broadcaster.value;
+        this.isBroadcaster = (role == AgoraRtcClientRole.Broadcaster.value);
+        this.mRtcEngine.setClientRole(role, null); //设置角色
     }
 
     public void removeSurfaceView(int uid) {

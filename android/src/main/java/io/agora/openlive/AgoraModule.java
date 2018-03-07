@@ -464,6 +464,11 @@ public class AgoraModule extends ReactContextBaseJavaModule {
         RtcEngine.destroy();
     }
 
+    @ReactMethod
+    public void changeRole() {
+        AgoraManager.getInstance().changeRole();
+    }
+
     //查询 SDK 版本号
     @ReactMethod
     public void getSdkVersion(Callback callback) {
