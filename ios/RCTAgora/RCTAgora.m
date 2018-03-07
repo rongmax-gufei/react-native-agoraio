@@ -51,7 +51,7 @@ RCT_EXPORT_MODULE();
  *  @return 0 when executed successfully. return negative value if failed.
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
-    
+  
     NSString *appid                        = options[@"appid"];
     AgoraRtcChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
     AgoraRtcVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
@@ -96,7 +96,7 @@ RCT_EXPORT_METHOD(leaveChannel) {
         params[@"type"] = @"onLeaveChannel";
         [self sendEvent:params];
     }];
-    
+  
     // 如果是主播，关闭预览
     if (self.isBroadcaster) {
         [self.rtcEngine stopPreview];
@@ -357,6 +357,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine firstLocalVideoFrameWithSize:(CGSize)size elapsed:(NSInteger)elapsed {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstLocalVideoFrameWithSize";
+    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
+    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
     
     [self sendEvent:params];
 }
@@ -368,6 +370,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstRemoteVideoDecoded";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
+    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
+    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
     
     [self sendEvent:params];
 }
@@ -379,6 +383,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstRemoteVideoFrameOfUid";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
+    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
+    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
     
     [self sendEvent:params];
 }
