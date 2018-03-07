@@ -357,8 +357,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine firstLocalVideoFrameWithSize:(CGSize)size elapsed:(NSInteger)elapsed {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstLocalVideoFrameWithSize";
-    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
-    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
+    params[@"width"] = [NSNumber numberWithFloat:size.width];
+    params[@"height"] = [NSNumber numberWithFloat:size.height];
     
     [self sendEvent:params];
 }
@@ -370,8 +370,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstRemoteVideoDecoded";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
-    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
+    params[@"width"] = [NSNumber numberWithFloat:size.width];
+    params[@"height"] = [NSNumber numberWithFloat:size.height];
     
     [self sendEvent:params];
 }
@@ -383,8 +383,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onFirstRemoteVideoFrameOfUid";
     params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"width"] = [NSString stringWithFormat:@"%f", size.width];
-    params[@"height"] = [NSString stringWithFormat:@"%f", size.height];
+    params[@"width"] = [NSNumber numberWithFloat:size.width];
+    params[@"height"] = [NSNumber numberWithFloat:size.height];
     
     [self sendEvent:params];
 }

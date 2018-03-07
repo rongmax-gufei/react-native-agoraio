@@ -45,13 +45,15 @@ public class AgoraModule extends ReactContextBaseJavaModule {
          * 当获取用户uid的远程视频的回调
          */
         @Override
-        public void onFirstRemoteVideoDecoded(final int uid, int width, int height, int elapsed) {
+        public void onFirstRemoteVideoDecoded(final int uid, final int width, final int height, int elapsed) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     WritableMap map = Arguments.createMap();
                     map.putString("type", "onFirstRemoteVideoDecoded");
                     map.putInt("uid", uid);
+                    map.putInt("width", width);
+                    map.putInt("height", height);
                     commonEvent(map);
                 }
             });
@@ -65,12 +67,15 @@ public class AgoraModule extends ReactContextBaseJavaModule {
          * @param elapsed
          */
         @Override
-        public void onFirstRemoteVideoFrame(int uid, int width, int height, int elapsed) {
+        public void onFirstRemoteVideoFrame(final int uid, final int width, final int height, int elapsed) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     WritableMap map = Arguments.createMap();
                     map.putString("type", "onFirstRemoteVideoFrameOfUid");
+                    map.putInt("uid", uid);
+                    map.putInt("width", width);
+                    map.putInt("height", height);
                     commonEvent(map);
                 }
             });
@@ -84,12 +89,14 @@ public class AgoraModule extends ReactContextBaseJavaModule {
          * @param elapsed
          */
         @Override
-        public void onFirstLocalVideoFrame(int width, int height, int elapsed) {
+        public void onFirstLocalVideoFrame(final int width, final int height, int elapsed) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     WritableMap map = Arguments.createMap();
                     map.putString("type", "onFirstLocalVideoFrameWithSize");
+                    map.putInt("width", width);
+                    map.putInt("height", height);
                     commonEvent(map);
                 }
             });
