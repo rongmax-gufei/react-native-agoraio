@@ -38,12 +38,12 @@ TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，选择
     CoreTelephony.framework
     
 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择
-
+```
     node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/libcrypto.a
     node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcCryptoLoader.framework
     node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework
     node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/videoprp.framework
-    
+```
 TARGETS->Build Settings->Search Paths->Framework Search Paths添加
 
     "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
@@ -60,7 +60,6 @@ TARGETS->Capabilities->Background Modes->Modes勾选Audio,AirPlay,and Picture In
 
     "Privacy - Camera Usage Description":"use camera to start video call"
     "Privacy - Microphone Usage Description":"use microphone to start video call"
-
 
 #### Android
 
