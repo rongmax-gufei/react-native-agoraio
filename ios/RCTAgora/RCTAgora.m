@@ -28,7 +28,7 @@
 
 @property(nonatomic, assign) BOOL isBroadcaster;
 
-@property(strong, nonatomic) AgoraYuvEnhancerObjc *agoraEnhancer;
+@property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
 
 @end
 
@@ -51,7 +51,7 @@ RCT_EXPORT_MODULE();
  *  @return 0 when executed successfully. return negative value if failed.
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
-  
+    
     NSString *appid                        = options[@"appid"];
     AgoraRtcChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
     AgoraRtcVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
@@ -60,11 +60,11 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     
     [AgoraConst share].appid = appid;
     self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
-  
+    
     // 初始化RtcEngineKit
     self.rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:appid delegate:self];
     [AgoraConst share].rtcEngine = self.rtcEngine;
-  
+    
     //频道模式
     [self.rtcEngine setChannelProfile:channelProfile];
     //启用双流模式
@@ -75,6 +75,8 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     
     //Agora Native SDK 与 Agora Web SDK 间的互通
     [self.rtcEngine enableWebSdkInteroperability:YES];
+    // 打开美颜
+    [self openBeautityFace];
 }
 
 //加入房间
@@ -86,18 +88,22 @@ RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
 
 //离开频道
 RCT_EXPORT_METHOD(leaveChannel) {
+    // 本地视频释放
     [self.rtcEngine setupLocalVideo:nil];
-    
+    // 退出频道
     [self.rtcEngine leaveChannel:^(AgoraRtcStats *stat) {
         NSMutableDictionary *params = @{}.mutableCopy;
         params[@"type"] = @"onLeaveChannel";
         [self sendEvent:params];
     }];
-  
+    
     // 如果是主播，关闭预览
     if (self.isBroadcaster) {
-      [self.rtcEngine stopPreview];
+        [self.rtcEngine stopPreview];
     }
+    
+    // 关闭美颜
+    [self closeBeautityFace];
 }
 
 //销毁引擎实例
@@ -278,15 +284,20 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 
 #pragma mask BeautityFace EXPORT_METHODS
 //打开美颜
-RCT_EXPORT_METHOD(openBeautityFace) {
-    AgoraYuvEnhancerObjc *enhancer = [[AgoraYuvEnhancerObjc alloc] init];
-    [enhancer turnOn];
-    self.agoraEnhancer = enhancer;
+- (void)openBeautityFace {
+    if (!self.agoraEnhancer) {
+        AgoraYuvEnhancerObjc *enhancer = [[AgoraYuvEnhancerObjc alloc] init];
+        [enhancer turnOn];
+        self.agoraEnhancer = enhancer;
+    }
 }
 
 //关闭美颜
-RCT_EXPORT_METHOD(closeBeautityFace) {
-    [self.agoraEnhancer turnOff];
+- (void)closeBeautityFace {
+    if (self.agoraEnhancer) {
+        [self.agoraEnhancer turnOff];
+        self.agoraEnhancer = nil;
+    }
 }
 
 /*
@@ -295,7 +306,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
  * 应用程序可以提示用户启动通话失败，并调用leaveChannel退出频道。
  */
 #pragma mark AgoraSDK
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode{
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onError";
     params[@"err"] = [NSNumber numberWithInteger:errorCode];;
@@ -457,9 +468,9 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 
 // 根据tag找到指定的view
 - (UIView *)getViewWithTag:(nonnull NSNumber *)reactTag {
-  UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
-  NSLog(@"%@",view);
-  return view;
+    UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
+    NSLog(@"%@",view);
+    return view;
 }
 
 #pragma mark - native to js event method
