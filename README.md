@@ -13,12 +13,8 @@
 ## 功能介绍
 
 - 支持 iOS、Android 声网Agora多人互动直播
-- 支持 Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜）
-
-## todo
-
-- Android 美颜、滤镜、贴纸 ...
-- 信令 功能
+- 支持 免费的基础美颜：美白、磨皮、红润等
+- 高级美颜功能，请自行接入Kiwi、Sentime、FaceU等服务商的SDK
 
 ## 安装使用
 
@@ -43,17 +39,18 @@ TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，选择
     
 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择
 
-    node_modules/react-native-agoraio/ios/RCTAgora/libs/libcrypto.a
-    node_modules/react-native-agoraio/ios/RCTAgora/libs/AgoraRtcCryptoLoader.framework
-    node_modules/react-native-agoraio/ios/RCTAgora/libs/AgoraRtcEngineKit.framework
+    node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/libcrypto.a
+    node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcCryptoLoader.framework
+    node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework
+    node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/videoprp.framework
     
 TARGETS->Build Settings->Search Paths->Framework Search Paths添加
 
-    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/libs"
+    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
     
 TARGETS->Build Settings->Search Paths->Library Search Paths添加
 
-    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/libs"
+    "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
     
 TARGETS->Build Settings->Enable Bitcode设置为No
 
@@ -177,6 +174,11 @@ RtcEngine.eventEmitter({
 </figure>
 
 ## 更新信息
+
+#### 2.0.0 
+
+ - andoid && iOS自带基础美颜功能
+ - android新增切换角色方法
 
 #### 1.10.12 
 
