@@ -83,6 +83,7 @@
     <orderEntry type="library" name="com.squareup.okhttp3:okhttp:3.6.0@jar" level="project" />
     <orderEntry type="library" name="com.facebook.fresco:fbcore-1.3.0" level="project" />
     <orderEntry type="library" name="com.facebook.fresco:drawee-1.3.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:/Users/apple/learnta/project/agora/RNAgoraExample.git/node_modules/react-native-agoraio/android/libs/videoprp.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-23.0.1" level="project" />
     <orderEntry type="library" name="javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" name="com.facebook.fbui.textlayoutbuilder:staticlayout-proxy:1.0@jar" level="project" />

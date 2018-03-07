@@ -13,6 +13,7 @@ import java.util.List;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
+import io.agora.videoprp.AgoraYuvEnhancer;
 
 /**
  * AgoraManager
@@ -27,6 +28,8 @@ public class AgoraManager {
     public static AgoraManager sAgoraManager;
 
     public RtcEngine mRtcEngine;
+
+    private AgoraYuvEnhancer yuvEnhancer;
 
     private Context context;
 
@@ -66,6 +69,8 @@ public class AgoraManager {
         mRtcEngine.enableWebSdkInteroperability(true);  //设置和web通信
         mRtcEngine.setChannelProfile(options.getInt("channelProfile")); //设置模式
         mRtcEngine.setClientRole(options.getInt("clientRole"), null); //设置角色
+        // 打开美颜
+        openBeautityFace();
     }
 
     /**
@@ -96,6 +101,26 @@ public class AgoraManager {
         return this;
     }
 
+    /**
+     * 打开美颜
+     */
+    private void openBeautityFace() {
+        if (null == yuvEnhancer) {
+            yuvEnhancer = new AgoraYuvEnhancer(context);
+            yuvEnhancer.StartPreProcess();
+        }
+    }
+
+    /**
+     * 关闭美颜
+     */
+    private void closeBeautityFace() {
+        if(null != yuvEnhancer) {
+            yuvEnhancer.StopPreProcess();
+            yuvEnhancer = null;
+        }
+    }
+
     public void startPreview() {
         mRtcEngine.startPreview();
     }
@@ -106,6 +131,8 @@ public class AgoraManager {
 
     public void leaveChannel() {
         mRtcEngine.leaveChannel();
+        // 关闭美颜
+        closeBeautityFace();
     }
 
     public void removeSurfaceView(int uid) {
@@ -128,4 +155,5 @@ public class AgoraManager {
     public SurfaceView getSurfaceView(int uid) {
         return mSurfaceViews.get(uid);
     }
+
 }
