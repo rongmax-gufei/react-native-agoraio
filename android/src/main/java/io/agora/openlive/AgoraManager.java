@@ -94,7 +94,7 @@ public class AgoraManager {
         mRtcEngine.setVideoProfile(videoProfile, swapWidthAndHeight); //视频配置，
         mRtcEngine.enableWebSdkInteroperability(true);  //设置和web通信
         mRtcEngine.setChannelProfile(channelProfile); //设置模式
-        mRtcEngine.setClientRole(role, null); //设置角色
+        mRtcEngine.setClientRole(role); //设置角色
 
         isBroadcaster = (role == AgoraRtcClientRole.Broadcaster.value);
 
@@ -173,7 +173,7 @@ public class AgoraManager {
     public void changeRole() {
         int role = this.isBroadcaster ? AgoraRtcClientRole.Audience.value : AgoraRtcClientRole.Broadcaster.value;
         this.isBroadcaster = (role == AgoraRtcClientRole.Broadcaster.value);
-        this.mRtcEngine.setClientRole(role, null); //设置角色
+        this.mRtcEngine.setClientRole(role); //设置角色
     }
 
     public void removeSurfaceView(int uid) {
