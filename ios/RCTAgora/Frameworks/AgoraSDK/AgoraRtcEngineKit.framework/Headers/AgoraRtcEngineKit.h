@@ -7,463 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
-
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-typedef UIView VIEW_CLASS;
-
-#elif TARGET_OS_MAC
-#import <AppKit/AppKit.h>
-typedef NSView VIEW_CLASS;
-
-#endif
-
-typedef NS_ENUM(NSInteger, AgoraRtcWarningCode) {
-    AgoraRtc_Warn_InvalidView = 8,
-    AgoraRtc_Warn_InitVideo = 16,
-    AgoraRtc_Warn_Pending = 20,
-    AgoraRtc_Warn_NoAvailableChannel = 103,
-    AgoraRtc_Warn_LookupChannelTimeout = 104,
-    AgoraRtc_Warn_LookupChannelRejected = 105,
-    AgoraRtc_Warn_OpenChannelTimeout = 106,
-    AgoraRtc_Warn_OpenChannelRejected = 107,
-    AgoraRtc_Warn_SwitchLiveVideoTimeout = 111,
-    // sdk:vos, callmanager, peermanager: 100~1000
-    AgoraRtc_Warn_SetClientRoleTimeout = 118,
-    AgoraRtc_Warn_SetClientRoleNotAuthorized = 119,
-    AgoraRtc_Warn_AudioMixingOpenError = 701,
-
-    AgoraRtc_Warn_Adm_RuntimePlayoutWarning = 1014,
-    AgoraRtc_Warn_Adm_RuntimeRecordingWarning = 1016,
-    AgoraRtc_Warn_Adm_RecordAudioSilence = 1019,
-    AgoraRtc_Warn_Adm_PlaybackMalfunction = 1020,
-    AgoraRtc_Warn_Adm_RecordMalfunction = 1021,
-    AgoraRtc_Warn_Adm_Interruption = 1025,
-    AgoraRtc_Warn_Apm_Howling = 1051,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcErrorCode) {
-    AgoraRtc_Error_NoError = 0,
-    AgoraRtc_Error_Failed = 1,
-    AgoraRtc_Error_InvalidArgument = 2,
-    AgoraRtc_Error_NotReady = 3,
-    AgoraRtc_Error_NotSupported = 4,
-    AgoraRtc_Error_Refused = 5,
-    AgoraRtc_Error_BufferTooSmall = 6,
-    AgoraRtc_Error_NotInitialized = 7,
-    AgoraRtc_Error_NoPermission = 9,
-    AgoraRtc_Error_TimedOut = 10,
-    AgoraRtc_Error_Canceled = 11,
-    AgoraRtc_Error_TooOften = 12,
-    AgoraRtc_Error_BindSocket = 13,
-    AgoraRtc_Error_NetDown = 14,
-    AgoraRtc_Error_NoBufs = 15,
-    AgoraRtc_Error_JoinChannelRejected = 17,
-    AgoraRtc_Error_LeaveChannelRejected = 18,
-    AgoraRtc_Error_AlreadyInUse = 19,
-
-    AgoraRtc_Error_InvalidAppId = 101,
-    AgoraRtc_Error_InvalidChannelName = 102,
-    AgoraRtc_Error_ChannelKeyExpired = 109,
-    AgoraRtc_Error_InvalidChannelKey = 110,
-    AgoraRtc_Error_ConnectionInterrupted = 111, // only used in web sdk
-    AgoraRtc_Error_ConnectionLost = 112, // only used in web sdk
-    AgoraRtc_Error_NotInChannel = 113,
-    AgoraRtc_Error_SizeTooLarge = 114,
-    AgoraRtc_Error_BitrateLimit = 115,
-    AgoraRtc_Error_TooManyDataStreams = 116,
-    AgoraRtc_Error_DecryptionFailed = 120,
-    
-    AgoraRtc_Error_LoadMediaEngine = 1001,
-    AgoraRtc_Error_StartCall = 1002,
-    AgoraRtc_Error_StartCamera = 1003,
-    AgoraRtc_Error_StartVideoRender = 1004,
-    AgoraRtc_Error_Adm_GeneralError = 1005,
-    AgoraRtc_Error_Adm_JavaResource = 1006,
-    AgoraRtc_Error_Adm_SampleRate = 1007,
-    AgoraRtc_Error_Adm_InitPlayout = 1008,
-    AgoraRtc_Error_Adm_StartPlayout = 1009,
-    AgoraRtc_Error_Adm_StopPlayout = 1010,
-    AgoraRtc_Error_Adm_InitRecording = 1011,
-    AgoraRtc_Error_Adm_StartRecording = 1012,
-    AgoraRtc_Error_Adm_StopRecording = 1013,
-    AgoraRtc_Error_Adm_RuntimePlayoutError = 1015,
-    AgoraRtc_Error_Adm_RuntimeRecordingError = 1017,
-    AgoraRtc_Error_Adm_RecordAudioFailed = 1018,
-    AgoraRtc_Error_Adm_Play_Abnormal_Frequency = 1020,
-    AgoraRtc_Error_Adm_Record_Abnormal_Frequency = 1021,
-    AgoraRtc_Error_Adm_Init_Loopback  = 1022,
-    AgoraRtc_Error_Adm_Start_Loopback = 1023,
-    // 1025, as warning for interruption of adm on ios
-    // 1026, as warning for route change of adm on ios
-    // VDM error code starts from 1500
-    AgoraRtc_Error_Vdm_Camera_Not_Authorized = 1501,
-
-    // VCM error code starts from 1600
-    AgoraRtc_Error_Vcm_Unknown_Error = 1600,
-    AgoraRtc_Error_Vcm_Encoder_Init_Error = 1601,
-    AgoraRtc_Error_Vcm_Encoder_Encode_Error = 1602,
-    AgoraRtc_Error_Vcm_Encoder_Set_Error = 1603,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcChannelProfile) {
-    AgoraRtc_ChannelProfile_Communication = 0,
-    AgoraRtc_ChannelProfile_LiveBroadcasting = 1,
-    AgoraRtc_ChannelProfile_Game = 2,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcClientRole) {
-	AgoraRtc_ClientRole_Broadcaster = 1,
-	AgoraRtc_ClientRole_Audience = 2,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcVideoProfile) {
-                                            // res       fps  kbps
-    AgoraRtc_VideoProfile_Invalid = -1,
-    AgoraRtc_VideoProfile_120P = 0,         // 160x120   15   65
-#if TARGET_OS_IPHONE
-	AgoraRtc_VideoProfile_120P_3 = 2,		// 120x120   15   50
-    AgoraRtc_VideoProfile_180P = 10,		// 320x180   15   140
-    AgoraRtc_VideoProfile_180P_3 = 12,		// 180x180   15   100
-    AgoraRtc_VideoProfile_180P_4 = 13,		// 240x180   15   120
-#endif
-    AgoraRtc_VideoProfile_240P = 20,		// 320x240   15   200
-#if TARGET_OS_IPHONE
-    AgoraRtc_VideoProfile_240P_3 = 22,		// 240x240   15   140
-    AgoraRtc_VideoProfile_240P_4 = 23,		// 424x240   15   220
-#endif
-    AgoraRtc_VideoProfile_360P = 30,		// 640x360   15   400
-#if TARGET_OS_IPHONE
-	AgoraRtc_VideoProfile_360P_3 = 32,		// 360x360   15   260
-#endif
-    AgoraRtc_VideoProfile_360P_4 = 33,		// 640x360   30   600
-    AgoraRtc_VideoProfile_360P_6 = 35,		// 360x360   30   400
-    AgoraRtc_VideoProfile_360P_7 = 36,		// 480x360   15   320
-    AgoraRtc_VideoProfile_360P_8 = 37,		// 480x360   30   490
-    AgoraRtc_VideoProfile_360P_9 = 38,      // 640x360   15   800
-    AgoraRtc_VideoProfile_360P_10 = 39,     // 640x360   24   800
-    AgoraRtc_VideoProfile_360P_11 = 100,    // 640x360   24   1000
-    AgoraRtc_VideoProfile_480P = 40,		// 640x480   15   500
-#if TARGET_OS_IPHONE
-	AgoraRtc_VideoProfile_480P_3 = 42,		// 480x480   15   400
-#endif
-    AgoraRtc_VideoProfile_480P_4 = 43,		// 640x480   30   750
-    AgoraRtc_VideoProfile_480P_6 = 45,		// 480x480   30   600
-    AgoraRtc_VideoProfile_480P_8 = 47,		// 848x480   15   610
-    AgoraRtc_VideoProfile_480P_9 = 48,		// 848x480   30   930
-    AgoraRtc_VideoProfile_480P_10 = 49,		// 640x480   10   400
-    AgoraRtc_VideoProfile_720P = 50,		// 1280x720  15   1130
-    AgoraRtc_VideoProfile_720P_3 = 52,		// 1280x720  30   1710
-    AgoraRtc_VideoProfile_720P_5 = 54,		// 960x720   15   910
-    AgoraRtc_VideoProfile_720P_6 = 55,		// 960x720   30   1380
-    AgoraRtc_VideoProfile_1080P = 60,		// 1920x1080 15   2080
-    AgoraRtc_VideoProfile_1080P_3 = 62,		// 1920x1080 30   3150
-    AgoraRtc_VideoProfile_1080P_5 = 64,		// 1920x1080 60   4780
-    AgoraRtc_VideoProfile_1440P = 66,		// 2560x1440 30   4850
-    AgoraRtc_VideoProfile_1440P_2 = 67,		// 2560x1440 60   7350
-    AgoraRtc_VideoProfile_4K = 70,			// 3840x2160 30   8190
-    AgoraRtc_VideoProfile_4K_3 = 72,		// 3840x2160 60   13500
-    AgoraRtc_VideoProfile_DEFAULT = AgoraRtc_VideoProfile_360P,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcAudioProfile) {
-                                                      // sample rate, bit rate, mono/stereo, speech/music codec
-    AgoraRtc_AudioProfile_Default = 0,                // use default settings
-    AgoraRtc_AudioProfile_SpeechStandard = 1,         // 32Khz, 18kbps, mono, speech
-    AgoraRtc_AudioProfile_MusicStandard = 2,          // 48Khz, 50kbps, mono, music
-    AgoraRtc_AudioProfile_MusicStandardStereo = 3,    // 48Khz, 50kbps, stereo, music
-    AgoraRtc_AudioProfile_MusicHighQuality = 4,       // 48Khz, 128kbps, mono, music
-    AgoraRtc_AudioProfile_MusicHighQualityStereo = 5, // 48Khz, 128kbps, stereo, music
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcAudioScenario) {
-    AgoraRtc_AudioScenario_Default = 0,
-    AgoraRtc_AudioScenario_ChatRoom = 1,
-    AgoraRtc_AudioScenario_Education = 2,
-    AgoraRtc_AudioScenario_GameStreaming = 3,
-    AgoraRtc_AudioScenario_ShowRoom = 4,
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcQuality) {
-    AgoraRtc_Quality_Unknown = 0,
-    AgoraRtc_Quality_Excellent = 1,
-    AgoraRtc_Quality_Good = 2,
-    AgoraRtc_Quality_Poor = 3,
-    AgoraRtc_Quality_Bad = 4,
-    AgoraRtc_Quality_VBad = 5,
-    AgoraRtc_Quality_Down = 6,
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcUserOfflineReason) {
-    AgoraRtc_UserOffline_Quit = 0,
-    AgoraRtc_UserOffline_Dropped = 1,
-    AgoraRtc_UserOffline_BecomeAudience = 2,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcVideoStreamType) {
-    AgoraRtc_VideoStream_High = 0,
-    AgoraRtc_VideoStream_Low = 1,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcAudioOutputRouting)
-{
-    AgoraRtc_AudioOutputRouting_Default = -1,
-    AgoraRtc_AudioOutputRouting_Headset = 0,
-    AgoraRtc_AudioOutputRouting_Earpiece = 1,
-    AgoraRtc_AudioOutputRouting_HeadsetNoMic = 2,
-    AgoraRtc_AudioOutputRouting_Speakerphone = 3,
-    AgoraRtc_AudioOutputRouting_Loudspeaker = 4,
-    AgoraRtc_AudioOutputRouting_HeadsetBluetooth = 5
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcAudioRecordingQuality) {
-    AgoraRtc_AudioRecordingQuality_Low = 0,
-    AgoraRtc_AudioRecordingQuality_Medium = 1,
-    AgoraRtc_AudioRecordingQuality_High = 2
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcLogFilter) {
-    AgoraRtc_LogFilter_Off = 0,
-    AgoraRtc_LogFilter_Debug = 0x080f,
-    AgoraRtc_LogFilter_Info = 0x000f,
-    AgoraRtc_LogFilter_Warn = 0x000e,
-    AgoraRtc_LogFilter_Error = 0x000c,
-    AgoraRtc_LogFilter_Critical = 0x0008,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtmpStreamLifeCycle) {
-    RtmpStream_LifeCycle_Bind2Channel = 1,
-    RtmpStream_LifeCycle_Bind2Ownner = 2,
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcRenderMode) {
-    /**
-     Hidden(1): If the video size is different than that of the display window, crops the borders of the video (if the video is bigger) or stretch the video (if the video is smaller) to fit it in the window.
-     */
-    AgoraRtc_Render_Hidden = 1,
-    
-    /**
-     AgoraRtc_Render_Fit(2): If the video size is different than that of the display window, resizes the video proportionally to fit the window.
-     */
-    AgoraRtc_Render_Fit = 2,
-    
-    /**
-     AgoraRtc_Render_Adaptive(3)：If both callers use the same screen orientation, i.e., both use vertical screens or both use horizontal screens, the AgoraRtc_Render_Hidden mode applies; if they use different screen orientations, i.e., one vertical and one horizontal, the AgoraRtc_Render_Fit mode applies.
-     */
-    AgoraRtc_Render_Adaptive = 3,
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcVideoMirrorMode) {
-    AgoraRtc_Video_Mirror_Auto = 0,
-    AgoraRtc_Video_Mirror_Enabled = 1,
-    AgoraRtc_Video_Mirror_Disabled = 2,
-};
-
-typedef NS_ENUM(NSUInteger, AgoraRtcQualityReportFormat) {
-    AgoraRtc_QualityReportFormat_Json = 0,
-    AgoraRtc_QualityReportFormat_Html = 1,
-};
-
-typedef NS_ENUM(NSInteger, AgoraRtcRawAudioFrameOpMode) {
-    AgoraRtc_RawAudioFrame_OpMode_ReadOnly = 0,
-    AgoraRtc_RawAudioFrame_OpMode_WriteOnly = 1,
-    AgoraRtc_RawAudioFrame_OpMode_ReadWrite = 2,
-};
-
-#if (!(TARGET_OS_IPHONE) && (TARGET_OS_MAC))
-typedef NS_ENUM(NSInteger, AgoraRtcDeviceType) {
-    AgoraRtc_DeviceType_Audio_Unknown = -1,
-    AgoraRtc_DeviceType_Audio_Recording = 0,
-    AgoraRtc_DeviceType_Audio_Playout = 1,
-    AgoraRtc_DeviceType_Video_Render = 2,
-    AgoraRtc_DeviceType_Video_Capture = 3,
-};
-
-__attribute__((visibility("default"))) @interface AgoraRtcDeviceInfo : NSObject
-@property (assign, nonatomic) int index;
-@property (assign, nonatomic) AgoraRtcDeviceType type;
-@property (copy, nonatomic) NSString * _Nullable deviceId;
-@property (copy, nonatomic) NSString * _Nullable deviceName;
-@end
-#endif
-
-__attribute__((visibility("default"))) @interface AgoraRtcVideoCanvas : NSObject
-/**
- *  The video display view. The SDK does not maintain the lifecycle of the view.
-    The view can be safely released after calling leaveChannel with a returned value. 
-    The SDK keeps a cache of the view value, so 'setupLocalVideo' to set the view value to nil could be able to clear cache before switching or releasing view.
- */
-@property (strong, nonatomic) VIEW_CLASS* _Nullable view;
-@property (assign, nonatomic) AgoraRtcRenderMode renderMode; // the render mode of view: hidden, fit and adaptive
-@property (assign, nonatomic) NSUInteger uid; // the user id of view
-@end
-
-/**
- * For AgoraVideoFrame: color format field
- */
-typedef NS_ENUM(NSUInteger, AgoraVideoFormat) {
-    AgoraRtc_FrameFormat_texture = 12,
-    AgoraRtc_FrameFormat_I420 = 1,
-    AgoraRtc_FrameFormat_RGBA = 4,
-    AgoraRtc_FrameFormat_IMC2 = 5,
-};
-
-__attribute__((visibility("default"))) @interface AgoraVideoFrame : NSObject
-@property (assign, nonatomic) NSInteger format; /* 10: android texture (GL_TEXTURE_2D)
-                                                 11: android texture (OES, typically from camera)
-                                                 12: ios texture (CVPixelBufferRef)
-                                                 1: I420
-                                                 2: BGRA
-                                                 3: NV21
-                                                 4: RGBA
-                                                 5: IMC2
-                                                 6: BGRA (same as 2)
-                                                 7: ARGB
-                                                 8: NV12
-                                                 */
-@property (assign, nonatomic) CMTime time; // time for this frame.
-@property (assign, nonatomic) int stride DEPRECATED_MSG_ATTRIBUTE("use strideInPixels instead");
-@property (assign, nonatomic) int strideInPixels; // how many pixels between 2 consecutive rows. Note: in pixel, not byte.
-                                                  // in case of ios texture, it is not used
-@property (assign, nonatomic) int height; // how many rows of pixels, in case of ios texture, it is not used
-
-@property (assign, nonatomic) CVPixelBufferRef _Nullable textureBuf;
-
-@property (strong, nonatomic) NSData * _Nullable dataBuf;  // raw data buffer. in case of ios texture, it is not used
-@property (assign, nonatomic) int cropLeft;   // how many pixels to crop on the left boundary
-@property (assign, nonatomic) int cropTop;    // how many pixels to crop on the top boundary
-@property (assign, nonatomic) int cropRight;  // how many pixels to crop on the right boundary
-@property (assign, nonatomic) int cropBottom; // how many pixels to crop on the bottom boundary
-@property (assign, nonatomic) int rotation;   // 0, 90, 180, 270. See document for rotation calculation
-/* Note
- * 1. strideInPixels
- *    Stride is in unit of pixel, not byte
- * 2. About frame width and height
- *    No field defined for width. However, it can be deduced by:
- *       croppedWidth = (strideInPixels - cropLeft - cropRight)
- *    And
- *       croppedHeight = (height - cropTop - cropBottom)
- * 3. About crop
- *    _________________________________________________________________.....
- *    |                        ^                                      |  ^
- *    |                        |                                      |  |
- *    |                     cropTop                                   |  |
- *    |                        |                                      |  |
- *    |                        v                                      |  |
- *    |                ________________________________               |  |
- *    |                |                              |               |  |
- *    |                |                              |               |  |
- *    |<-- cropLeft -->|          valid region        |<- cropRight ->|
- *    |                |                              |               | height
- *    |                |                              |               |
- *    |                |_____________________________ |               |  |
- *    |                        ^                                      |  |
- *    |                        |                                      |  |
- *    |                     cropBottom                                |  |
- *    |                        |                                      |  |
- *    |                        v                                      |  v
- *    _________________________________________________________________......
- *    |                                                               |
- *    |<---------------- strideInPixels ----------------------------->|
- *
- *    If your buffer contains garbage data, you can crop them. E.g. frame size is
- *    360 x 640, often the buffer stride is 368, i.e. there extra 8 pixels on the
- *    right are for padding, and should be removed. In this case, you can set:
- *    strideInPixels = 368;
- *    height = 640;
- *    cropRight = 8;
- *    // cropLeft, cropTop, cropBottom are default to 0
- */
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcStats : NSObject
-@property (assign, nonatomic) NSUInteger duration;
-@property (assign, nonatomic) NSUInteger txBytes;
-@property (assign, nonatomic) NSUInteger rxBytes;
-@property (assign, nonatomic) NSUInteger txAudioKBitrate;
-@property (assign, nonatomic) NSUInteger rxAudioKBitrate;
-@property (assign, nonatomic) NSUInteger txVideoKBitrate;
-@property (assign, nonatomic) NSUInteger rxVideoKBitrate;
-@property (assign, nonatomic) NSUInteger users;
-@property (assign, nonatomic) double cpuAppUsage;
-@property (assign, nonatomic) double cpuTotalUsage;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcLocalVideoStats : NSObject
-@property (assign, nonatomic) NSUInteger sentBitrate;
-@property (assign, nonatomic) NSUInteger sentFrameRate;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcRemoteVideoStats : NSObject
-@property (assign, nonatomic) NSUInteger uid;
-@property (assign, nonatomic) NSUInteger delay;
-@property (assign, nonatomic) NSUInteger width;
-@property (assign, nonatomic) NSUInteger height;
-@property (assign, nonatomic) NSUInteger receivedBitrate;
-@property (assign, nonatomic) NSUInteger receivedFrameRate;
-@property (assign, nonatomic) AgoraRtcVideoStreamType rxStreamType;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcAudioVolumeInfo : NSObject
-@property (assign, nonatomic) NSUInteger uid;
-@property (assign, nonatomic) NSUInteger volume;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcVideoCompositingRegion : NSObject
-@property (assign, nonatomic) NSUInteger uid;
-@property (assign, nonatomic) CGFloat x;
-@property (assign, nonatomic) CGFloat y;
-@property (assign, nonatomic) CGFloat width;
-@property (assign, nonatomic) CGFloat height;
-@property (assign, nonatomic) NSInteger zOrder; //optional, [0, 100] //0 (default): bottom most, 100: top most
-@property (assign, nonatomic) CGFloat alpha; //optional, [0, 1.0] where 0 denotes throughly transparent, 1.0 opaque
-@property (assign, nonatomic) AgoraRtcRenderMode renderMode;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraRtcVideoCompositingLayout : NSObject
-@property (assign, nonatomic) NSInteger canvasWidth;
-@property (assign, nonatomic) NSInteger canvasHeight;
-@property (copy, nonatomic) NSString * _Nullable backgroundColor;//e.g. "#c0c0c0"
-@property (copy, nonatomic) NSArray<AgoraRtcVideoCompositingRegion *> * _Nullable regions;
-@property (copy, nonatomic) NSString * _Nullable appData;//app defined data
-@end
-
-__attribute__((visibility("default"))) @interface AgoraPublisherConfiguration : NSObject
-@property (assign, nonatomic) BOOL owner;
-@property (assign, nonatomic) NSInteger width;
-@property (assign, nonatomic) NSInteger height;
-@property (assign, nonatomic) NSInteger framerate;
-@property (assign, nonatomic) NSInteger bitrate;
-@property (assign, nonatomic) NSInteger defaultLayout;
-@property (assign, nonatomic) AgoraRtmpStreamLifeCycle lifeCycle;
-@property (assign, nonatomic) NSInteger injectStreamWidth;
-@property (assign, nonatomic) NSInteger injectStreamHeight;
-@property (copy, nonatomic) NSString * _Nullable injectStreamUrl;
-@property (copy, nonatomic) NSString * _Nullable publishUrl;
-@property (copy, nonatomic) NSString * _Nullable rawStreamUrl;
-@property (copy, nonatomic) NSString * _Nullable extraInfo;
--(BOOL) validate;
-@end
-
-__attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBuilder : NSObject
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setOwner:(BOOL)isOwner;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setWidth:(NSInteger)width
-                                                   height:(NSInteger)height
-                                                framerate:(NSInteger)framerate
-                                                  bitrate:(NSInteger)bitrate;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setDefaultLayout:(NSInteger)layoutStyle;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setLifeCycle:(AgoraRtmpStreamLifeCycle)lifecycle;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setPublisherUrl:(NSString * _Nullable)url;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setRawStreamUrl:(NSString * _Nullable)url;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)setExtraInfo:(NSString * _Nullable)info;
-- (AgoraPublisherConfigurationBuilder * _Nonnull)injectStream:(NSString * _Nullable)url
-                                                        width:(NSInteger)width
-                                                       height:(NSInteger)height;
-- (AgoraPublisherConfiguration * _Nonnull) build;
-@end
+#import "AgoraObjects.h"
+#import "AgoraMediaIO.h"
 
 @class AgoraRtcEngineKit;
+
 @protocol AgoraRtcEngineDelegate <NSObject>
 @optional
 #pragma mark SDK common delegates
@@ -473,7 +21,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine      The engine kit
  *  @param warningCode The warning code
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraRtcWarningCode)warningCode;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode;
 
 /**
  *  The error occurred in SDK. The SDK couldn't resume to normal state, and the app need to handle it.
@@ -481,7 +29,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine    The engine kit
  *  @param errorCode The error code
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraRtcErrorCode)errorCode;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraErrorCode)errorCode;
 
 /**
  *  Event of load media engine success
@@ -498,13 +46,13 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
 - (void)rtcEngineMediaEngineDidStartCall:(AgoraRtcEngineKit * _Nonnull)engine;
 
 /**
- * when channel key is enabled, and specified channel key is invalid or expired, this function will be called.
- * APP should generate a new channel key and call renewChannelKey() to refresh the key.
- * NOTE: to be compatible with previous version, ERR_CHANNEL_KEY_EXPIRED and ERR_INVALID_CHANNEL_KEY are also reported via onError() callback.
- * You should move renew of channel key logic into this callback.
+ * when token is enabled, and specified token is invalid or expired, this function will be called.
+ * APP should generate a new token and call renewToken() to refresh the token.
+ * NOTE: to be compatible with previous version, ERR_TOKEN_EXPIRED and ERR_INVALID_TOKEN are also reported via onError() callback.
+ * You should move renew of token logic into this callback.
  *  @param engine The engine kit
  */
-- (void)rtcEngineRequestChannelKey:(AgoraRtcEngineKit * _Nonnull)engine;
+- (void)rtcEngineRequestToken:(AgoraRtcEngineKit * _Nonnull)engine;
 
 /**
  *  Event of disconnected with server. This event is reported at the moment SDK loses connection with server.
@@ -534,7 +82,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine The engine kit
  *  @param stats  The statistics of rtc status, including duration, sent bytes and received bytes
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine reportRtcStats:(AgoraRtcStats * _Nonnull)stats;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine reportRtcStats:(AgoraChannelStats * _Nonnull)stats;
 
 /**
  *  The network quality of lastmile test.
@@ -542,7 +90,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine  The engine kit
  *  @param quality The network quality
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine lastmileQuality:(AgoraRtcQuality)quality;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine lastmileQuality:(AgoraNetworkQuality)quality;
 
 /**
  *  Event of API call executed
@@ -551,7 +99,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param api    The API description
  *  @param error  The error code
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didApiCallExecute:(NSString * _Nonnull)api error:(NSInteger)error;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didApiCallExecute:(NSInteger)error api:(NSString * _Nonnull)api result:(NSString * _Nonnull)result;
 
 /**
  *  This callback returns the status code after executing the refreshRecordingServiceStatus method successfully.
@@ -570,7 +118,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param deviceType type of device: -1: audio unknown; 0: audio recording ; 1: audio playout ; 2: render; 4: capture
  *  @param state      state of device: 0: added; 1: removed
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine device:(NSString * _Nonnull) deviceId type:(AgoraRtcDeviceType) deviceType stateChanged:(NSInteger) state;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine device:(NSString * _Nonnull) deviceId type:(AgoraMediaDeviceType) deviceType stateChanged:(NSInteger) state;
 
 #endif
 
@@ -602,7 +150,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param oldRole the previous role
  *  @param newRole the new role
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didClientRoleChanged:(AgoraRtcClientRole)oldRole newRole:(AgoraRtcClientRole)newRole;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didClientRoleChanged:(AgoraClientRole)oldRole newRole:(AgoraClientRole)newRole;
 
 /**
  *  The statistics of the call when leave channel
@@ -610,7 +158,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine The engine kit
  *  @param stats  The statistics of the call, including duration, sent bytes and received bytes
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didLeaveChannelWithStats:(AgoraRtcStats * _Nonnull)stats;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didLeaveChannelWithStats:(AgoraChannelStats * _Nonnull)stats;
 
 /**
  *  The network quality of local user.
@@ -620,7 +168,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param txQuality The sending network quality
  *  @param rxQuality The receiving network quality
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine networkQuality:(NSUInteger)uid txQuality:(AgoraRtcQuality)txQuality rxQuality:(AgoraRtcQuality)rxQuality;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine networkQuality:(NSUInteger)uid txQuality:(AgoraNetworkQuality)txQuality rxQuality:(AgoraNetworkQuality)rxQuality;
 
 #pragma mark Local user audio delegates
 /**
@@ -637,7 +185,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine The engine kit
  *  @param routing the current audio output routing
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didAudioRouteChanged:(AgoraRtcAudioOutputRouting)routing;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didAudioRouteChanged:(AgoraAudioOutputRouting)routing;
 
 /**
  *  Event of finish audio mixing.
@@ -661,6 +209,16 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param engine The engine kit
  */
 - (void)rtcEngineCameraDidReady:(AgoraRtcEngineKit * _Nonnull)engine;
+
+#if TARGET_OS_IPHONE
+/**
+ *  Event of camera focus position changed
+ *
+ *  @param engine The engine kit
+ *  @param rect   The focus rect in local preview
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine cameraFocusDidChangedToRect:(CGRect)rect;
+#endif
 
 /**
  *  Event of camera stopped
@@ -703,7 +261,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param uid    The remote user id
  *  @param reason Reason of user offline, quit, drop or became audience
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraUserOfflineReason)reason;
 
 /**
  *  receive custom data from remote user
@@ -786,7 +344,7 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param delay   The delay from the remote user
  *  @param lost    The percentage of lost packets
  */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine audioQualityOfUid:(NSUInteger)uid quality:(AgoraRtcQuality)quality delay:(NSUInteger)delay lost:(NSUInteger)lost;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine audioQualityOfUid:(NSUInteger)uid quality:(AgoraNetworkQuality)quality delay:(NSUInteger)delay lost:(NSUInteger)lost;
 
 #pragma mark Remote user video delegates
 /**
@@ -853,7 +411,22 @@ __attribute__((visibility("default"))) @interface AgoraPublisherConfigurationBui
  *  @param stats             The statistics of remote video, including user id, delay, resolution, received bitrate, received framerate, video stream type
  */
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine remoteVideoStats:(AgoraRtcRemoteVideoStats * _Nonnull)stats;
+
+
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine streamPublishedWithUrl:(NSString * _Nonnull)url errorCode:(AgoraErrorCode)errorCode;
+
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine streamUnpublishedWithUrl:(NSString * _Nonnull)url;
+
+- (void)rtcEngineTranscodingUpdated:(AgoraRtcEngineKit * _Nonnull)engine;
+
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine publishingRequestReceivedFromUid:(NSUInteger)uid;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine publishingRequestAnsweredByOwner:(NSUInteger)uid accepted:(BOOL)accepted error:(AgoraErrorCode)error;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine unpublishingRequestReceivedFromOwner:(NSUInteger)uid;
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine streamInjectedStatusOfUrl:(NSString * _Nonnull)url uid:(NSUInteger)uid status:(AgoraInjectStreamStatus)status;
+
 @end
+
+#pragma mark - AgoraRtcEngineKit
 
 __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
 /**
@@ -875,7 +448,7 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
 /**
  *  deprecated
  */
-+ (instancetype _Nonnull)sharedEngineWithAppId:(NSString * _Nonnull)AppId error:(void(^ _Nullable)(AgoraRtcErrorCode errorCode))errorBlock __deprecated;
++ (instancetype _Nonnull)sharedEngineWithAppId:(NSString * _Nonnull)AppId error:(void(^ _Nullable)(AgoraErrorCode errorCode))errorBlock __deprecated;
 
 + (void)destroy;
 
@@ -901,12 +474,12 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
 #pragma mark Common methods
 /**
  *  Create an open UDP socket to the AgoraRtcEngineKit cloud service to join a channel.
-    Users in the same channel can talk to each other with same vendor key.
-    Users using different vendor keys cannot call each other.
+    Users in the same channel can talk to each other with same appId.
+    Users using different appIds cannot call each other.
     The method is asynchronous.
  *
- *  @param channelKey        Channel key generated by APP using sign certificate.
- *  @param channelName       Joining in the same channel indicates those clients have entered in one room.
+ *  @param token        token generated by APP using sign certificate.
+ *  @param channelId       Joining in the same channel indicates those clients have entered in one room.
  *  @param info              Optional, this argument can be whatever the programmer likes personally.
  *  @param uid               Optional, this argument is the unique ID for each member in one channel.
                              If not specified, or set to 0, the SDK automatically allocates an ID, and the id could be gotten in onJoinChannelSuccess.
@@ -914,8 +487,8 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
  *
  *  @return 0 when executed successfully, and return negative value when failed.
  */
-- (int)joinChannelByKey:(NSString * _Nullable)channelKey
-            channelName:(NSString * _Nonnull)channelName
+- (int)joinChannelByToken:(NSString * _Nullable)token
+            channelId:(NSString * _Nonnull)channelId
                    info:(NSString * _Nullable)info
                     uid:(NSUInteger)uid
             joinSuccess:(void(^ _Nullable)(NSString * _Nonnull channel, NSUInteger uid, NSInteger elapsed))joinSuccessBlock;
@@ -928,7 +501,7 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
  *
  *  @return 0 if executed successfully, or return negative value if failed.
  */
-- (int)leaveChannel:(void(^ _Nullable)(AgoraRtcStats * _Nonnull stat))leaveChannelBlock;
+- (int)leaveChannel:(void(^ _Nullable)(AgoraChannelStats * _Nonnull stat))leaveChannelBlock;
 
 /**
  *  Set the channel profile: such as communication, live broadcasting
@@ -937,27 +510,38 @@ __attribute__((visibility("default"))) @interface AgoraRtcEngineKit : NSObject
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setChannelProfile:(AgoraRtcChannelProfile)profile;
+- (int)setChannelProfile:(AgoraChannelProfile)profile;
 
 /**
  *  Set the role of user: such as broadcaster, audience
  *
  *  @param role the role of client
- *  @param permissionKey the permission key of role change
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setClientRole:(AgoraRtcClientRole)role
-             withKey:(NSString * _Nullable)permissionKey;
+- (int)setClientRole:(AgoraClientRole)role;
+
+- (int)addPublishStreamUrl:(NSString * _Nonnull)url transcodingEnabled:(BOOL) transcodingEnabled;
+
+- (int)removePublishStreamUrl:(NSString * _Nonnull)url;
+
+- (int)setLiveTranscoding:(AgoraLiveTranscoding *_Nullable) transcoding;
+
+- (int)sendPublishingRequestToOwner:(NSUInteger) uid;
+- (int)answerPublishingRequestOfUid:(NSUInteger) uid accepted:(bool)accepted;
+- (int)sendUnpublishingRequestToUid:(NSUInteger) uid;
+- (int)addInjectStreamUrl:(NSString * _Nonnull) url config:(AgoraLiveInjectStreamConfig * _Nonnull)config;
+- (int)removeInjectStreamUrl:(NSString * _Nonnull) url;
+
 
 /**
- *  Renew channel key, refresh the new key into agora engine. APP should call this API when SDK reports error ERR_CHANNEL_KEY_EXPIRED.
+ *  Renew token, refresh the new key into agora engine. APP should call this API when SDK reports error ERR_TOKEN_EXPIRED.
  *
- *  @param channelKey new channel key
+ *  @param token new token
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)renewChannelKey:(NSString * _Nonnull)channelKey;
+- (int)renewToken:(NSString * _Nonnull)token;
 
 - (int)enableWebSdkInteroperability:(BOOL)enabled;
 
@@ -1076,8 +660,14 @@ description:(NSString * _Nullable)description;
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setVideoProfile:(AgoraRtcVideoProfile)profile
+- (int)setVideoProfile:(AgoraVideoProfile)profile
     swapWidthAndHeight:(BOOL)swapWidthAndHeight;
+
+- (int)setVideoResolution: (CGSize)size andFrameRate: (NSInteger)frameRate bitrate: (NSInteger) bitrate;
+
+- (int)enableLocalVideoCapture: (bool)enabled;
+- (int)enableLocalVideoRender: (bool)enabled;
+- (int)enableLocalVideoSend: (bool)enabled;
 
 - (int)setVideoQualityParameters:(BOOL)preferFrameRateOverImageQuality;
 
@@ -1093,20 +683,20 @@ description:(NSString * _Nullable)description;
 /**
  *  Configure display setting of local view. And it could be called mutiple times during a call.
  *
- *  @param mode There are Hidden(1), Fit(2) and Adaptive(3) mode. Please take a look at definition of enum AgoraRtcRenderMode
+ *  @param mode There are Hidden(1), Fit(2) and Adaptive(3) mode. Please take a look at definition of enum AgoraVideoRenderMode
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setLocalRenderMode:(AgoraRtcRenderMode) mode;
+- (int)setLocalRenderMode:(AgoraVideoRenderMode) mode;
 
 /**
  *  Configure setting of local video mirror. And it should be set before open of preview.
  *  If the setting is after the open of preview, it needs reopen the preview to make the setting take effect.
- *  @param mode There are Default(0), Enabled(1) and Disabled(2) mode. Please take a look at definition of enum AgoraRtcVideoMirrorMode
+ *  @param mode There are Default(0), Enabled(1) and Disabled(2) mode. Please take a look at definition of enum AgoraVideoMirrorMode
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setLocalVideoMirrorMode:(AgoraRtcVideoMirrorMode) mode;
+- (int)setLocalVideoMirrorMode:(AgoraVideoMirrorMode) mode;
 
 /**
  *  start local video preview, while not sending data to server
@@ -1142,12 +732,12 @@ description:(NSString * _Nullable)description;
  *  Configure display setting of remote view. And it could be called mutiple times during a call.
  *
  *  @param uid  The user id of remote view.
- *  @param mode There are Hidden(1), Fit(2) and Adaptive(3) mode. Please take a look at definition of enum AgoraRtcRenderMode
+ *  @param mode There are Hidden(1), Fit(2) and Adaptive(3) mode. Please take a look at definition of enum AgoraVideoRenderMode
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
 - (int)setRemoteRenderMode:(NSUInteger)uid
-                      mode:(AgoraRtcRenderMode) mode;
+                      mode:(AgoraVideoRenderMode) mode;
 
 /**
  *  Enable / disable sending local video streams to the network.
@@ -1166,6 +756,15 @@ description:(NSString * _Nullable)description;
  *  @return 0 when executed successfully. return negative value if failed.
  */
 - (int)muteAllRemoteVideoStreams:(BOOL)mute;
+
+/**
+ *  Default enables / disables playing all remote callers’ video streams.
+ *
+ *  @param mute YES: default not playing, NO: default playing.
+ *
+ *  @return 0 when executed successfully. return negative value if failed.
+ */
+- (int)setDefaultMuteAllRemoteVideoStreams:(BOOL)mute;
 
 /**
  *  Enable / disable a remote user's video stream
@@ -1193,8 +792,8 @@ description:(NSString * _Nullable)description;
 #pragma mark Video dual stream
 - (int)enableDualStreamMode:(BOOL)enabled;
 - (int)setRemoteVideoStream:(NSUInteger)uid
-                       type:(AgoraRtcVideoStreamType)streamType;
-- (int)setRemoteDefaultVideoStreamType:(AgoraRtcVideoStreamType)streamType;
+                       type:(AgoraVideoStreamType)streamType;
+- (int)setRemoteDefaultVideoStreamType:(AgoraVideoStreamType)streamType;
 
 #if TARGET_OS_IPHONE
 #pragma mark Video camera control
@@ -1272,8 +871,8 @@ description:(NSString * _Nullable)description;
  *
  *  @return 0 when executed successfully. return negative value if failed.
  */
-- (int)setAudioProfile:(AgoraRtcAudioProfile)profile
-              scenario:(AgoraRtcAudioScenario)scenario;
+- (int)setAudioProfile:(AgoraAudioProfile)profile
+              scenario:(AgoraAudioScenario)scenario;
 
 /**
  *  deprecated, use setAudioProfile:scenario: insted
@@ -1342,6 +941,15 @@ description:(NSString * _Nullable)description;
  */
 - (int)muteAllRemoteAudioStreams:(BOOL)mute;
 
+/**
+ *  Default Mutes / Unmutes all remote audio.
+ *
+ *  @param mute true: default Mutes all remote received audio. false: default Unmutes all remote received audio.
+ *
+ *  @return 0 when executed successfully. return negative value if failed.
+ */
+- (int)setDefaultMuteAllRemoteAudioStreams:(BOOL)mute;
+
 #if TARGET_OS_IPHONE
 - (int)enableInEarMonitoring:(BOOL)enabled;
 /**
@@ -1361,7 +969,11 @@ description:(NSString * _Nullable)description;
  *
  * @return return 0 if success or an error code
  */
-- (int)setLocalVoicePitch:(double) pitch;
+- (int)setLocalVoicePitch:(double)pitch;
+
+- (int)setLocalVoiceEqualizationOfBandFrequency:(AgoraAudioEqualizationBandFrequency)bandFrequency withGain:(NSInteger)gain;
+
+- (int)setLocalVoiceReverbOfType:(AgoraAudioReverbType)reverbType withValue:(NSInteger)value;
 
 #pragma mark Audio mixing
 - (int)startAudioMixing:(NSString *  _Nonnull)filePath
@@ -1407,7 +1019,7 @@ description:(NSString * _Nullable)description;
  *  @return 0 when executed successfully. return negative value if failed.
  */
 - (int)startAudioRecording:(NSString * _Nonnull)filePath
-                   quality:(AgoraRtcAudioRecordingQuality)quality;
+                   quality:(AgoraAudioRecordingQuality)quality;
 
 /**
  *  Stop conversation recording
@@ -1434,6 +1046,16 @@ description:(NSString * _Nullable)description;
  */
 - (int)stopEchoTest;
 
+#pragma mark Media Source
+- (void)setVideoSource:(id<AgoraVideoSourceProtocol> _Nullable)videoSource;
+- (id<AgoraVideoSourceProtocol> _Nullable)videoSource;
+
+- (void)setLocalVideoRenderer:(id<AgoraVideoSinkProtocol> _Nullable)videoRenderer;
+- (id<AgoraVideoSinkProtocol> _Nullable)localVideoRenderer;
+
+- (void)setRemoteVideoRenderer:(id<AgoraVideoSinkProtocol> _Nullable)videoRenderer forUserId:(NSUInteger)userId;
+- (id<AgoraVideoSinkProtocol> _Nullable)remoteVideoRendererOfUserId:(NSUInteger)userId;
+
 #pragma mark External media source
 // If external video source is to use, call this API before enableVideo/startPreview
 - (void)setExternalVideoSource:(BOOL)enable useTexture:(BOOL)useTexture pushMode:(BOOL)pushMode;
@@ -1450,11 +1072,11 @@ description:(NSString * _Nullable)description;
 
 - (int)setRecordingAudioFrameParametersWithSampleRate:(NSInteger)sampleRate
                                               channel:(NSInteger)channel
-                                                 mode:(AgoraRtcRawAudioFrameOpMode)mode
+                                                 mode:(AgoraAudioRawFrameOperationMode)mode
                                        samplesPerCall:(NSInteger)samplesPerCall;
 - (int)setPlaybackAudioFrameParametersWithSampleRate:(NSInteger)sampleRate
                                              channel:(NSInteger)channel
-                                                mode:(AgoraRtcRawAudioFrameOpMode)mode
+                                                mode:(AgoraAudioRawFrameOperationMode)mode
                                       samplesPerCall:(NSInteger)samplesPerCall;
 - (int)setMixedAudioFrameParametersWithSampleRate:(NSInteger)sampleRate
                                    samplesPerCall:(NSInteger)samplesPerCall;
@@ -1498,7 +1120,8 @@ description:(NSString * _Nullable)description;
  *  @return 0 when executed successfully. return negative value if failed.
  */
 - (int)startScreenCapture:(NSUInteger)windowId
-          withCaptureFreq:(int)captureFreq
+          withCaptureFreq:(NSInteger)captureFreq
+                  bitRate:(NSInteger)bitRate
                   andRect:(CGRect)rect;
 
 /**
@@ -1517,11 +1140,11 @@ description:(NSString * _Nullable)description;
 
 #pragma mark Device test
 - (void)monitorDeviceChange:(BOOL)enabled;
-- (NSArray<AgoraRtcDeviceInfo *> * _Nullable)enumerateDevices:(AgoraRtcDeviceType)type;
-- (NSString * _Nullable)getDeviceId:(AgoraRtcDeviceType)type;
-- (int)setDevice:(AgoraRtcDeviceType)type deviceId:(NSString * _Nonnull)deviceId;
-- (int)getDeviceVolume:(AgoraRtcDeviceType)type;
-- (int)setDeviceVolume:(AgoraRtcDeviceType)type volume:(int)volume;
+- (NSArray<AgoraRtcDeviceInfo *> * _Nullable)enumerateDevices:(AgoraMediaDeviceType)type;
+- (NSString * _Nullable)getDeviceId:(AgoraMediaDeviceType)type;
+- (int)setDevice:(AgoraMediaDeviceType)type deviceId:(NSString * _Nonnull)deviceId;
+- (int)getDeviceVolume:(AgoraMediaDeviceType)type;
+- (int)setDeviceVolume:(AgoraMediaDeviceType)type volume:(int)volume;
 
 - (int)startRecordingDeviceTest:(int)indicationInterval;
 - (int)stopRecordingDeviceTest;
@@ -1552,10 +1175,10 @@ description:(NSString * _Nullable)description;
 - (void)cameraReadyBlock:(void(^ _Nullable)())cameraReadyBlock __deprecated;
 - (void)connectionLostBlock:(void(^ _Nullable)())connectionLostBlock __deprecated;
 - (void)rejoinChannelSuccessBlock:(void(^ _Nullable)(NSString * _Nonnull channel, NSUInteger uid, NSInteger elapsed))rejoinChannelSuccessBlock __deprecated;
-- (void)rtcStatsBlock:(void(^ _Nullable)(AgoraRtcStats * _Nonnull stat))rtcStatsBlock __deprecated;
-- (void)leaveChannelBlock:(void(^ _Nullable)(AgoraRtcStats * _Nonnull stat))leaveChannelBlock __deprecated;
-- (void)audioQualityBlock:(void(^ _Nullable)(NSUInteger uid, AgoraRtcQuality quality, NSUInteger delay, NSUInteger lost))audioQualityBlock __deprecated;
-- (void)networkQualityBlock:(void(^ _Nullable)(NSUInteger uid, AgoraRtcQuality txQuality, AgoraRtcQuality rxQuality))networkQualityBlock __deprecated;
-- (void)lastmileQualityBlock:(void(^ _Nullable)(AgoraRtcQuality quality))lastmileQualityBlock __deprecated;
+- (void)rtcStatsBlock:(void(^ _Nullable)(AgoraChannelStats * _Nonnull stat))rtcStatsBlock __deprecated;
+- (void)leaveChannelBlock:(void(^ _Nullable)(AgoraChannelStats * _Nonnull stat))leaveChannelBlock __deprecated;
+- (void)audioQualityBlock:(void(^ _Nullable)(NSUInteger uid, AgoraNetworkQuality quality, NSUInteger delay, NSUInteger lost))audioQualityBlock __deprecated;
+- (void)networkQualityBlock:(void(^ _Nullable)(NSUInteger uid, AgoraNetworkQuality txQuality, AgoraNetworkQuality rxQuality))networkQualityBlock __deprecated;
+- (void)lastmileQualityBlock:(void(^ _Nullable)(AgoraNetworkQuality quality))lastmileQualityBlock __deprecated;
 - (void)mediaEngineEventBlock:(void(^ _Nullable)(NSInteger code))mediaEngineEventBlock __deprecated;
 @end
