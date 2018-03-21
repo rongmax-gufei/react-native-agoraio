@@ -52,14 +52,14 @@ RCT_EXPORT_MODULE();
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
   
-    NSString *appid                        = options[@"appid"];
-    AgoraRtcChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
-    AgoraRtcVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
-    BOOL swapWidthAndHeight                = [options[@"swapWidthAndHeight"] boolValue];
-    AgoraRtcClientRole role                = [options[@"clientRole"] integerValue];
+    NSString *appid                     = options[@"appid"];
+    AgoraChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
+    AgoraVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
+    BOOL swapWidthAndHeight             = [options[@"swapWidthAndHeight"] boolValue];
+    AgoraClientRole role                = [options[@"clientRole"] integerValue];
     
     [AgoraConst share].appid = appid;
-    self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
+    self.isBroadcaster = (role == AgoraClientRoleBroadcaster);
     
     // 初始化RtcEngineKit
     self.rtcEngine = [AgoraRtcEngineKit sharedEngineWithAppId:appid delegate:self];
@@ -71,7 +71,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     [self.rtcEngine enableDualStreamMode:YES];
     [self.rtcEngine enableVideo];
     [self.rtcEngine setVideoProfile:videoProfile swapWidthAndHeight:swapWidthAndHeight];
-    [self.rtcEngine setClientRole:role withKey:nil];
+    [self.rtcEngine setClientRole:role];
     
     //Agora Native SDK 与 Agora Web SDK 间的互通
     [self.rtcEngine enableWebSdkInteroperability:YES];
@@ -83,7 +83,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
 RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
     //保存一下uid 在自定义视图使用
     [AgoraConst share].localUid = uid;
-    [self.rtcEngine joinChannelByKey:nil channelName:channelName info:nil uid:uid joinSuccess:NULL];
+    [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:NULL];
 }
 
 //离开频道
@@ -91,7 +91,7 @@ RCT_EXPORT_METHOD(leaveChannel) {
     // 本地视频释放
     [self.rtcEngine setupLocalVideo:nil];
     // 退出频道
-    [self.rtcEngine leaveChannel:^(AgoraRtcStats *stat) {
+    [self.rtcEngine leaveChannel:^(AgoraChannelStats * _Nonnull stat) {
         NSMutableDictionary *params = @{}.mutableCopy;
         params[@"type"] = @"onLeaveChannel";
         [self sendEvent:params];
@@ -113,11 +113,11 @@ RCT_EXPORT_METHOD(destroy) {
 
 //切换角色
 RCT_EXPORT_METHOD(changeRole) {
-    AgoraRtcClientRole role = self.isBroadcaster ? AgoraRtc_ClientRole_Audience : AgoraRtc_ClientRole_Broadcaster;
-    self.isBroadcaster = (role == AgoraRtc_ClientRole_Broadcaster);
-    [self.rtcEngine setClientRole:role withKey:nil];
+    AgoraClientRole role = self.isBroadcaster ? AgoraClientRoleAudience : AgoraClientRoleBroadcaster;
+    self.isBroadcaster = (role == AgoraClientRoleBroadcaster);
+    [self.rtcEngine setClientRole:role];
 }
-
+;
 /**
  *  设置 本地 视频显示属性
  *
@@ -307,7 +307,8 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
  * 应用程序可以提示用户启动通话失败，并调用leaveChannel退出频道。
  */
 #pragma mark AgoraSDK
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurError:(AgoraRtcErrorCode)errorCode {
+
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraErrorCode)errorCode {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onError";
     params[@"err"] = [NSNumber numberWithInteger:errorCode];;
@@ -318,7 +319,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 /*
  * 警告
  */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOccurWarning:(AgoraRtcWarningCode)warningCode {
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onWarning";
     params[@"err"] = [NSNumber numberWithInteger:warningCode];;
@@ -411,7 +412,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
  * SDK 判断用户离开频道（或掉线）的依据是超时: 在一定时间内（15 秒）没有收到对方的任何数据包，判定为对方掉线。
  * 在网络较差的情况下，可能会有误报。建议可靠的掉线检测应该由信令来做。
  */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraRtcUserOfflineReason)reason {
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraUserOfflineReason)reason {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[@"type"] = @"onUserOffline";
     params[@"uid"] = [NSNumber numberWithInteger:uid];

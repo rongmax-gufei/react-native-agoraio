@@ -25,7 +25,7 @@
         AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
         canvas.uid = [AgoraConst share].localUid;
         canvas.view = self;
-        canvas.renderMode = AgoraRtc_Render_Hidden;
+        canvas.renderMode = AgoraVideoRenderModeHidden;
         [_rtcEngine setupLocalVideo:canvas];
     }
     [AgoraVideoManager share].avRootView = self;
@@ -36,7 +36,7 @@
         AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
         canvas.uid = remoteUid;
         canvas.view = self;
-        canvas.renderMode = AgoraRtc_Render_Hidden;
+        canvas.renderMode = AgoraVideoRenderModeHidden;
         [_rtcEngine setupRemoteVideo:canvas];
     }
 }
