@@ -1,50 +1,22 @@
 {
-  "_args": [
-    [
-      "react-native-agoraio@1.10.17",
-      "/Users/apple/learnta/project/agora/RNAgoraExample.git"
-    ]
-  ],
-  "_from": "react-native-agoraio@1.10.17",
-  "_id": "react-native-agoraio@1.10.17",
-  "_inBundle": false,
-  "_integrity": "sha512-VRepBHvTpB3L9xV0FmKihb+csoD5swFVxFa/slvW6DBydcPr8gRlMY/sJg8DDXhl/ihBdviXGM2ZYZO5iMiYbw==",
-  "_location": "/react-native-agoraio",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "react-native-agoraio@1.10.17",
-    "name": "react-native-agoraio",
-    "escapedName": "react-native-agoraio",
-    "rawSpec": "1.10.17",
-    "saveSpec": null,
-    "fetchSpec": "1.10.17"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/react-native-agoraio/-/react-native-agoraio-1.10.17.tgz",
-  "_spec": "1.10.17",
-  "_where": "/Users/apple/learnta/project/agora/RNAgoraExample.git",
-  "author": {
-    "name": "gufei"
-  },
-  "bugs": {
-    "url": "https://github.com/midas-gufei/react-native-agora/issues"
-  },
-  "description": "声网Agora OpenLive",
-  "homepage": "https://github.com/midas-gufei/react-native-agora#readme",
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
   "name": "react-native-agoraio",
+  "version": "2.1.7",
+  "description": "声网Agora OpenLive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/midas-gufei/react-native-agora.git"
   },
-  "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  "keywords": [
+    ""
+  ],
+  "author": "gufei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midas-gufei/react-native-agora/issues"
   },
-  "version": "2.1.7"
+  "homepage": "https://github.com/midas-gufei/react-native-agora#readme"
 }
