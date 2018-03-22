@@ -21,5 +21,4 @@ android {
 dependencies {
     compile "com.facebook.react:react-native:+"
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'io.agora.rtc:full-sdk:2.1.0'
 }
