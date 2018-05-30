@@ -111,8 +111,8 @@ Add following to `AndroidManifest.xml`
 | startRecordingService (iOS only) | string: recordingKey                     | 启动服务端录制服务                             |
 | stopRecordingService (iOS only)  | string: recordingKey                     | 停止服务端录制服务                             |
 | getSdkVersion                    | callback                                 | 获取版本号                                 |
-| openMask                         |                                          | 打开贴纸，可设置瘦脸、大眼、美颜、人脸捕捉特效 |
-| openFilter                       |                                          | 打开滤镜                                 |
+| openBeautityFace                 |                                          | 打开美颜 |
+| closeBeautityFace                |                                          | 关闭美颜                                 |
 
 ##### 原生通知事件
 
