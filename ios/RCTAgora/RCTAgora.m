@@ -45,10 +45,6 @@ RCT_EXPORT_MODULE();
  *  @param channelProfile  设置频道模式
  *  @param videoProfile    视频模式
  *  @param clientRole      创建角色
- *  @param channelName     频道名称
- *  @param info            附加字段
- *  @param reactTag        绑定view的tag
- *  @return 0 when executed successfully. return negative value if failed.
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
   
@@ -75,8 +71,6 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     
     //Agora Native SDK 与 Agora Web SDK 间的互通
     [self.rtcEngine enableWebSdkInteroperability:YES];
-    // 打开美颜
-    [self openBeautityFace];
 }
 
 //加入房间
@@ -285,7 +279,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 
 #pragma mask BeautityFace EXPORT_METHODS
 //打开美颜
-- (void)openBeautityFace {
+RCT_EXPORT_METHOD(openBeautityFace) {
     if (!self.agoraEnhancer) {
         AgoraYuvEnhancerObjc *enhancer = [[AgoraYuvEnhancerObjc alloc] init];
         [enhancer turnOn];
@@ -294,7 +288,7 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
 }
 
 //关闭美颜
-- (void)closeBeautityFace {
+RCT_EXPORT_METHOD(closeBeautityFace) {
     if (self.agoraEnhancer) {
         [self.agoraEnhancer turnOff];
         self.agoraEnhancer = nil;

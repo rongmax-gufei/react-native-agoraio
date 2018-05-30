@@ -2,8 +2,8 @@
 //  UIUtils.h
 //  RNAgoraExample
 //
-//  Created by Apple on 2018/2/2.
-//  Copyright © 2018年 Facebook. All rights reserved.
+//  Created by Learnta on 2018/2/2.
+//  Copyright © 2018年 Learnta. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -2,8 +2,8 @@
 //  BundleTools.m
 //  RCTAgora
 //
-//  Created by Apple on 2018/2/9.
-//  Copyright © 2018年 Syan. All rights reserved.
+//  Created by Learnta on 2018/2/9.
+//  Copyright © 2018年 Learnta. All rights reserved.
 //
 
 #import "BundleTools.h"
