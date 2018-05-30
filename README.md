@@ -15,6 +15,7 @@
 - 支持 iOS、Android 声网Agora多人互动直播
 - 支持 免费的基础美颜：美白、磨皮、红润等
 - 高级美颜功能，请自行接入Kiwi、Sentime、FaceU等服务商的SDK
+- 由于github受限上传大小，请自行官网更新 AgoraRtcEngineKit.framework、AgoraRtcCryptoLoader.framework、libcrypto.a
 
 ## 安装使用
 
@@ -36,7 +37,7 @@ TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，选择
     CoreMotion.framework
     CoreMedia.framework
     CoreTelephony.framework
-    
+
 TARGETS->Build Phases-> Link Binary With Libaries中点击“+”按钮，在弹出的窗口中点击“Add Other”按钮，选择
 ```
 node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/libcrypto.a
@@ -47,11 +48,11 @@ node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK/videoprp.fram
 TARGETS->Build Settings->Search Paths->Framework Search Paths添加
 ```
 "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
-```    
+```
 TARGETS->Build Settings->Search Paths->Library Search Paths添加
 ```
 "$(SRCROOT)/../node_modules/react-native-agoraio/ios/RCTAgora/Frameworks/AgoraSDK"
-```   
+```
 TARGETS->Build Settings->Enable Bitcode设置为No
 
 TARGETS->Capabilities->Background Modes->Modes勾选Audio,AirPlay,and Picture In Picture
@@ -173,16 +174,41 @@ RtcEngine.eventEmitter({
 
 ## 更新信息
 
+#### 2.2.0 版：发布于 2018 年 5 月 4 日
+
+ - 为更好地提升用户体验，Agora SDK 在 2.1 版本中对动态秘钥进行了升级。 如果你当前使用的 SDK 是 2.1 之前的版本，并希望升级到 2.1 或更高版本，请务必参考 动态秘钥升级说明 。
+
+ - 新增功能
+
+ - 1. 音效混响进频道
+ - 2. 服务端部署代理服务器
+ - 3. 获取远端视频状态
+ - 4. 直播添加视频水印
+
+ - 改进功能
+
+ - 1. 当前说话者音量提示
+ - 2. 频道内网络质量监测
+ - 3. 进入频道前网络条件监测
+ - 4. 提升音乐场景下的音质
+ - 5. 支持 Bitcode
+
+ - 问题修复
+
+ - 修复了某些 iOS 设备横屏时，偶现的其他用户看 iOS 设备画面异常的问题
+ - 修复了大量用户同时直播连麦时，偶发的抖屏现象
+ - 修复了某些 iOS 设备导致频道内其他端的回音问题
+
 #### 2.1.1 版 : 发布于 2018 年 3 月 16 日
 
  - 请正在或已集成 2.1 SDK 的客户尽快升级更新！ 本次发版修复了一个的系统风险，请尽快升级以免对服务造成影响。
 
-#### 2.0.0 
+#### 2.0.0
 
  - andoid && iOS自带基础美颜功能
  - android新增切换角色方法
 
-#### 1.10.12 
+#### 1.10.12
 
  - 集成Kiwi人脸跟踪及特效（贴纸、美颜、滤镜、哈哈镜） - iOS版
  - 新增切换角色方法
