@@ -199,17 +199,17 @@ RCT_EXPORT_METHOD(startBroadcasting){
     
     if (@available(iOS 11.0, *)) {
         [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
-            self.broadcastActivityVC = broadcastActivityViewController;
             self.broadcastActivityVC.delegate = self;
             [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
+            self.broadcastActivityVC = broadcastActivityViewController;
         }];
     } else {
         // Fallback on earlier versions
         [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
             [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
-                self.broadcastActivityVC = broadcastActivityViewController;
                 self.broadcastActivityVC.delegate = self;
                 [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
+                self.broadcastActivityVC = broadcastActivityViewController;
             }];
         }];
     };

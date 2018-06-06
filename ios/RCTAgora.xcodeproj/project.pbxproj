@@ -16,12 +16,12 @@
 		182D00F3202457F50051054A /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */; };
 		182D0147202457F50051054A /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EA202457F50051054A /* RCTAgoraVideoView.m */; };
 		182D0148202457F50051054A /* RCTAgoraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EB202457F50051054A /* RCTAgoraViewManager.m */; };
+		184B1A9A20C8305200C2049D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184B1A9720C82E3200C2049D /* MainInterface.storyboard */; };
 		184CACEA20C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
 		184CACEE20C7F1B500093E3E /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 184CACED20C7F1B500093E3E /* SampleHandler.m */; };
 		184CACF520C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
 		184CACF720C7F1B500093E3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACF620C7F1B500093E3E /* UIKit.framework */; };
 		184CACFB20C7F1B500093E3E /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */; };
-		184CAD1020C7F66600093E3E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184CAD0F20C7F66600093E3E /* MainInterface.storyboard */; };
 		184CAD1420C8003D00093E3E /* AgoraAudioProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184CAD1220C8003D00093E3E /* AgoraAudioProcessing.mm */; };
 		185EA38F204EA81900301DBB /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185EA38E204EA81800301DBB /* videoprp.framework */; };
 		18855D8E202D953A0081BAF4 /* BundleTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855D8D202D953A0081BAF4 /* BundleTools.m */; };
@@ -55,6 +55,7 @@
 		182DFEDF202457F40051054A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		182DFEE0202457F40051054A /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
 		182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		184B1A9820C82E3200C2049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		184CACE720C7F1B500093E3E /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		184CACE920C7F1B500093E3E /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		184CACEC20C7F1B500093E3E /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		184CACF920C7F1B500093E3E /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
 		184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
 		184CACFC20C7F1B500093E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184CAD0F20C7F66600093E3E /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		184CAD1120C8003D00093E3E /* AgoraAudioCriticalSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioCriticalSection.h; sourceTree = "<group>"; };
 		184CAD1220C8003D00093E3E /* AgoraAudioProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AgoraAudioProcessing.mm; sourceTree = "<group>"; };
 		184CAD1320C8003D00093E3E /* AgoraAudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioProcessing.h; sourceTree = "<group>"; };
@@ -181,9 +181,9 @@
 		184CACF820C7F1B500093E3E /* BroadcastSetupUI */ = {
 			isa = PBXGroup;
 			children = (
+				184B1A9720C82E3200C2049D /* MainInterface.storyboard */,
 				184CACF920C7F1B500093E3E /* BroadcastSetupViewController.h */,
 				184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */,
-				184CAD0F20C7F66600093E3E /* MainInterface.storyboard */,
 				184CACFC20C7F1B500093E3E /* Info.plist */,
 			);
 			path = BroadcastSetupUI;
@@ -296,6 +296,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 23AF28131EEFECD800D771AB;
 			productRefGroup = 23AF281D1EEFECD800D771AB /* Products */;
@@ -321,7 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184CAD1020C7F66600093E3E /* MainInterface.storyboard in Resources */,
+				184B1A9A20C8305200C2049D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +361,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		184B1A9720C82E3200C2049D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				184B1A9820C82E3200C2049D /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		184CACFD20C7F1B500093E3E /* Debug */ = {
