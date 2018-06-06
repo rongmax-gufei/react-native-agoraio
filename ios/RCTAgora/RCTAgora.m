@@ -23,7 +23,7 @@
 #import "BundleTools.h"
 #import "UIUtils.h"
 
-@interface RCTAgora ()<AgoraRtcEngineDelegate, RPBroadcastActivityViewControllerDelegate>
+@interface RCTAgora ()<AgoraRtcEngineDelegate, RPBroadcastActivityViewControllerDelegate, RPBroadcastControllerDelegate>
 
 @property(nonatomic, strong) AgoraRtcEngineKit *rtcEngine;
 @property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
@@ -197,30 +197,32 @@ RCT_EXPORT_METHOD(startBroadcasting){
     NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
     NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
     
-    if (@available(iOS 11.0, *)) {
-        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
-            self.broadcastActivityVC.delegate = self;
-            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
-            self.broadcastActivityVC = broadcastActivityViewController;
-        }];
-    } else {
+//    if (@available(iOS 11.0, *)) {
+//        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+//            broadcastActivityViewController.delegate = self;
+//            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
+//            self.broadcastActivityVC = broadcastActivityViewController;
+//        }];
+//    } else {
         // Fallback on earlier versions
         [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
             [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
-                self.broadcastActivityVC.delegate = self;
-                [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
-                self.broadcastActivityVC = broadcastActivityViewController;
+                broadcastActivityViewController.delegate = self;
+                [[UIUtils currentViewController]  presentViewController:broadcastActivityViewController animated:YES completion:^{
+                    
+                }];
+//                self.broadcastActivityVC = broadcastActivityViewController;
             }];
         }];
-    };
+//    };
 }
 
 //关闭屏幕共享
 RCT_EXPORT_METHOD(stopBroadcasting){
-    [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
-        
-    }];
-    [self.cameraPreview removeFromSuperview];
+//    [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
+//
+//    }];
+//    [self.cameraPreview removeFromSuperview];
 }
 
 //关闭视频预览
@@ -330,26 +332,52 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     }
 }
 
-#pragma mark - RPBroadcastActivityViewControllerDelegate
-
+#pragma delegate
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^(){
-        [weakSelf.broadcastActivityVC dismissViewControllerAnimated:YES completion:nil];
-        weakSelf.broadcastController = broadcastController;
-        [broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
-            if (!error) {
-                //            if let cameraPreview = RPScreenRecorder.shared().cameraPreviewView {
-                //                                            cameraPreview.frame = CGRect(x: 8, y: 28, width: 120, height: 180)
-                //                                            self.view.addSubview(cameraPreview)
-                //                                            self.cameraPreview = cameraPreview
-                //                                        }
-            } else {
-                NSLog(@"startBroadcastWithHandler error: %@", error);
-            }
+    
+    _broadcastController = broadcastController;
+    
+    _broadcastController.delegate = self;
+    
+    [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
+        
+        [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
+            
+            NSLog(@"error %@", error);
+            //NSLog(@"serviceInfo %@", _broadcastController.serviceInfo);
+            
         }];
-    });
+    }];
 }
+
+- (void)broadcastController:(RPBroadcastController *)broadcastController
+         didFinishWithError:(NSError * __nullable)error {
+    NSLog(@"didFinishWithError %@", error);
+}
+
+- (void)broadcastController:(RPBroadcastController *)broadcastController
+       didUpdateServiceInfo:(NSDictionary <NSString *, NSObject <NSCoding> *> *)serviceInfo {
+    NSLog(@"didUpdateServiceInfo %@", serviceInfo);
+}
+
+//- (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^(){
+//        [weakSelf.broadcastActivityVC dismissViewControllerAnimated:YES completion:nil];
+//        weakSelf.broadcastController = broadcastController;
+//        [broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
+//            if (!error) {
+//                //            if let cameraPreview = RPScreenRecorder.shared().cameraPreviewView {
+//                //                                            cameraPreview.frame = CGRect(x: 8, y: 28, width: 120, height: 180)
+//                //                                            self.view.addSubview(cameraPreview)
+//                //                                            self.cameraPreview = cameraPreview
+//                //                                        }
+//            } else {
+//                NSLog(@"startBroadcastWithHandler error: %@", error);
+//            }
+//        }];
+//    });
+//}
 
 /*
  * 该回调方法表示SDK运行时出现了（网络或媒体相关的）错误。通常情况下，SDK上报的错误意味着SDK无法自动恢复，需要应用程序干预或提示用户。

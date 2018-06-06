@@ -11,7 +11,7 @@
 @implementation BroadcastSetupViewController
 
 - (IBAction)doStartBoardcastPressed:(id)sender {
-    [self userStartBroadcastWithChannel:self.channelTextField.text withUserId:self.userIDTextField.text];
+    [self userDidFinishSetup];
 }
 
 - (IBAction)doCancelPressed:(id)sender {
@@ -19,16 +19,29 @@
 }
 
 // Call this method when the user has finished interacting with the view controller and a broadcast stream can start
-- (void)userStartBroadcastWithChannel:(NSString *)channel withUserId:(NSString *)userId {
+- (void)userDidFinishSetup {
 
+    NSString *channel = self.channelTextField.text;
+    NSString *userId = self.userIDTextField.text;
+    
     // URL of the resource where broadcast can be viewed that will be returned to the application
     NSURL *broadcastURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://vid-130451.hls.fastweb.broadcastapp.agoraio.cn/live/%@/index.m3u8", channel]];
 
     // Dictionary with setup information that will be provided to broadcast extension when broadcast is started
-    NSDictionary *setupInfo = @{ @"channelName" : channel };
+    NSDictionary *setupInfo = @{ @"channelName" : channel, @"userId" : userId };
 
     // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
-    [self.extensionContext completeRequestWithBroadcastURL:broadcastURL setupInfo:setupInfo];
+    if (@available(iOS 11.0, *)) {
+        [self.extensionContext completeRequestWithBroadcastURL:broadcastURL setupInfo:setupInfo];
+    } else {
+        // Fallback on earlier versions
+        // Set broadcast settings
+        RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];
+        broadcastConfig.clipDuration = 1.0; // deliver movie clips every 5 seconds
+        
+        // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
+        [self.extensionContext completeRequestWithBroadcastURL:broadcastURL broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
+    }
 }
 
 - (void)userDidCancelSetup {
@@ -37,7 +50,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self userStartBroadcastWithChannel:self.channelTextField.text withUserId:self.userIDTextField.text];
+    [self userDidFinishSetup];
     return YES;
 }
 
