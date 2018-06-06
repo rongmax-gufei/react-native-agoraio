@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/ALAssetsLibrary.h>
+#import <ReplayKit/ReplayKit.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTBridge.h>
 #import <React/RCTUIManager.h>
@@ -19,16 +20,17 @@
 #import <videoprp/AgoraYuvEnhancerObjc.h>
 
 #import "AgoraConst.h"
-#import "UIUtils.h"
 #import "BundleTools.h"
+#import "UIUtils.h"
 
-@interface RCTAgora ()<AgoraRtcEngineDelegate>
+@interface RCTAgora ()<AgoraRtcEngineDelegate, RPBroadcastActivityViewControllerDelegate>
 
-@property(strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
-
-@property(nonatomic, assign) BOOL isBroadcaster;
-
+@property(nonatomic, strong) AgoraRtcEngineKit *rtcEngine;
 @property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
+@property(nonatomic, weak) RPBroadcastActivityViewController *broadcastActivityVC;
+@property(nonatomic, weak) RPBroadcastController *broadcastController;
+@property(nonatomic, weak) UIView *cameraPreview;
+@property(nonatomic, assign) BOOL isBroadcaster;
 
 @end
 
@@ -183,9 +185,43 @@ RCT_EXPORT_METHOD(enableAudioVolumeIndication:(NSUInteger)interval smooth:(NSUIn
 }
 
 //开启屏幕共享
-//RCT_EXPORT_METHOD(startScreenCapture:(NSUInteger)windowId){
-//
-//}
+RCT_EXPORT_METHOD(startBroadcasting){
+    if (![RPScreenRecorder sharedRecorder].isAvailable) {
+        return;
+    }
+    
+    [[RPScreenRecorder sharedRecorder] setCameraEnabled:YES];
+    [[RPScreenRecorder sharedRecorder] setMicrophoneEnabled:YES];
+    
+    // Broadcast Pairing
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
+    
+    if (@available(iOS 11.0, *)) {
+        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+            self.broadcastActivityVC = broadcastActivityViewController;
+            self.broadcastActivityVC.delegate = self;
+            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
+        }];
+    } else {
+        // Fallback on earlier versions
+        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+            [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+                self.broadcastActivityVC = broadcastActivityViewController;
+                self.broadcastActivityVC.delegate = self;
+                [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
+            }];
+        }];
+    };
+}
+
+//关闭屏幕共享
+RCT_EXPORT_METHOD(stopBroadcasting){
+    [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
+        
+    }];
+    [self.cameraPreview removeFromSuperview];
+}
 
 //关闭视频预览
 RCT_EXPORT_METHOD(stopPreview) {
@@ -277,7 +313,6 @@ RCT_EXPORT_METHOD(getSdkVersion:(RCTResponseSenderBlock)callback) {
     callback(@[[AgoraRtcEngineKit getSdkVersion]]);
 }
 
-#pragma mask BeautityFace EXPORT_METHODS
 //打开美颜
 RCT_EXPORT_METHOD(openBeautityFace) {
     if (!self.agoraEnhancer) {
@@ -293,6 +328,27 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
         [self.agoraEnhancer turnOff];
         self.agoraEnhancer = nil;
     }
+}
+
+#pragma mark - RPBroadcastActivityViewControllerDelegate
+
+- (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [weakSelf.broadcastActivityVC dismissViewControllerAnimated:YES completion:nil];
+        weakSelf.broadcastController = broadcastController;
+        [broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
+            if (!error) {
+                //            if let cameraPreview = RPScreenRecorder.shared().cameraPreviewView {
+                //                                            cameraPreview.frame = CGRect(x: 8, y: 28, width: 120, height: 180)
+                //                                            self.view.addSubview(cameraPreview)
+                //                                            self.cameraPreview = cameraPreview
+                //                                        }
+            } else {
+                NSLog(@"startBroadcastWithHandler error: %@", error);
+            }
+        }];
+    });
 }
 
 /*
