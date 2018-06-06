@@ -16,7 +16,7 @@
 		182D00F3202457F50051054A /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */; };
 		182D0147202457F50051054A /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EA202457F50051054A /* RCTAgoraVideoView.m */; };
 		182D0148202457F50051054A /* RCTAgoraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EB202457F50051054A /* RCTAgoraViewManager.m */; };
-		184B1A9A20C8305200C2049D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184B1A9720C82E3200C2049D /* MainInterface.storyboard */; };
+		184B1A9D20C831B900C2049D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184B1A9B20C831B800C2049D /* MainInterface.storyboard */; };
 		184CACEA20C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
 		184CACEE20C7F1B500093E3E /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 184CACED20C7F1B500093E3E /* SampleHandler.m */; };
 		184CACF520C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
@@ -55,7 +55,7 @@
 		182DFEDF202457F40051054A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		182DFEE0202457F40051054A /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
 		182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
-		184B1A9820C82E3200C2049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		184B1A9C20C831B800C2049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		184CACE720C7F1B500093E3E /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		184CACE920C7F1B500093E3E /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		184CACEC20C7F1B500093E3E /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		184CACF820C7F1B500093E3E /* BroadcastSetupUI */ = {
 			isa = PBXGroup;
 			children = (
-				184B1A9720C82E3200C2049D /* MainInterface.storyboard */,
+				184B1A9B20C831B800C2049D /* MainInterface.storyboard */,
 				184CACF920C7F1B500093E3E /* BroadcastSetupViewController.h */,
 				184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */,
 				184CACFC20C7F1B500093E3E /* Info.plist */,
@@ -322,7 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184B1A9A20C8305200C2049D /* MainInterface.storyboard in Resources */,
+				184B1A9D20C831B900C2049D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +363,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		184B1A9720C82E3200C2049D /* MainInterface.storyboard */ = {
+		184B1A9B20C831B800C2049D /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				184B1A9820C82E3200C2049D /* Base */,
+				184B1A9C20C831B800C2049D /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
