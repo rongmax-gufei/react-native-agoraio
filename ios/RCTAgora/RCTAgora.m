@@ -27,7 +27,6 @@
 
 @property(nonatomic, strong) AgoraRtcEngineKit *rtcEngine;
 @property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
-@property(nonatomic, weak) RPBroadcastActivityViewController *broadcastActivityVC;
 @property(nonatomic, weak) RPBroadcastController *broadcastController;
 @property(nonatomic, weak) UIView *cameraPreview;
 @property(nonatomic, assign) BOOL isBroadcaster;
@@ -194,14 +193,15 @@ RCT_EXPORT_METHOD(startBroadcasting){
     [[RPScreenRecorder sharedRecorder] setMicrophoneEnabled:YES];
     
     // Broadcast Pairing
-    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-    NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
+//    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+//    NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
     
 //    if (@available(iOS 11.0, *)) {
 //        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
 //            broadcastActivityViewController.delegate = self;
-//            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:nil];
-//            self.broadcastActivityVC = broadcastActivityViewController;
+//            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:^{
+//
+//            }];
 //        }];
 //    } else {
         // Fallback on earlier versions
@@ -211,7 +211,6 @@ RCT_EXPORT_METHOD(startBroadcasting){
                 [[UIUtils currentViewController]  presentViewController:broadcastActivityViewController animated:YES completion:^{
                     
                 }];
-//                self.broadcastActivityVC = broadcastActivityViewController;
             }];
         }];
 //    };
@@ -336,16 +335,12 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     
     _broadcastController = broadcastController;
-    
     _broadcastController.delegate = self;
     
     [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
-        
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
-            
             NSLog(@"error %@", error);
-            //NSLog(@"serviceInfo %@", _broadcastController.serviceInfo);
-            
+            NSLog(@"serviceInfo %@", _broadcastController.serviceInfo);
         }];
     }];
 }
@@ -359,25 +354,6 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
        didUpdateServiceInfo:(NSDictionary <NSString *, NSObject <NSCoding> *> *)serviceInfo {
     NSLog(@"didUpdateServiceInfo %@", serviceInfo);
 }
-
-//- (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
-//    __weak typeof(self) weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^(){
-//        [weakSelf.broadcastActivityVC dismissViewControllerAnimated:YES completion:nil];
-//        weakSelf.broadcastController = broadcastController;
-//        [broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
-//            if (!error) {
-//                //            if let cameraPreview = RPScreenRecorder.shared().cameraPreviewView {
-//                //                                            cameraPreview.frame = CGRect(x: 8, y: 28, width: 120, height: 180)
-//                //                                            self.view.addSubview(cameraPreview)
-//                //                                            self.cameraPreview = cameraPreview
-//                //                                        }
-//            } else {
-//                NSLog(@"startBroadcastWithHandler error: %@", error);
-//            }
-//        }];
-//    });
-//}
 
 /*
  * 该回调方法表示SDK运行时出现了（网络或媒体相关的）错误。通常情况下，SDK上报的错误意味着SDK无法自动恢复，需要应用程序干预或提示用户。
