@@ -11,7 +11,14 @@ import ReplayKit
 class SampleHandler: RPBroadcastSampleHandler {
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
-        // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional. 
+        // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
+        if let setupInfo = setupInfo, let channel = setupInfo["channelName"] as? String, let uid = setupInfo["uid"] as? String {
+            //In-App Screen Capture
+            AgoraUploader.startBroadcast(to: channel, uid: uid)
+        } else {
+            //iOS Screen Record and Broadcast
+            AgoraUploader.startBroadcast(to: "channel", uid: "0")
+        }
     }
     
     override func broadcastPaused() {
@@ -24,19 +31,22 @@ class SampleHandler: RPBroadcastSampleHandler {
     
     override func broadcastFinished() {
         // User has requested to finish the broadcast.
+        AgoraUploader.stopBroadcast()
     }
     
     override func processSampleBuffer(_ sampleBuffer: CMSampleBuffer, with sampleBufferType: RPSampleBufferType) {
-        switch sampleBufferType {
+        DispatchQueue.main.async {
+            switch sampleBufferType {
             case RPSampleBufferType.video:
-                // Handle video sample buffer
+                AgoraUploader.sendVideoBuffer(sampleBuffer)
                 break
             case RPSampleBufferType.audioApp:
-                // Handle audio sample buffer for app audio
+                AgoraUploader.sendAudioAppBuffer(sampleBuffer)
                 break
             case RPSampleBufferType.audioMic:
-                // Handle audio sample buffer for mic audio
+                AgoraUploader.sendAudioMicBuffer(sampleBuffer)
                 break
+            }
         }
     }
 }
