@@ -582,20 +582,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 342K4Q49RK;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK";
 				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/GPUImage",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/Tracker",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK/GPUImage",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK/Tracker",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,20 +599,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 342K4Q49RK;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK";
 				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/GPUImage",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK/Tracker",
-					"$(PROJECT_DIR)/RCTAgora/KiwiFaceSDK",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK/GPUImage",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK/Tracker",
-					"$(PROJECT_DIR)/RCTAgora/Frameworks/KiwiFaceSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
