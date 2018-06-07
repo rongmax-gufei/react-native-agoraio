@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182CB00920C8CE7B00F9FF50 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
+		182CB00C20C8CE7B00F9FF50 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */; };
+		182CB01320C8CE7C00F9FF50 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
+		182CB01420C8CE7C00F9FF50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACF620C7F1B500093E3E /* UIKit.framework */; };
+		182CB01720C8CE7C00F9FF50 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */; };
+		182CB03920C8D1EA00F9FF50 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182CB03720C8D1EA00F9FF50 /* MainInterface.storyboard */; };
 		182D00EC202457F50051054A /* AgoraConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED5202457F40051054A /* AgoraConst.m */; };
 		182D00ED202457F50051054A /* AgoraVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED6202457F40051054A /* AgoraVideoManager.m */; };
 		182D00EE202457F50051054A /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED9202457F40051054A /* UIUtils.m */; };
@@ -16,13 +22,6 @@
 		182D00F3202457F50051054A /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */; };
 		182D0147202457F50051054A /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EA202457F50051054A /* RCTAgoraVideoView.m */; };
 		182D0148202457F50051054A /* RCTAgoraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EB202457F50051054A /* RCTAgoraViewManager.m */; };
-		184B1A9D20C831B900C2049D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184B1A9B20C831B800C2049D /* MainInterface.storyboard */; };
-		184CACEA20C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
-		184CACEE20C7F1B500093E3E /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 184CACED20C7F1B500093E3E /* SampleHandler.m */; };
-		184CACF520C7F1B500093E3E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
-		184CACF720C7F1B500093E3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACF620C7F1B500093E3E /* UIKit.framework */; };
-		184CACFB20C7F1B500093E3E /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */; };
-		184CAD1420C8003D00093E3E /* AgoraAudioProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 184CAD1220C8003D00093E3E /* AgoraAudioProcessing.mm */; };
 		185EA38F204EA81900301DBB /* videoprp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185EA38E204EA81800301DBB /* videoprp.framework */; };
 		18855D8E202D953A0081BAF4 /* BundleTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855D8D202D953A0081BAF4 /* BundleTools.m */; };
 /* End PBXBuildFile section */
@@ -40,6 +39,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		182CB00820C8CE7B00F9FF50 /* Boardcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Boardcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		182CB00D20C8CE7B00F9FF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182CB01220C8CE7B00F9FF50 /* BoardcastSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoardcastSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
+		182CB01820C8CE7C00F9FF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182CB03820C8D1EA00F9FF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		182D00EA202457F50051054A /* RCTAgoraVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraVideoView.m; sourceTree = "<group>"; };
 		182D00EB202457F50051054A /* RCTAgoraViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraViewManager.m; sourceTree = "<group>"; };
 		182DFED0202457F40051054A /* RCTAgora.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgora.h; sourceTree = "<group>"; };
@@ -55,20 +61,8 @@
 		182DFEDF202457F40051054A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		182DFEE0202457F40051054A /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
 		182DFEE1202457F40051054A /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
-		184B1A9C20C831B800C2049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		184CACE720C7F1B500093E3E /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		184CACE920C7F1B500093E3E /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		184CACEC20C7F1B500093E3E /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
-		184CACED20C7F1B500093E3E /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
-		184CACEF20C7F1B500093E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184CACF420C7F1B500093E3E /* BroadcastSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BroadcastSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		184CACF620C7F1B500093E3E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		184CACF920C7F1B500093E3E /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
-		184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
-		184CACFC20C7F1B500093E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184CAD1120C8003D00093E3E /* AgoraAudioCriticalSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioCriticalSection.h; sourceTree = "<group>"; };
-		184CAD1220C8003D00093E3E /* AgoraAudioProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AgoraAudioProcessing.mm; sourceTree = "<group>"; };
-		184CAD1320C8003D00093E3E /* AgoraAudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioProcessing.h; sourceTree = "<group>"; };
 		185EA38E204EA81800301DBB /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = videoprp.framework; sourceTree = "<group>"; };
 		18855D8C202D953A0081BAF4 /* BundleTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleTools.h; sourceTree = "<group>"; };
 		18855D8D202D953A0081BAF4 /* BundleTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleTools.m; sourceTree = "<group>"; };
@@ -76,20 +70,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		184CACE420C7F1B500093E3E /* Frameworks */ = {
+		182CB00520C8CE7B00F9FF50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184CACEA20C7F1B500093E3E /* ReplayKit.framework in Frameworks */,
+				182CB00920C8CE7B00F9FF50 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		184CACF120C7F1B500093E3E /* Frameworks */ = {
+		182CB00F20C8CE7B00F9FF50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184CACF520C7F1B500093E3E /* ReplayKit.framework in Frameworks */,
-				184CACF720C7F1B500093E3E /* UIKit.framework in Frameworks */,
+				182CB01320C8CE7C00F9FF50 /* ReplayKit.framework in Frameworks */,
+				182CB01420C8CE7C00F9FF50 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +101,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182CB00A20C8CE7B00F9FF50 /* Boardcast */ = {
+			isa = PBXGroup;
+			children = (
+				182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */,
+				182CB00D20C8CE7B00F9FF50 /* Info.plist */,
+			);
+			path = Boardcast;
+			sourceTree = "<group>";
+		};
+		182CB01520C8CE7C00F9FF50 /* BoardcastSetupUI */ = {
+			isa = PBXGroup;
+			children = (
+				182CB03720C8D1EA00F9FF50 /* MainInterface.storyboard */,
+				182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */,
+				182CB01820C8CE7C00F9FF50 /* Info.plist */,
+			);
+			path = BoardcastSetupUI;
+			sourceTree = "<group>";
+		};
 		182DFECF202457F40051054A /* RCTAgora */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,36 +178,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		184CACEB20C7F1B500093E3E /* Broadcast */ = {
-			isa = PBXGroup;
-			children = (
-				184CAD1120C8003D00093E3E /* AgoraAudioCriticalSection.h */,
-				184CAD1320C8003D00093E3E /* AgoraAudioProcessing.h */,
-				184CAD1220C8003D00093E3E /* AgoraAudioProcessing.mm */,
-				184CACEC20C7F1B500093E3E /* SampleHandler.h */,
-				184CACED20C7F1B500093E3E /* SampleHandler.m */,
-				184CACEF20C7F1B500093E3E /* Info.plist */,
-			);
-			path = Broadcast;
-			sourceTree = "<group>";
-		};
-		184CACF820C7F1B500093E3E /* BroadcastSetupUI */ = {
-			isa = PBXGroup;
-			children = (
-				184B1A9B20C831B800C2049D /* MainInterface.storyboard */,
-				184CACF920C7F1B500093E3E /* BroadcastSetupViewController.h */,
-				184CACFA20C7F1B500093E3E /* BroadcastSetupViewController.m */,
-				184CACFC20C7F1B500093E3E /* Info.plist */,
-			);
-			path = BroadcastSetupUI;
-			sourceTree = "<group>";
-		};
 		23AF28131EEFECD800D771AB = {
 			isa = PBXGroup;
 			children = (
 				182DFECF202457F40051054A /* RCTAgora */,
-				184CACEB20C7F1B500093E3E /* Broadcast */,
-				184CACF820C7F1B500093E3E /* BroadcastSetupUI */,
+				182CB00A20C8CE7B00F9FF50 /* Boardcast */,
+				182CB01520C8CE7C00F9FF50 /* BoardcastSetupUI */,
 				184CACE820C7F1B500093E3E /* Frameworks */,
 				23AF281D1EEFECD800D771AB /* Products */,
 			);
@@ -204,8 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				23AF281C1EEFECD800D771AB /* libRCTAgora.a */,
-				184CACE720C7F1B500093E3E /* Broadcast.appex */,
-				184CACF420C7F1B500093E3E /* BroadcastSetupUI.appex */,
+				182CB00820C8CE7B00F9FF50 /* Boardcast.appex */,
+				182CB01220C8CE7B00F9FF50 /* BoardcastSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,38 +202,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		184CACE620C7F1B500093E3E /* Broadcast */ = {
+		182CB00720C8CE7B00F9FF50 /* Boardcast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 184CAD0120C7F1B500093E3E /* Build configuration list for PBXNativeTarget "Broadcast" */;
+			buildConfigurationList = 182CB01920C8CE7C00F9FF50 /* Build configuration list for PBXNativeTarget "Boardcast" */;
 			buildPhases = (
-				184CACE320C7F1B500093E3E /* Sources */,
-				184CACE420C7F1B500093E3E /* Frameworks */,
-				184CACE520C7F1B500093E3E /* Resources */,
+				182CB00420C8CE7B00F9FF50 /* Sources */,
+				182CB00520C8CE7B00F9FF50 /* Frameworks */,
+				182CB00620C8CE7B00F9FF50 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Broadcast;
-			productName = Broadcast;
-			productReference = 184CACE720C7F1B500093E3E /* Broadcast.appex */;
+			name = Boardcast;
+			productName = Boardcast;
+			productReference = 182CB00820C8CE7B00F9FF50 /* Boardcast.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		184CACF320C7F1B500093E3E /* BroadcastSetupUI */ = {
+		182CB01120C8CE7B00F9FF50 /* BoardcastSetupUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 184CAD0220C7F1B500093E3E /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */;
+			buildConfigurationList = 182CB01C20C8CE7C00F9FF50 /* Build configuration list for PBXNativeTarget "BoardcastSetupUI" */;
 			buildPhases = (
-				184CACF020C7F1B500093E3E /* Sources */,
-				184CACF120C7F1B500093E3E /* Frameworks */,
-				184CACF220C7F1B500093E3E /* Resources */,
+				182CB00E20C8CE7B00F9FF50 /* Sources */,
+				182CB00F20C8CE7B00F9FF50 /* Frameworks */,
+				182CB01020C8CE7B00F9FF50 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BroadcastSetupUI;
-			productName = BroadcastSetupUI;
-			productReference = 184CACF420C7F1B500093E3E /* BroadcastSetupUI.appex */;
+			name = BoardcastSetupUI;
+			productName = BoardcastSetupUI;
+			productReference = 182CB01220C8CE7B00F9FF50 /* BoardcastSetupUI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		23AF281B1EEFECD800D771AB /* RCTAgora */ = {
@@ -270,17 +259,18 @@
 		23AF28141EEFECD800D771AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Syan;
 				TargetAttributes = {
-					184CACE620C7F1B500093E3E = {
+					182CB00720C8CE7B00F9FF50 = {
 						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = E4F2FDQFP9;
+						DevelopmentTeam = Z4Q2D6MMMF;
 						ProvisioningStyle = Automatic;
 					};
-					184CACF320C7F1B500093E3E = {
+					182CB01120C8CE7B00F9FF50 = {
 						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = E4F2FDQFP9;
+						DevelopmentTeam = Z4Q2D6MMMF;
 						ProvisioningStyle = Automatic;
 					};
 					23AF281B1EEFECD800D771AB = {
@@ -304,45 +294,44 @@
 			projectRoot = "";
 			targets = (
 				23AF281B1EEFECD800D771AB /* RCTAgora */,
-				184CACE620C7F1B500093E3E /* Broadcast */,
-				184CACF320C7F1B500093E3E /* BroadcastSetupUI */,
+				182CB00720C8CE7B00F9FF50 /* Boardcast */,
+				182CB01120C8CE7B00F9FF50 /* BoardcastSetupUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		184CACE520C7F1B500093E3E /* Resources */ = {
+		182CB00620C8CE7B00F9FF50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		184CACF220C7F1B500093E3E /* Resources */ = {
+		182CB01020C8CE7B00F9FF50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184B1A9D20C831B900C2049D /* MainInterface.storyboard in Resources */,
+				182CB03920C8D1EA00F9FF50 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		184CACE320C7F1B500093E3E /* Sources */ = {
+		182CB00420C8CE7B00F9FF50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184CAD1420C8003D00093E3E /* AgoraAudioProcessing.mm in Sources */,
-				184CACEE20C7F1B500093E3E /* SampleHandler.m in Sources */,
+				182CB00C20C8CE7B00F9FF50 /* SampleHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		184CACF020C7F1B500093E3E /* Sources */ = {
+		182CB00E20C8CE7B00F9FF50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184CACFB20C7F1B500093E3E /* BroadcastSetupViewController.m in Sources */,
+				182CB01720C8CE7C00F9FF50 /* BroadcastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,10 +352,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		184B1A9B20C831B800C2049D /* MainInterface.storyboard */ = {
+		182CB03720C8D1EA00F9FF50 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				184B1A9C20C831B800C2049D /* Base */,
+				182CB03820C8D1EA00F9FF50 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -374,7 +363,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		184CACFD20C7F1B500093E3E /* Debug */ = {
+		182CB01A20C8CE7C00F9FF50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -390,19 +379,22 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4F2FDQFP9;
+				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Broadcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = Boardcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.Broadcast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.Boardcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		184CACFE20C7F1B500093E3E /* Release */ = {
+		182CB01B20C8CE7C00F9FF50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -418,19 +410,21 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4F2FDQFP9;
+				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Broadcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = Boardcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.Broadcast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.Boardcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		184CACFF20C7F1B500093E3E /* Debug */ = {
+		182CB01D20C8CE7C00F9FF50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -446,19 +440,22 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4F2FDQFP9;
+				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = BoardcastSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.BroadcastSetupUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		184CAD0020C7F1B500093E3E /* Release */ = {
+		182CB01E20C8CE7C00F9FF50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -474,14 +471,16 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E4F2FDQFP9;
+				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = BoardcastSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wilder.ilive.BroadcastSetupUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -633,20 +632,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		184CAD0120C7F1B500093E3E /* Build configuration list for PBXNativeTarget "Broadcast" */ = {
+		182CB01920C8CE7C00F9FF50 /* Build configuration list for PBXNativeTarget "Boardcast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				184CACFD20C7F1B500093E3E /* Debug */,
-				184CACFE20C7F1B500093E3E /* Release */,
+				182CB01A20C8CE7C00F9FF50 /* Debug */,
+				182CB01B20C8CE7C00F9FF50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		184CAD0220C7F1B500093E3E /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */ = {
+		182CB01C20C8CE7C00F9FF50 /* Build configuration list for PBXNativeTarget "BoardcastSetupUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				184CACFF20C7F1B500093E3E /* Debug */,
-				184CAD0020C7F1B500093E3E /* Release */,
+				182CB01D20C8CE7C00F9FF50 /* Debug */,
+				182CB01E20C8CE7C00F9FF50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
