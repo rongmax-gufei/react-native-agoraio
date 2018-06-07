@@ -32,8 +32,7 @@ private extension BroadcastViewController {
     }
     
     func userDidCancelSetup() {
-//        let error = NSError(domain: "io.agora.Agora-Screen-Sharing-iOS.Agora-Screen-Sharing-iOS-BroadcastUI", code: -1, userInfo: nil)
-        let error = NSError(domain: "com.wilde.ScreenSharing.ScreenSharing-BroadcastUI", code: -1, userInfo: nil)
+        let error = NSError(domain: "com.wilder.ilive.BroadcastSetupUI", code: -1, userInfo: nil)
         extensionContext?.cancelRequest(withError: error)
     }
     
