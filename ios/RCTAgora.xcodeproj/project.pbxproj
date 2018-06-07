@@ -17,6 +17,13 @@
 		182CB17220C9087800F9FF50 /* AgoraAudioProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17020C9087800F9FF50 /* AgoraAudioProcessing.mm */; };
 		182CB17620C9098B00F9FF50 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17420C9098B00F9FF50 /* KeyCenter.swift */; };
 		182CB17820C90B0700F9FF50 /* AgoraUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17720C90B0700F9FF50 /* AgoraUploader.swift */; };
+		182CB17A20C90FE200F9FF50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB17920C90FE100F9FF50 /* SystemConfiguration.framework */; };
+		182CB17C20C9100100F9FF50 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB17B20C9100100F9FF50 /* CoreMedia.framework */; };
+		182CB17E20C9100A00F9FF50 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB17D20C9100A00F9FF50 /* CoreTelephony.framework */; };
+		182CB18020C9103300F9FF50 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB17F20C9103300F9FF50 /* AudioToolbox.framework */; };
+		182CB18220C9104100F9FF50 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB18120C9104100F9FF50 /* VideoToolbox.framework */; };
+		182CB18420C9105600F9FF50 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB18320C9105600F9FF50 /* libc++.tbd */; };
+		182CB18620C9106200F9FF50 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB18520C9106200F9FF50 /* libresolv.tbd */; };
 		182D00EC202457F50051054A /* AgoraConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED5202457F40051054A /* AgoraConst.m */; };
 		182D00ED202457F50051054A /* AgoraVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED6202457F40051054A /* AgoraVideoManager.m */; };
 		182D00EE202457F50051054A /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED9202457F40051054A /* UIUtils.m */; };
@@ -57,6 +64,13 @@
 		182CB17120C9087800F9FF50 /* AgoraAudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioProcessing.h; sourceTree = "<group>"; };
 		182CB17420C9098B00F9FF50 /* KeyCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		182CB17720C90B0700F9FF50 /* AgoraUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgoraUploader.swift; sourceTree = "<group>"; };
+		182CB17920C90FE100F9FF50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		182CB17B20C9100100F9FF50 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		182CB17D20C9100A00F9FF50 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		182CB17F20C9103300F9FF50 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		182CB18120C9104100F9FF50 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		182CB18320C9105600F9FF50 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		182CB18520C9106200F9FF50 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		182D00EA202457F50051054A /* RCTAgoraVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraVideoView.m; sourceTree = "<group>"; };
 		182D00EB202457F50051054A /* RCTAgoraViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraViewManager.m; sourceTree = "<group>"; };
 		182DFED0202457F40051054A /* RCTAgora.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgora.h; sourceTree = "<group>"; };
@@ -85,6 +99,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182CB18620C9106200F9FF50 /* libresolv.tbd in Frameworks */,
+				182CB18420C9105600F9FF50 /* libc++.tbd in Frameworks */,
+				182CB18220C9104100F9FF50 /* VideoToolbox.framework in Frameworks */,
+				182CB18020C9103300F9FF50 /* AudioToolbox.framework in Frameworks */,
+				182CB17E20C9100A00F9FF50 /* CoreTelephony.framework in Frameworks */,
+				182CB17C20C9100100F9FF50 /* CoreMedia.framework in Frameworks */,
+				182CB17A20C90FE200F9FF50 /* SystemConfiguration.framework in Frameworks */,
 				182CB16420C906B300F9FF50 /* AgoraRtcEngineKit.framework in Frameworks */,
 				182CB00920C8CE7B00F9FF50 /* ReplayKit.framework in Frameworks */,
 			);
@@ -191,6 +212,13 @@
 		184CACE820C7F1B500093E3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				182CB18520C9106200F9FF50 /* libresolv.tbd */,
+				182CB18320C9105600F9FF50 /* libc++.tbd */,
+				182CB18120C9104100F9FF50 /* VideoToolbox.framework */,
+				182CB17F20C9103300F9FF50 /* AudioToolbox.framework */,
+				182CB17D20C9100A00F9FF50 /* CoreTelephony.framework */,
+				182CB17B20C9100100F9FF50 /* CoreMedia.framework */,
+				182CB17920C90FE100F9FF50 /* SystemConfiguration.framework */,
 				184CACE920C7F1B500093E3E /* ReplayKit.framework */,
 				184CACF620C7F1B500093E3E /* UIKit.framework */,
 			);
@@ -404,6 +432,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
@@ -441,6 +470,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
@@ -476,6 +506,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BoardcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -507,6 +538,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4Q2D6MMMF;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BoardcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

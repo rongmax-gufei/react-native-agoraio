@@ -60,33 +60,33 @@ class AgoraUploader {
     }()
 
     static func startBroadcast(to channel: String, uid: String) {
-//        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: UInt(uid)!, joinSuccess: nil)
+        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: UInt(uid)!, joinSuccess: nil)
     }
 
     static func sendVideoBuffer(_ sampleBuffer: CMSampleBuffer) {
-//        guard let videoFrame = CMSampleBufferGetImageBuffer(sampleBuffer)
-//             else {
-//            return
-//        }
-//
-//        let time = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-//
-//        let frame = AgoraVideoFrame()
-//        frame.format = 12
-//        frame.time = time
-//        frame.textureBuf = videoFrame
-//        sharedAgoraEngine.pushExternalVideoFrame(frame)
+        guard let videoFrame = CMSampleBufferGetImageBuffer(sampleBuffer)
+             else {
+            return
+        }
+
+        let time = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+
+        let frame = AgoraVideoFrame()
+        frame.format = 12
+        frame.time = time
+        frame.textureBuf = videoFrame
+        sharedAgoraEngine.pushExternalVideoFrame(frame)
     }
 
     static func sendAudioAppBuffer(_ sampleBuffer: CMSampleBuffer) {
-//        AgoraAudioProcessing.pushAudioAppBuffer(sampleBuffer)
+        AgoraAudioProcessing.pushAudioAppBuffer(sampleBuffer)
     }
-//
+
     static func sendAudioMicBuffer(_ sampleBuffer: CMSampleBuffer) {
-//        AgoraAudioProcessing.pushAudioMicBuffer(sampleBuffer)
+        AgoraAudioProcessing.pushAudioMicBuffer(sampleBuffer)
     }
 
     static func stopBroadcast() {
-//        sharedAgoraEngine.leaveChannel(nil)
+        sharedAgoraEngine.leaveChannel(nil)
     }
 }
