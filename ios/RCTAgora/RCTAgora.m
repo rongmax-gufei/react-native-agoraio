@@ -193,17 +193,17 @@ RCT_EXPORT_METHOD(startBroadcasting){
     [[RPScreenRecorder sharedRecorder] setMicrophoneEnabled:YES];
     
     // Broadcast Pairing
-//    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-//    NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
     
-//    if (@available(iOS 11.0, *)) {
-//        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
-//            broadcastActivityViewController.delegate = self;
-//            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:^{
-//
-//            }];
-//        }];
-//    } else {
+    if (@available(iOS 11.0, *)) {
+        [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+            broadcastActivityViewController.delegate = self;
+            [[UIUtils currentViewController] presentViewController:broadcastActivityViewController animated:YES completion:^{
+
+            }];
+        }];
+    } else {
         // Fallback on earlier versions
         [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
             [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
@@ -213,15 +213,15 @@ RCT_EXPORT_METHOD(startBroadcasting){
                 }];
             }];
         }];
-//    };
+    };
 }
 
 //关闭屏幕共享
 RCT_EXPORT_METHOD(stopBroadcasting){
-//    [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
-//
-//    }];
-//    [self.cameraPreview removeFromSuperview];
+    [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
+
+    }];
+    [self.cameraPreview removeFromSuperview];
 }
 
 //关闭视频预览
@@ -339,19 +339,26 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     
     [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
-            NSLog(@"error %@", error);
-            NSLog(@"serviceInfo %@", _broadcastController.serviceInfo);
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIView *cameraPreview = [[UIView alloc] init];
+                    cameraPreview.frame = CGRectMake(8, 28, 120, 180);
+                    [[UIUtils currentViewController].view addSubview:self.cameraPreview];
+                    self.cameraPreview = cameraPreview;
+                });
+            } else {
+                NSLog(@"error %@", error.localizedDescription);
+                NSLog(@"serviceInfo %@", _broadcastController.serviceInfo);
+            }
         }];
     }];
 }
 
-- (void)broadcastController:(RPBroadcastController *)broadcastController
-         didFinishWithError:(NSError * __nullable)error {
+- (void)broadcastController:(RPBroadcastController *)broadcastController didFinishWithError:(NSError * __nullable)error {
     NSLog(@"didFinishWithError %@", error);
 }
 
-- (void)broadcastController:(RPBroadcastController *)broadcastController
-       didUpdateServiceInfo:(NSDictionary <NSString *, NSObject <NSCoding> *> *)serviceInfo {
+- (void)broadcastController:(RPBroadcastController *)broadcastController didUpdateServiceInfo:(NSDictionary <NSString *, NSObject <NSCoding> *> *)serviceInfo {
     NSLog(@"didUpdateServiceInfo %@", serviceInfo);
 }
 
