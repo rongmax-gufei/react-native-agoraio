@@ -13,7 +13,6 @@
 		182CB01420C8CE7C00F9FF50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACF620C7F1B500093E3E /* UIKit.framework */; };
 		182CB01720C8CE7C00F9FF50 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */; };
 		182CB03920C8D1EA00F9FF50 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182CB03720C8D1EA00F9FF50 /* MainInterface.storyboard */; };
-		182CB16420C906B300F9FF50 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB16320C906B300F9FF50 /* AgoraRtcEngineKit.framework */; };
 		182CB17220C9087800F9FF50 /* AgoraAudioProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17020C9087800F9FF50 /* AgoraAudioProcessing.mm */; };
 		182CB17620C9098B00F9FF50 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17420C9098B00F9FF50 /* KeyCenter.swift */; };
 		182CB17820C90B0700F9FF50 /* AgoraUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB17720C90B0700F9FF50 /* AgoraUploader.swift */; };
@@ -57,7 +56,6 @@
 		182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		182CB01820C8CE7C00F9FF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		182CB03820C8D1EA00F9FF50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		182CB16320C906B300F9FF50 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework; sourceTree = SOURCE_ROOT; };
 		182CB16E20C9087700F9FF50 /* Boardcast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Boardcast-Bridging-Header.h"; sourceTree = "<group>"; };
 		182CB16F20C9087800F9FF50 /* AgoraAudioCriticalSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraAudioCriticalSection.h; sourceTree = "<group>"; };
 		182CB17020C9087800F9FF50 /* AgoraAudioProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AgoraAudioProcessing.mm; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				182CB17E20C9100A00F9FF50 /* CoreTelephony.framework in Frameworks */,
 				182CB17C20C9100100F9FF50 /* CoreMedia.framework in Frameworks */,
 				182CB17A20C90FE200F9FF50 /* SystemConfiguration.framework in Frameworks */,
-				182CB16420C906B300F9FF50 /* AgoraRtcEngineKit.framework in Frameworks */,
 				182CB00920C8CE7B00F9FF50 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +139,6 @@
 				182CB16F20C9087800F9FF50 /* AgoraAudioCriticalSection.h */,
 				182CB17120C9087800F9FF50 /* AgoraAudioProcessing.h */,
 				182CB17020C9087800F9FF50 /* AgoraAudioProcessing.mm */,
-				182CB16320C906B300F9FF50 /* AgoraRtcEngineKit.framework */,
 				182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */,
 				182CB00D20C8CE7B00F9FF50 /* Info.plist */,
 				182CB16E20C9087700F9FF50 /* Boardcast-Bridging-Header.h */,
@@ -436,6 +432,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
+					"$(PROJECT_DIR)/Boardcast",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Boardcast/Info.plist;
@@ -474,6 +471,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCTAgora/Frameworks/AgoraSDK",
+					"$(PROJECT_DIR)/Boardcast",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Boardcast/Info.plist;

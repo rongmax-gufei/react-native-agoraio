@@ -195,7 +195,7 @@ RCT_EXPORT_METHOD(startBroadcasting){
     // Broadcast Pairing
     NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
     NSString *extensionUI = [NSString stringWithFormat:@"%@%@", bundleID, @".BroadcastSetupUI"];
-    
+
     if (@available(iOS 11.0, *)) {
         [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithPreferredExtension:extensionUI handler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
             broadcastActivityViewController.delegate = self;
@@ -209,7 +209,7 @@ RCT_EXPORT_METHOD(startBroadcasting){
             [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
                 broadcastActivityViewController.delegate = self;
                 [[UIUtils currentViewController]  presentViewController:broadcastActivityViewController animated:YES completion:^{
-                    
+
                 }];
             }];
         }];
@@ -341,9 +341,9 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
             if (!error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIView *cameraPreview = [[UIView alloc] init];
+                    UIView *cameraPreview =  [RPScreenRecorder sharedRecorder].cameraPreviewView;
                     cameraPreview.frame = CGRectMake(8, 28, 120, 180);
-                    [[UIUtils currentViewController].view addSubview:self.cameraPreview];
+                    [[UIUtils currentViewController].view addSubview:cameraPreview];
                     self.cameraPreview = cameraPreview;
                 });
             } else {

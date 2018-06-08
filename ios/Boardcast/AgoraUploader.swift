@@ -59,8 +59,8 @@ class AgoraUploader {
         return kit
     }()
 
-    static func startBroadcast(to channel: String, uid: String) {
-        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: UInt(uid)!, joinSuccess: nil)
+    static func startBroadcast(to channel: String) {
+        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: 0, joinSuccess: nil)
     }
 
     static func sendVideoBuffer(_ sampleBuffer: CMSampleBuffer) {
