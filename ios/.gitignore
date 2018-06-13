@@ -1,6 +1,6 @@
-RCTAgora/Frameworks/AgoraSDK/AgoraRtcCryptoLoader.framework
-RCTAgora/Frameworks/AgoraSDK/AgoraRtcEngineKit.framework
-RCTAgora/Frameworks/AgoraSDK/libcrypto.a
+RCTAgora/Libraries/AgoraEngine/AgoraRtcCryptoLoader.framework
+RCTAgora/Libraries/AgoraEngine/AgoraRtcEngineKit.framework
+RCTAgora/Libraries/AgoraBeauty/libcrypto.a
 *.framework
 
 # Xcode

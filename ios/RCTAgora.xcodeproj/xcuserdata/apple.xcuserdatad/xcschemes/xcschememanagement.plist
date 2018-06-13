@@ -7,12 +7,12 @@
 		<key>Boardcast.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>37</integer>
+			<integer>9</integer>
 		</dict>
 		<key>BoardcastSetupUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>38</integer>
+			<integer>10</integer>
 		</dict>
 		<key>Broadcast.xcscheme</key>
 		<dict>
@@ -27,7 +27,7 @@
 		<key>RCTAgora.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>36</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 </dict>

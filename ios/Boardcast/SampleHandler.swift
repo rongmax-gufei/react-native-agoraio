@@ -2,8 +2,8 @@
 //  SampleHandler.swift
 //  Boardcast
 //
-//  Created by Apple on 2018/6/7.
-//  Copyright © 2018年 Syan. All rights reserved.
+//  Created by Learnta on 2018/6/7.
+//  Copyright © 2018年 Learnta Inc. All rights reserved.
 //
 
 import ReplayKit
@@ -39,7 +39,7 @@ class SampleHandler: RPBroadcastSampleHandler {
         DispatchQueue.main.async {
             switch sampleBufferType {
             case RPSampleBufferType.video:
-                AgoraUploader.sendVideoBuffer(sampleBuffer)
+//                AgoraUploader.sendVideoBuffer(sampleBuffer)
                 break
             case RPSampleBufferType.audioApp:
                 AgoraUploader.sendAudioAppBuffer(sampleBuffer)
