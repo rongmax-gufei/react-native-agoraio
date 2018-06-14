@@ -1,6 +1,8 @@
 
-import _AgoraView from './AgoraView'
+import _AgoraVideoView from './AgoraVideoView'
+import _AgoraScreenShareView from './AgoraScreenShareView'
 import _RtcEngine from './RtcEngine'
 
-export const AgoraView = _AgoraView;
+export const AgoraVideoView = _AgoraVideoView;
+export const AgoraScreenShareView = _AgoraScreenShareView;
 export const RtcEngine = _RtcEngine;

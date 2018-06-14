@@ -19,6 +19,9 @@
 
 #import <videoprp/AgoraYuvEnhancerObjc.h>
 
+#import "AgoraVideoManager.h"
+#import "AgoraScreenShareManager.h"
+
 #import "AgoraConst.h"
 #import "BundleTools.h"
 #import "UIUtils.h"
@@ -78,7 +81,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
 RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
     //保存一下uid 在自定义视图使用
     [AgoraConst share].localUid = uid;
-    [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:NULL];
+    [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:nil];
 }
 
 //离开频道
@@ -87,9 +90,7 @@ RCT_EXPORT_METHOD(leaveChannel) {
     [self.rtcEngine setupLocalVideo:nil];
     // 退出频道
     [self.rtcEngine leaveChannel:^(AgoraChannelStats * _Nonnull stat) {
-        NSMutableDictionary *params = @{}.mutableCopy;
-        params[@"type"] = @"onLeaveChannel";
-        [self sendEvent:params];
+        [self commentEvent:kOnLeaveChannel code:kSuccess msg:@"离开房间成功" withParams:nil];
     }];
   
     // 如果是主播，关闭预览
@@ -122,9 +123,9 @@ RCT_EXPORT_METHOD(changeRole) {
  */
 RCT_EXPORT_METHOD(setupLocalVideo:(NSDictionary *)options) {
     AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
-    canvas.uid = [options[@"uid"] integerValue];
-    canvas.view = [self.bridge.uiManager viewForReactTag:options[@"reactTag"]];
-    canvas.renderMode = [options[@"renderMode"] integerValue];
+    canvas.uid = [options[kUid] integerValue];
+    canvas.view = [self.bridge.uiManager viewForReactTag:options[kReactTag]];
+    canvas.renderMode = [options[kRenderMode] integerValue];
     [self.rtcEngine setupLocalVideo:canvas];
 }
 
@@ -137,9 +138,9 @@ RCT_EXPORT_METHOD(setupLocalVideo:(NSDictionary *)options) {
  */
 RCT_EXPORT_METHOD(setupRemoteVideo:(NSDictionary *)options) {
     AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
-    canvas.uid = [options[@"uid"] integerValue];
-    canvas.view = [self.bridge.uiManager viewForReactTag:options[@"reactTag"]];
-    canvas.renderMode = [options[@"renderMode"] integerValue];
+    canvas.uid = [options[kUid] integerValue];
+    canvas.view = [self.bridge.uiManager viewForReactTag:options[kReactTag]];
+    canvas.renderMode = [options[kRenderMode] integerValue];
     [self.rtcEngine setupRemoteVideo:canvas];
 }
 
@@ -365,7 +366,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:kOnJoinChannel code:kSuccess msg:@"加入房间成功" withParams:params];
+    [self commentEvent:kOnJoinChannelSuccess code:kSuccess msg:@"加入房间成功" withParams:params];
 }
 
 /*
@@ -377,7 +378,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:kOnReJoinChannel code:kSuccess msg:@"重新加入频道成功" withParams:params];
+    [self commentEvent:kOnReJoinChannelSuccess code:kSuccess msg:@"重新加入频道成功" withParams:params];
 }
 
 /*
@@ -457,7 +458,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kSpeakers] = arr;
     params[kTotalVolume] = [NSNumber numberWithInteger:totalVolume];
     
-    [self commentEvent:kOnAudioVolumeIndication code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
+    [self commentEvent:kOnAudioVolumeIndication code:kSuccess msg:@"音量提示" withParams:params];
 }
 
 /*
@@ -511,11 +512,11 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
             if (!error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIView *cameraPreview =  [RPScreenRecorder sharedRecorder].cameraPreviewView;
-                    cameraPreview.frame = CGRectMake(0, 20, 200, 400);
-                    [[UIUtils currentViewController].view addSubview:cameraPreview];
-                    self.cameraPreview = cameraPreview;
-                    
+//                    UIView *cameraPreview =  [RPScreenRecorder sharedRecorder].cameraPreviewView;
+//                    cameraPreview.frame = CGRectMake(0, 20, 200, 400);
+//                    [[UIUtils currentViewController].view addSubview:cameraPreview];
+//                    self.cameraPreview = cameraPreview;
+//                    [[AgoraScreenShareManager share].sharedView bringSubviewToFront:[AgoraVideoManager share].avRootView];
                     [self commentEvent:kOnBoardcast code:kSuccess msg:@"screen share start" withParams:nil];
                 });
             } else {
@@ -549,6 +550,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
             params[key] = eparams[key];
         }
     }
+    NSLog(@"commentEvent => %@", params);
     [self sendEvent:params];
 }
 

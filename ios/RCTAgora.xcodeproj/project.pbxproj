@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1822ED2120D263FF006F226F /* RCTAgoraScreenShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822ED2020D263FF006F226F /* RCTAgoraScreenShareView.m */; };
+		1822ED2520D26BD7006F226F /* AgoraVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822ED2320D26BD7006F226F /* AgoraVideoManager.m */; };
+		1822ED2A20D26CBD006F226F /* AgoraScreenShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822ED2820D26CBD006F226F /* AgoraScreenShareManager.m */; };
 		182CB00920C8CE7B00F9FF50 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
 		182CB00C20C8CE7B00F9FF50 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */; };
 		182CB01320C8CE7C00F9FF50 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184CACE920C7F1B500093E3E /* ReplayKit.framework */; };
@@ -24,14 +27,12 @@
 		182CB18420C9105600F9FF50 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB18320C9105600F9FF50 /* libc++.tbd */; };
 		182CB18620C9106200F9FF50 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CB18520C9106200F9FF50 /* libresolv.tbd */; };
 		182D00EC202457F50051054A /* AgoraConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED5202457F40051054A /* AgoraConst.m */; };
-		182D00ED202457F50051054A /* AgoraVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED6202457F40051054A /* AgoraVideoManager.m */; };
 		182D00EE202457F50051054A /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFED9202457F40051054A /* UIUtils.m */; };
 		182D00F0202457F50051054A /* RCTAgora.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DFEDC202457F40051054A /* RCTAgora.m */; };
 		182D0147202457F50051054A /* RCTAgoraVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EA202457F50051054A /* RCTAgoraVideoView.m */; };
 		182D0148202457F50051054A /* RCTAgoraVideoViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EB202457F50051054A /* RCTAgoraVideoViewManager.m */; };
 		18855D8E202D953A0081BAF4 /* BundleTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855D8D202D953A0081BAF4 /* BundleTools.m */; };
 		18AA9DEE20D106780045D802 /* RCTAgoraScreenShareViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA9DED20D106780045D802 /* RCTAgoraScreenShareViewManager.m */; };
-		18AA9E1A20D109760045D802 /* RCTAgoraScreenShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA9E1920D109760045D802 /* RCTAgoraScreenShareView.m */; };
 		18AA9E3720D10D6A0045D802 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AA9E3120D10D6A0045D802 /* libcrypto.a */; };
 		18AA9E3820D10D6A0045D802 /* AgoraRtcCryptoLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AA9E3220D10D6A0045D802 /* AgoraRtcCryptoLoader.framework */; };
 		18AA9E3920D10D6A0045D802 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AA9E3320D10D6A0045D802 /* AgoraRtcEngineKit.framework */; };
@@ -51,6 +52,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1822ED1F20D263FF006F226F /* RCTAgoraScreenShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgoraScreenShareView.h; sourceTree = "<group>"; };
+		1822ED2020D263FF006F226F /* RCTAgoraScreenShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraScreenShareView.m; sourceTree = "<group>"; };
+		1822ED2320D26BD7006F226F /* AgoraVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraVideoManager.m; sourceTree = "<group>"; };
+		1822ED2420D26BD7006F226F /* AgoraVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraVideoManager.h; sourceTree = "<group>"; };
+		1822ED2820D26CBD006F226F /* AgoraScreenShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraScreenShareManager.m; sourceTree = "<group>"; };
+		1822ED2920D26CBD006F226F /* AgoraScreenShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraScreenShareManager.h; sourceTree = "<group>"; };
 		182CB00820C8CE7B00F9FF50 /* Boardcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Boardcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		182CB00B20C8CE7B00F9FF50 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
 		182CB00D20C8CE7B00F9FF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,11 +84,9 @@
 		182DFED1202457F40051054A /* RCTAgoraVideoViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgoraVideoViewManager.h; sourceTree = "<group>"; };
 		182DFED2202457F40051054A /* RCTAgoraVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAgoraVideoView.h; sourceTree = "<group>"; };
 		182DFED5202457F40051054A /* AgoraConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraConst.m; sourceTree = "<group>"; };
-		182DFED6202457F40051054A /* AgoraVideoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraVideoManager.m; sourceTree = "<group>"; };
 		182DFED7202457F40051054A /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
 		182DFED8202457F40051054A /* AgoraConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraConst.h; sourceTree = "<group>"; };
 		182DFED9202457F40051054A /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
-		182DFEDA202457F40051054A /* AgoraVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraVideoManager.h; sourceTree = "<group>"; };
 		182DFEDC202457F40051054A /* RCTAgora.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAgora.m; sourceTree = "<group>"; };
 		184CACE920C7F1B500093E3E /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		184CACF620C7F1B500093E3E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,8 +94,6 @@
 		18855D8D202D953A0081BAF4 /* BundleTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleTools.m; sourceTree = "<group>"; };
 		18AA9DEC20D106780045D802 /* RCTAgoraScreenShareViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAgoraScreenShareViewManager.h; sourceTree = "<group>"; };
 		18AA9DED20D106780045D802 /* RCTAgoraScreenShareViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraScreenShareViewManager.m; sourceTree = "<group>"; };
-		18AA9E1820D109760045D802 /* RCTAgoraScreenShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAgoraScreenShareView.h; sourceTree = "<group>"; };
-		18AA9E1920D109760045D802 /* RCTAgoraScreenShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraScreenShareView.m; sourceTree = "<group>"; };
 		18AA9E3120D10D6A0045D802 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		18AA9E3220D10D6A0045D802 /* AgoraRtcCryptoLoader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcCryptoLoader.framework; sourceTree = "<group>"; };
 		18AA9E3320D10D6A0045D802 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
@@ -140,6 +143,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1822ED1E20D263FF006F226F /* ScreenShare */ = {
+			isa = PBXGroup;
+			children = (
+				1822ED2720D26CBD006F226F /* Instance */,
+				1822ED1F20D263FF006F226F /* RCTAgoraScreenShareView.h */,
+				1822ED2020D263FF006F226F /* RCTAgoraScreenShareView.m */,
+			);
+			path = ScreenShare;
+			sourceTree = "<group>";
+		};
+		1822ED2220D26BD7006F226F /* Instance */ = {
+			isa = PBXGroup;
+			children = (
+				1822ED2420D26BD7006F226F /* AgoraVideoManager.h */,
+				1822ED2320D26BD7006F226F /* AgoraVideoManager.m */,
+			);
+			path = Instance;
+			sourceTree = "<group>";
+		};
+		1822ED2720D26CBD006F226F /* Instance */ = {
+			isa = PBXGroup;
+			children = (
+				1822ED2920D26CBD006F226F /* AgoraScreenShareManager.h */,
+				1822ED2820D26CBD006F226F /* AgoraScreenShareManager.m */,
+			);
+			path = Instance;
+			sourceTree = "<group>";
+		};
 		182CB00A20C8CE7B00F9FF50 /* Boardcast */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,15 +237,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		18AA9E1720D1091F0045D802 /* ScreenShare */ = {
-			isa = PBXGroup;
-			children = (
-				18AA9E1820D109760045D802 /* RCTAgoraScreenShareView.h */,
-				18AA9E1920D109760045D802 /* RCTAgoraScreenShareView.m */,
-			);
-			path = ScreenShare;
-			sourceTree = "<group>";
-		};
 		18AA9E2F20D10D6A0045D802 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +277,7 @@
 		18AA9E3C20D110B10045D802 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				18AA9E4220D112BD0045D802 /* Instance */,
+				1822ED2220D26BD7006F226F /* Instance */,
 				182DFED2202457F40051054A /* RCTAgoraVideoView.h */,
 				182D00EA202457F50051054A /* RCTAgoraVideoView.m */,
 			);
@@ -275,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				18AA9E3C20D110B10045D802 /* Video */,
-				18AA9E1720D1091F0045D802 /* ScreenShare */,
+				1822ED1E20D263FF006F226F /* ScreenShare */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,15 +328,6 @@
 				18AA9E4720D130BE0045D802 /* ConstHeader.h */,
 			);
 			path = Const;
-			sourceTree = "<group>";
-		};
-		18AA9E4220D112BD0045D802 /* Instance */ = {
-			isa = PBXGroup;
-			children = (
-				182DFEDA202457F40051054A /* AgoraVideoManager.h */,
-				182DFED6202457F40051054A /* AgoraVideoManager.m */,
-			);
-			path = Instance;
 			sourceTree = "<group>";
 		};
 		23AF28131EEFECD800D771AB = {
@@ -483,13 +496,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				182D00F0202457F50051054A /* RCTAgora.m in Sources */,
-				182D00ED202457F50051054A /* AgoraVideoManager.m in Sources */,
 				182D00EC202457F50051054A /* AgoraConst.m in Sources */,
+				1822ED2520D26BD7006F226F /* AgoraVideoManager.m in Sources */,
 				18855D8E202D953A0081BAF4 /* BundleTools.m in Sources */,
 				182D0148202457F50051054A /* RCTAgoraVideoViewManager.m in Sources */,
 				182D00EE202457F50051054A /* UIUtils.m in Sources */,
-				18AA9E1A20D109760045D802 /* RCTAgoraScreenShareView.m in Sources */,
+				1822ED2120D263FF006F226F /* RCTAgoraScreenShareView.m in Sources */,
 				18AA9DEE20D106780045D802 /* RCTAgoraScreenShareViewManager.m in Sources */,
+				1822ED2A20D26CBD006F226F /* AgoraScreenShareManager.m in Sources */,
 				182D0147202457F50051054A /* RCTAgoraVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

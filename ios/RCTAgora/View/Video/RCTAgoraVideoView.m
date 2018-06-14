@@ -11,7 +11,7 @@
 
 @implementation RCTAgoraVideoView
 
-- (instancetype)init{
+- (instancetype)init {
     
     if (self == [super init]) {
         _rtcEngine = [AgoraConst share].rtcEngine;
@@ -27,8 +27,8 @@
         canvas.view = self;
         canvas.renderMode = AgoraVideoRenderModeHidden;
         [_rtcEngine setupLocalVideo:canvas];
+        [AgoraVideoManager.share setAvRootView:self];
     }
-    [AgoraVideoManager share].avRootView = self;
 }
 
 -(void)setRemoteUid:(NSInteger)remoteUid {
