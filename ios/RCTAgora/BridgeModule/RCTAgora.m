@@ -49,11 +49,11 @@ RCT_EXPORT_MODULE();
  */
 RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
   
-    NSString *appid                     = options[@"appid"];
-    AgoraChannelProfile channelProfile  = [options[@"channelProfile"] integerValue];
-    AgoraVideoProfile videoProfile      = [options[@"videoProfile"] integerValue];
-    BOOL swapWidthAndHeight             = [options[@"swapWidthAndHeight"] boolValue];
-    AgoraClientRole role                = [options[@"clientRole"] integerValue];
+    NSString *appid                     = options[kAppid];
+    AgoraChannelProfile channelProfile  = [options[kChannelProfile] integerValue];
+    AgoraVideoProfile videoProfile      = [options[kVideoProfile] integerValue];
+    BOOL swapWidthAndHeight             = [options[kSwapWidthAndHeight] boolValue];
+    AgoraClientRole role                = [options[kClientRole] integerValue];
     
     [AgoraConst share].appid = appid;
     self.isBroadcaster = (role == AgoraClientRoleBroadcaster);
@@ -338,20 +338,174 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     }
 }
 
+/*
+ * 该回调方法表示SDK运行时出现了（网络或媒体相关的）错误。通常情况下，SDK上报的错误意味着SDK无法自动恢复，需要应用程序干预或提示用户。
+ * 比如启动通话失败时，SDK会上报AgoraRtc_Error_StartCall(1002)错误。
+ * 应用程序可以提示用户启动通话失败，并调用leaveChannel退出频道。
+ */
+#pragma mark AgoraSDK
+
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraErrorCode)errorCode {
+    [self commentEvent:@"onAgoraRtcError" code:errorCode msg:@"SDK运行时出现了（网络或媒体相关的）错误，具体原因根据错误码通过官方api速查" withParams:nil];
+}
+
+/*
+ * 警告
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode {
+    [self commentEvent:@"onAgoraRtcWarning" code:warningCode msg:@"SDK运行时出现了（网络或媒体相关的）警告，具体原因根据错误码通过官方api速查" withParams:nil];
+}
+
+/*
+ * 加入频道回调
+ * 该回调方法表示该客户端成功加入了指定的频道
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    params[kChannel] = channel;
+    
+    [self commentEvent:@"onJoinChannel" code:kSuccess msg:@"加入房间成功" withParams:params];
+}
+
+/*
+ * 重新加入频道回调
+ * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK 会进行自动重连，自动重连成功后触发此回调方法。
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didRejoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    params[kChannel] = channel;
+    
+    [self commentEvent:@"onReJoinChannel" code:kSuccess msg:@"重新加入频道成功" withParams:params];
+}
+
+/*
+ * 本地首帧视频显示回调
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstLocalVideoFrameWithSize:(CGSize)size elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kWidth] = [NSNumber numberWithFloat:size.width];
+    params[kHeight] = [NSNumber numberWithFloat:size.height];
+    
+    [self commentEvent:@"onFirstLocalVideoFrameWithSize" code:kSuccess msg:@"本地首帧视频显示" withParams:params];
+}
+
+/*
+ * 远端首帧视频接收解码回调
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    params[kWidth] = [NSNumber numberWithFloat:size.width];
+    params[kHeight] = [NSNumber numberWithFloat:size.height];
+    
+    [self commentEvent:@"onFirstRemoteVideoDecoded" code:kSuccess msg:@"远端首帧视频接收解码" withParams:params];
+}
+
+/*
+ * 远端首帧视频显示回调
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoFrameOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    params[kWidth] = [NSNumber numberWithFloat:size.width];
+    params[kHeight] = [NSNumber numberWithFloat:size.height];
+    
+    [self commentEvent:@"onFirstRemoteVideoFrameOfUid" code:kSuccess msg:@"远端首帧视频显示" withParams:params];
+}
+
+/*
+ * 主播加入回调
+ * 提示有主播加入了频道。如果该客户端加入频道时已经有人在频道中，SDK也会向应用程序上报这些已在频道中的用户。
+ * 直播场景下:
+ * 主播间能相互收到新主播加入频道的回调，并能获得该主播的 uid
+ * 观众也能收到新主播加入频道的回调，并能获得该主播的 uid
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    
+    [self commentEvent:@"onUserJoined" code:kSuccess msg:@"有主播加入了频道" withParams:params];
+}
+
+/*
+ * 主播离线回调
+ * 提示有主播离开了频道（或掉线）。
+ * SDK 判断用户离开频道（或掉线）的依据是超时: 在一定时间内（15 秒）没有收到对方的任何数据包，判定为对方掉线。
+ * 在网络较差的情况下，可能会有误报。建议可靠的掉线检测应该由信令来做。
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraUserOfflineReason)reason {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kUid] = [NSNumber numberWithInteger:uid];
+    
+    [self commentEvent:@"onUserOffline" code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
+}
+
+/*
+ * 音量提示回调
+ * 需要开启enableAudioVolumeIndication
+ */
+- (void)rtcEngine:(AgoraRtcEngineKit *)engine reportAudioVolumeIndicationOfSpeakers:(NSArray*)speakers totalVolume:(NSInteger)totalVolume {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (AgoraRtcAudioVolumeInfo *obj in speakers) {
+        [arr addObject:@{kUid:[NSNumber numberWithInteger:obj.uid], kVolume:[NSNumber numberWithInteger:obj.volume]}];
+    }
+    
+    params[kSpeakers] = arr;
+    params[kTotalVolume] = [NSNumber numberWithInteger:totalVolume];
+    
+    [self commentEvent:@"onAudioVolumeIndication" code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
+}
+
+/*
+ * 网络连接中断回调
+ * 在 SDK 和服务器失去了网络连接时，触发该回调。失去连接后，除非APP主动调用 leaveChannel，SDK 会一直自动重连。
+ */
+- (void)rtcEngineConnectionDidInterrupted:(AgoraRtcEngineKit *)engine {
+    [self commentEvent:@"onConnectionDidInterrupted" code:kSuccess msg:@"网络连接中断" withParams:nil];
+}
+
+/*
+ * 网络连接丢失回调
+ * 在 SDK 和服务器失去了网络连接后，会触发 rtcEngineConnectionDidInterrupted 回调，并自动重连。
+ * 在一定时间内（默认 10 秒）如果没有重连成功，触发 rtcEngineConnectionDidLost 回调。
+ * 除非 APP 主动调用 leaveChannel，SDK 仍然会自动重连。
+ */
+- (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine {
+    [self commentEvent:@"onConnectionDidLost" code:kSuccess msg:@"网络连接丢失" withParams:nil];
+}
+
+/*
+ * 连接已被禁止回调
+ * 当你被服务端禁掉连接的权限时，会触发该回调。意外掉线之后，SDK 会自动进行重连，重连多次都失败之后，该回调会被触发，判定为连接不可用。
+ */
+- (void)rtcEngineConnectionDidBanned:(AgoraRtcEngineKit * _Nonnull)engine {
+    [self commentEvent:@"onConnectionDidBanned" code:kSuccess msg:@"连接已被禁止" withParams:nil];
+}
+
+// 根据tag找到指定的view
+- (UIView *)getViewWithTag:(nonnull NSNumber *)reactTag {
+    UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
+    return view;
+}
+
 #pragma delegate
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     NSLog(@"%s", __func__);
     if (error) {
-        NSLog(@"%@", error);
+        [self commentEvent:@"onBoardcast" code:kFail msg:error.localizedDescription withParams:nil];
         return;
     }
     _broadcastController = broadcastController;
     _broadcastController.delegate = self;
     
     //使用相机
-//    [RPScreenRecorder sharedRecorder].cameraEnabled = false;
+    //    [RPScreenRecorder sharedRecorder].cameraEnabled = false;
     //使用麦克风
-//    [RPScreenRecorder sharedRecorder].microphoneEnabled = false;
+    //    [RPScreenRecorder sharedRecorder].microphoneEnabled = false;
     
     [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
@@ -362,18 +516,10 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
                     [[UIUtils currentViewController].view addSubview:cameraPreview];
                     self.cameraPreview = cameraPreview;
                     
-                    NSMutableDictionary *params = @{}.mutableCopy;
-                    params[@"type"] = @"onBoardcastSuccess";
-                    
-                    [self sendEvent:params];
+                    [self commentEvent:@"onBoardcast" code:kSuccess msg:@"screen share start" withParams:nil];
                 });
             } else {
-                NSMutableDictionary *params = @{}.mutableCopy;
-                params[@"type"] = @"onBoardcastError";
-                params[@"err"] = [NSNumber numberWithInteger:error.code];
-                params[@"msg"] = error.localizedDescription;
-                
-                [self sendEvent:params];
+                [self commentEvent:@"onBoardcast" code:kFail msg:error.localizedDescription withParams:nil];
             }
         }];
     }];
@@ -387,194 +533,28 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     NSLog(@"didUpdateServiceInfo %@", serviceInfo);
 }
 
-/*
- * 该回调方法表示SDK运行时出现了（网络或媒体相关的）错误。通常情况下，SDK上报的错误意味着SDK无法自动恢复，需要应用程序干预或提示用户。
- * 比如启动通话失败时，SDK会上报AgoraRtc_Error_StartCall(1002)错误。
- * 应用程序可以提示用户启动通话失败，并调用leaveChannel退出频道。
- */
-#pragma mark AgoraSDK
-
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraErrorCode)errorCode {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onError";
-    params[@"err"] = [NSNumber numberWithInteger:errorCode];;
-    
-    [self sendEvent:params];
-}
-
-/*
- * 警告
- */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onWarning";
-    params[@"err"] = [NSNumber numberWithInteger:warningCode];;
-    
-    [self sendEvent:params];
-}
-
-/*
- * 加入频道回调
- * 该回调方法表示该客户端成功加入了指定的频道
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger) elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onJoinChannelSuccess";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"channel"] = channel;
-    
-    [self sendEvent:params];
-}
-
-/*
- * 重新加入频道回调
- * 有时候由于网络原因，客户端可能会和服务器失去连接，SDK 会进行自动重连，自动重连成功后触发此回调方法。
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didRejoinChannel:(NSString*)channel withUid:(NSUInteger)uid elapsed:(NSInteger) elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onReJoinChannelSuccess";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"channel"] = channel;
-    
-    [self sendEvent:params];
-}
-
-/*
- * 本地首帧视频显示回调
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstLocalVideoFrameWithSize:(CGSize)size elapsed:(NSInteger)elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onFirstLocalVideoFrameWithSize";
-    params[@"width"] = [NSNumber numberWithFloat:size.width];
-    params[@"height"] = [NSNumber numberWithFloat:size.height];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 远端首帧视频接收解码回调
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onFirstRemoteVideoDecoded";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"width"] = [NSNumber numberWithFloat:size.width];
-    params[@"height"] = [NSNumber numberWithFloat:size.height];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 远端首帧视频显示回调
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine firstRemoteVideoFrameOfUid:(NSUInteger)uid size:(CGSize)size elapsed:(NSInteger)elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onFirstRemoteVideoFrameOfUid";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    params[@"width"] = [NSNumber numberWithFloat:size.width];
-    params[@"height"] = [NSNumber numberWithFloat:size.height];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 主播加入回调
- * 提示有主播加入了频道。如果该客户端加入频道时已经有人在频道中，SDK也会向应用程序上报这些已在频道中的用户。
- * 直播场景下:
- * 主播间能相互收到新主播加入频道的回调，并能获得该主播的 uid
- * 观众也能收到新主播加入频道的回调，并能获得该主播的 uid
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onUserJoined";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 主播离线回调
- * 提示有主播离开了频道（或掉线）。
- * SDK 判断用户离开频道（或掉线）的依据是超时: 在一定时间内（15 秒）没有收到对方的任何数据包，判定为对方掉线。
- * 在网络较差的情况下，可能会有误报。建议可靠的掉线检测应该由信令来做。
- */
-- (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOfflineOfUid:(NSUInteger)uid reason:(AgoraUserOfflineReason)reason {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onUserOffline";
-    params[@"uid"] = [NSNumber numberWithInteger:uid];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 音量提示回调
- * 需要开启enableAudioVolumeIndication
- */
-- (void)rtcEngine:(AgoraRtcEngineKit *)engine reportAudioVolumeIndicationOfSpeakers:(NSArray*)speakers totalVolume:(NSInteger)totalVolume {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onAudioVolumeIndication";
-    
-    NSMutableArray *arr = [NSMutableArray array];
-    for (AgoraRtcAudioVolumeInfo *obj in speakers) {
-        [arr addObject:@{@"uid":[NSNumber numberWithInteger:obj.uid], @"volume":[NSNumber numberWithInteger:obj.volume]}];
-    }
-    
-    params[@"speakers"] = arr;
-    params[@"totalVolume"] = [NSNumber numberWithInteger:totalVolume];
-    
-    [self sendEvent:params];
-}
-
-/*
- * 网络连接中断回调
- * 在 SDK 和服务器失去了网络连接时，触发该回调。失去连接后，除非APP主动调用 leaveChannel，SDK 会一直自动重连。
- */
-- (void)rtcEngineConnectionDidInterrupted:(AgoraRtcEngineKit *)engine {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onConnectionDidInterrupted";
-    
-    [self sendEvent:params];
-}
-
-/*
- * 网络连接丢失回调
- * 在 SDK 和服务器失去了网络连接后，会触发 rtcEngineConnectionDidInterrupted 回调，并自动重连。
- * 在一定时间内（默认 10 秒）如果没有重连成功，触发 rtcEngineConnectionDidLost 回调。
- * 除非 APP 主动调用 leaveChannel，SDK 仍然会自动重连。
- */
-- (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onConnectionDidLost";
-    
-    [self sendEvent:params];
-}
-
-/*
- * 连接已被禁止回调
- * 当你被服务端禁掉连接的权限时，会触发该回调。意外掉线之后，SDK 会自动进行重连，重连多次都失败之后，该回调会被触发，判定为连接不可用。
- */
-- (void)rtcEngineConnectionDidBanned:(AgoraRtcEngineKit * _Nonnull)engine {
-    NSMutableDictionary *params = @{}.mutableCopy;
-    params[@"type"] = @"onConnectionDidBanned";
-    
-    [self sendEvent:params];
-}
-
-// 根据tag找到指定的view
-- (UIView *)getViewWithTag:(nonnull NSNumber *)reactTag {
-    UIView *view = [self.bridge.uiManager viewForReactTag:reactTag];
-    NSLog(@"%@",view);
-    return view;
-}
-
 #pragma mark - native to js event method
 - (NSArray<NSString *> *)supportedEvents {
-    return @[@"agoraEvent"];
+    return @[kAgoraEvent];
+}
+
+- (void)commentEvent:(NSString *)type code:(int)code msg:(NSString *)msg withParams:(NSDictionary *)eparams {
+    NSMutableDictionary *params = @{}.mutableCopy;
+    params[kType] = type;
+    params[kCode] = [NSString stringWithFormat:@"%d", code];
+    params[kMsg] = msg;
+    
+    if (eparams) {
+        for (NSString *key in eparams) {
+            params[key] = eparams[key];
+        }
+    }
+    [self sendEvent:params];
 }
 
 - (void)sendEvent:(NSDictionary *)params {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self sendEventWithName:@"agoraEvent" body:params];
+        [self sendEventWithName:kAgoraEvent body:params];
     });
 }
 

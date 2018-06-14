@@ -96,6 +96,8 @@
 		18AA9E3320D10D6A0045D802 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		18AA9E3520D10D6A0045D802 /* videoprp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = videoprp.framework; sourceTree = "<group>"; };
 		18AA9E3620D10D6A0045D802 /* PLACEHOLDER.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = PLACEHOLDER.rtf; sourceTree = "<group>"; };
+		18AA9E4720D130BE0045D802 /* ConstHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstHeader.h; sourceTree = "<group>"; };
+		18AA9E4820D1312F0045D802 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		23AF281C1EEFECD800D771AB /* libRCTAgora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAgora.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 				182DFED3202457F40051054A /* Tool */,
 				18AA9E4120D112240045D802 /* Const */,
 				18AA9E2F20D10D6A0045D802 /* Libraries */,
+				18AA9E4820D1312F0045D802 /* PrefixHeader.pch */,
 			);
 			path = RCTAgora;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			children = (
 				182DFED8202457F40051054A /* AgoraConst.h */,
 				182DFED5202457F40051054A /* AgoraConst.m */,
+				18AA9E4720D130BE0045D802 /* ConstHeader.h */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -749,6 +753,8 @@
 					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraBeauty",
 					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RCTAgora/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,6 +775,8 @@
 					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraBeauty",
 					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RCTAgora/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
