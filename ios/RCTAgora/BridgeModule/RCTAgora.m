@@ -346,14 +346,14 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 #pragma mark AgoraSDK
 
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurError:(AgoraErrorCode)errorCode {
-    [self commentEvent:@"onAgoraRtcError" code:errorCode msg:@"SDK运行时出现了（网络或媒体相关的）错误，具体原因根据错误码通过官方api速查" withParams:nil];
+    [self commentEvent:kOnAgoraRtcError code:errorCode msg:@"SDK运行时出现了（网络或媒体相关的）错误，具体原因根据错误码通过官方api速查" withParams:nil];
 }
 
 /*
  * 警告
  */
 - (void)rtcEngine:(AgoraRtcEngineKit * _Nonnull)engine didOccurWarning:(AgoraWarningCode)warningCode {
-    [self commentEvent:@"onAgoraRtcWarning" code:warningCode msg:@"SDK运行时出现了（网络或媒体相关的）警告，具体原因根据错误码通过官方api速查" withParams:nil];
+    [self commentEvent:kOnAgoraRtcWarning code:warningCode msg:@"SDK运行时出现了（网络或媒体相关的）警告，具体原因根据错误码通过官方api速查" withParams:nil];
 }
 
 /*
@@ -365,7 +365,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:@"onJoinChannel" code:kSuccess msg:@"加入房间成功" withParams:params];
+    [self commentEvent:kOnJoinChannel code:kSuccess msg:@"加入房间成功" withParams:params];
 }
 
 /*
@@ -377,7 +377,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:@"onReJoinChannel" code:kSuccess msg:@"重新加入频道成功" withParams:params];
+    [self commentEvent:kOnReJoinChannel code:kSuccess msg:@"重新加入频道成功" withParams:params];
 }
 
 /*
@@ -388,7 +388,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kWidth] = [NSNumber numberWithFloat:size.width];
     params[kHeight] = [NSNumber numberWithFloat:size.height];
     
-    [self commentEvent:@"onFirstLocalVideoFrameWithSize" code:kSuccess msg:@"本地首帧视频显示" withParams:params];
+    [self commentEvent:kOnFirstLocalVideoFrameWithSize code:kSuccess msg:@"本地首帧视频显示" withParams:params];
 }
 
 /*
@@ -400,7 +400,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kWidth] = [NSNumber numberWithFloat:size.width];
     params[kHeight] = [NSNumber numberWithFloat:size.height];
     
-    [self commentEvent:@"onFirstRemoteVideoDecoded" code:kSuccess msg:@"远端首帧视频接收解码" withParams:params];
+    [self commentEvent:kOnFirstRemoteVideoDecoded code:kSuccess msg:@"远端首帧视频接收解码" withParams:params];
 }
 
 /*
@@ -412,7 +412,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kWidth] = [NSNumber numberWithFloat:size.width];
     params[kHeight] = [NSNumber numberWithFloat:size.height];
     
-    [self commentEvent:@"onFirstRemoteVideoFrameOfUid" code:kSuccess msg:@"远端首帧视频显示" withParams:params];
+    [self commentEvent:kOnFirstRemoteVideoFrameOfUid code:kSuccess msg:@"远端首帧视频显示" withParams:params];
 }
 
 /*
@@ -426,7 +426,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[kUid] = [NSNumber numberWithInteger:uid];
     
-    [self commentEvent:@"onUserJoined" code:kSuccess msg:@"有主播加入了频道" withParams:params];
+    [self commentEvent:kOnUserJoined code:kSuccess msg:@"有主播加入了频道" withParams:params];
 }
 
 /*
@@ -439,7 +439,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     NSMutableDictionary *params = @{}.mutableCopy;
     params[kUid] = [NSNumber numberWithInteger:uid];
     
-    [self commentEvent:@"onUserOffline" code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
+    [self commentEvent:kOnUserOffline code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
 }
 
 /*
@@ -457,7 +457,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kSpeakers] = arr;
     params[kTotalVolume] = [NSNumber numberWithInteger:totalVolume];
     
-    [self commentEvent:@"onAudioVolumeIndication" code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
+    [self commentEvent:kOnAudioVolumeIndication code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
 }
 
 /*
@@ -465,7 +465,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
  * 在 SDK 和服务器失去了网络连接时，触发该回调。失去连接后，除非APP主动调用 leaveChannel，SDK 会一直自动重连。
  */
 - (void)rtcEngineConnectionDidInterrupted:(AgoraRtcEngineKit *)engine {
-    [self commentEvent:@"onConnectionDidInterrupted" code:kSuccess msg:@"网络连接中断" withParams:nil];
+    [self commentEvent:kOnConnectionDidInterrupted code:kSuccess msg:@"网络连接中断" withParams:nil];
 }
 
 /*
@@ -475,7 +475,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
  * 除非 APP 主动调用 leaveChannel，SDK 仍然会自动重连。
  */
 - (void)rtcEngineConnectionDidLost:(AgoraRtcEngineKit *)engine {
-    [self commentEvent:@"onConnectionDidLost" code:kSuccess msg:@"网络连接丢失" withParams:nil];
+    [self commentEvent:kOnConnectionDidLost code:kSuccess msg:@"网络连接丢失" withParams:nil];
 }
 
 /*
@@ -483,7 +483,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
  * 当你被服务端禁掉连接的权限时，会触发该回调。意外掉线之后，SDK 会自动进行重连，重连多次都失败之后，该回调会被触发，判定为连接不可用。
  */
 - (void)rtcEngineConnectionDidBanned:(AgoraRtcEngineKit * _Nonnull)engine {
-    [self commentEvent:@"onConnectionDidBanned" code:kSuccess msg:@"连接已被禁止" withParams:nil];
+    [self commentEvent:kOnConnectionDidBanned code:kSuccess msg:@"连接已被禁止" withParams:nil];
 }
 
 // 根据tag找到指定的view
@@ -496,7 +496,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     NSLog(@"%s", __func__);
     if (error) {
-        [self commentEvent:@"onBoardcast" code:kFail msg:error.localizedDescription withParams:nil];
+        [self commentEvent:kOnBoardcast code:kFail msg:error.localizedDescription withParams:nil];
         return;
     }
     _broadcastController = broadcastController;
@@ -516,10 +516,10 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
                     [[UIUtils currentViewController].view addSubview:cameraPreview];
                     self.cameraPreview = cameraPreview;
                     
-                    [self commentEvent:@"onBoardcast" code:kSuccess msg:@"screen share start" withParams:nil];
+                    [self commentEvent:kOnBoardcast code:kSuccess msg:@"screen share start" withParams:nil];
                 });
             } else {
-                [self commentEvent:@"onBoardcast" code:kFail msg:error.localizedDescription withParams:nil];
+                [self commentEvent:kOnBoardcast code:kFail msg:error.localizedDescription withParams:nil];
             }
         }];
     }];
