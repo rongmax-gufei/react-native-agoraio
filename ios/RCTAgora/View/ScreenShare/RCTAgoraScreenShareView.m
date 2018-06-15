@@ -17,6 +17,7 @@
     if (self == [super init]) {
 //        _rtcEngine = [AgoraConst share].rtcEngine;
         self.sharedView = [[RPScreenRecorder sharedRecorder] cameraPreviewView];
+//        [[UIUtils currentRootView] addSubview:self.sharedView];
     }
     
     return self;

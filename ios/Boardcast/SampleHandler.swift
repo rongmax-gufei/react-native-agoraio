@@ -39,7 +39,7 @@ class SampleHandler: RPBroadcastSampleHandler {
         DispatchQueue.main.async {
             switch sampleBufferType {
             case RPSampleBufferType.video:
-//                AgoraUploader.sendVideoBuffer(sampleBuffer)
+                AgoraUploader.sendVideoBuffer(sampleBuffer)
                 break
             case RPSampleBufferType.audioApp:
                 AgoraUploader.sendAudioAppBuffer(sampleBuffer)

@@ -22,16 +22,11 @@
 #import "AgoraVideoManager.h"
 #import "AgoraScreenShareManager.h"
 
-#import "AgoraConst.h"
-#import "BundleTools.h"
-#import "UIUtils.h"
-
 @interface RCTAgora ()<AgoraRtcEngineDelegate, RPBroadcastActivityViewControllerDelegate, RPBroadcastControllerDelegate>
 
 @property(nonatomic, strong) AgoraRtcEngineKit *rtcEngine;
 @property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
 @property(nonatomic, weak) RPBroadcastController *broadcastController;
-@property(nonatomic, weak) UIView *cameraPreview;
 @property(nonatomic, assign) BOOL isBroadcaster;
 
 @end
@@ -229,7 +224,7 @@ RCT_EXPORT_METHOD(stopBroadcasting){
         }
         NSLog(@"finish");
     }];
-    [self.cameraPreview removeFromSuperview];
+    [[AgoraScreenShareManager share].sharedView removeFromSuperview];
 }
 
 //关闭视频预览
@@ -503,20 +498,10 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     _broadcastController = broadcastController;
     _broadcastController.delegate = self;
     
-    //使用相机
-    //    [RPScreenRecorder sharedRecorder].cameraEnabled = false;
-    //使用麦克风
-    //    [RPScreenRecorder sharedRecorder].microphoneEnabled = false;
-    
     [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
             if (!error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-//                    UIView *cameraPreview =  [RPScreenRecorder sharedRecorder].cameraPreviewView;
-//                    cameraPreview.frame = CGRectMake(0, 20, 200, 400);
-//                    [[UIUtils currentViewController].view addSubview:cameraPreview];
-//                    self.cameraPreview = cameraPreview;
-//                    [[AgoraScreenShareManager share].sharedView bringSubviewToFront:[AgoraVideoManager share].avRootView];
                     [self commentEvent:kOnBoardcast code:kSuccess msg:@"screen share start" withParams:nil];
                 });
             } else {
