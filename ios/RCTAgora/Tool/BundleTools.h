@@ -12,7 +12,7 @@
 
 @interface BundleTools : NSObject
 
-+ (NSString *)getBundlePath: (NSString *) assetName;
++ (NSString *)getBundlePath: (NSString *)assetName;
 + (NSBundle *)getBundle;
 
 @end
