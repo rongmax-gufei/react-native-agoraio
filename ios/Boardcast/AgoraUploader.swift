@@ -1,9 +1,8 @@
 //
 //  AgoraUploader.swift
-//  Agora-Screen-Sharing-iOS-Broadcast
 //
-//  Created by GongYuhua on 2017/1/16.
-//  Copyright © 2017年 Agora. All rights reserved.
+//  Created by Learnta on 2018/6/21.
+//  Copyright © 2017年 Learnta Inc. All rights reserved.
 //
 
 import Foundation

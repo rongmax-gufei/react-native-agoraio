@@ -49,8 +49,9 @@
 #define kOnLeaveChannel                 @"onLeaveChannel"
 
 /******************** local code **********************/
-#define kSuccess 1000
-#define kFail    1001
+#define kSuccess        1000
+#define kFail           1001
+#define kScreenShareEnd -1
 
 /******************** app groups **********************/
 #define kAppGroups @"group.ilive.broadcast"

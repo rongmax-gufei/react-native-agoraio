@@ -32,6 +32,7 @@
 		182D0148202457F50051054A /* RCTAgoraVideoViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D00EB202457F50051054A /* RCTAgoraVideoViewManager.m */; };
 		18855D8E202D953A0081BAF4 /* BundleTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18855D8D202D953A0081BAF4 /* BundleTools.m */; };
 		18A0809120DB763400F00217 /* SharedTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A0809020DB763400F00217 /* SharedTools.m */; };
+		18A080F120DBBFF300F00217 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A080EF20DBBFF200F00217 /* MainInterface.storyboard */; };
 		18AA9DEE20D106780045D802 /* RCTAgoraScreenShareViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA9DED20D106780045D802 /* RCTAgoraScreenShareViewManager.m */; };
 		18AA9E3720D10D6A0045D802 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AA9E3120D10D6A0045D802 /* libcrypto.a */; };
 		18AA9E3820D10D6A0045D802 /* AgoraRtcCryptoLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AA9E3220D10D6A0045D802 /* AgoraRtcCryptoLoader.framework */; };
@@ -94,6 +95,7 @@
 		18A0806720DB612E00F00217 /* BoardcastSetupUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoardcastSetupUI.entitlements; sourceTree = "<group>"; };
 		18A0808F20DB763400F00217 /* SharedTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedTools.h; sourceTree = "<group>"; };
 		18A0809020DB763400F00217 /* SharedTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedTools.m; sourceTree = "<group>"; };
+		18A080F020DBBFF200F00217 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		18AA9DEC20D106780045D802 /* RCTAgoraScreenShareViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAgoraScreenShareViewManager.h; sourceTree = "<group>"; };
 		18AA9DED20D106780045D802 /* RCTAgoraScreenShareViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAgoraScreenShareViewManager.m; sourceTree = "<group>"; };
 		18AA9E3120D10D6A0045D802 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		182CB01520C8CE7C00F9FF50 /* BoardcastSetupUI */ = {
 			isa = PBXGroup;
 			children = (
+				18A080EF20DBBFF200F00217 /* MainInterface.storyboard */,
 				18A0806720DB612E00F00217 /* BoardcastSetupUI.entitlements */,
 				182CB01620C8CE7C00F9FF50 /* BroadcastViewController.swift */,
 				182CB01820C8CE7C00F9FF50 /* Info.plist */,
@@ -474,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A080F120DBBFF300F00217 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +523,17 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		18A080EF20DBBFF200F00217 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18A080F020DBBFF200F00217 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		182CB01A20C8CE7C00F9FF50 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -541,10 +556,9 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
-					"$(PROJECT_DIR)/RCTAgora/Libraies/AgoraEngine",
-					"$(PROJECT_DIR)/Boardcast",
-					"$(PROJECT_DIR)/RCTAgora/Libraies/AgoraBeauty/**",
-					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine",
+					"$(PROJECT_DIR)/Boardcast/**",
+					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraBeauty/**",
+					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Boardcast/Info.plist;
@@ -582,10 +596,9 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
-					"$(PROJECT_DIR)/RCTAgora/Libraies/AgoraEngine",
-					"$(PROJECT_DIR)/Boardcast",
-					"$(PROJECT_DIR)/RCTAgora/Libraies/AgoraBeauty/**",
-					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine",
+					"$(PROJECT_DIR)/Boardcast/**",
+					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraBeauty/**",
+					"$(PROJECT_DIR)/RCTAgora/Libraries/AgoraEngine/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Boardcast/Info.plist;

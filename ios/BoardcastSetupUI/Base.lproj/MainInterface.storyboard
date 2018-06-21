@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXg-Cv-qkX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Broadcast View Controller-->
+        <scene sceneID="W0v-mn-N7c">
+            <objects>
+                <viewController id="mXg-Cv-qkX" customClass="BroadcastViewController" customModule="BoardcastSetupUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="85Q-lu-C0Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="bwf-bx-78p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VzB-Lt-PXm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-lG-dka">
+                                <rect key="frame" x="16" y="0.0" width="31" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="BzY-Hp-C1j"/>
+                                </constraints>
+                                <state key="normal" title="取消"/>
+                                <connections>
+                                    <action selector="doCancelPressed:" destination="mXg-Cv-qkX" eventType="touchUpInside" id="mVo-Cu-RwC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="屏幕共享准备中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ta-r8-1dU">
+                                <rect key="frame" x="93" y="150" width="134" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ibg-4y-vnv"/>
+                                    <constraint firstAttribute="width" constant="134" id="ulw-SV-4ps"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SSb-lG-dka" firstAttribute="top" secondItem="85Q-lu-C0Z" secondAttribute="bottom" id="97R-Sx-ROk"/>
+                            <constraint firstItem="9Ta-r8-1dU" firstAttribute="centerY" secondItem="VzB-Lt-PXm" secondAttribute="centerY" id="HWL-TG-HPU"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SSb-lG-dka" secondAttribute="trailing" constant="20" symbolic="YES" id="UZC-ac-NvM"/>
+                            <constraint firstItem="9Ta-r8-1dU" firstAttribute="centerX" secondItem="VzB-Lt-PXm" secondAttribute="centerX" id="eIG-hm-mc5"/>
+                            <constraint firstItem="SSb-lG-dka" firstAttribute="leading" secondItem="VzB-Lt-PXm" secondAttribute="leading" constant="16" id="xMo-iG-RLZ"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="320"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0TZ-4i-5h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.59999999999999" y="147.52623688155924"/>
+        </scene>
+    </scenes>
+</document>

@@ -142,7 +142,7 @@ RCT_EXPORT_METHOD(setupRemoteVideo:(NSDictionary *)options) {
 }
 
 //开启视频预览
-RCT_EXPORT_METHOD(startPreview){
+RCT_EXPORT_METHOD(startPreview) {
     [self.rtcEngine startPreview];
 }
 
@@ -182,7 +182,7 @@ RCT_EXPORT_METHOD(enableAudioVolumeIndication:(NSUInteger)interval smooth:(NSUIn
 }
 
 //开启屏幕共享
-RCT_EXPORT_METHOD(startBroadcasting){
+RCT_EXPORT_METHOD(startBroadcasting) {
     if (![RPScreenRecorder sharedRecorder].isAvailable) {
         return;
     }
@@ -219,14 +219,14 @@ RCT_EXPORT_METHOD(startBroadcasting){
 }
 
 //关闭屏幕共享
-RCT_EXPORT_METHOD(stopBroadcasting){
+RCT_EXPORT_METHOD(stopBroadcasting) {
     [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);
         }
+        [self commentEvent:kOnBoardcast code:kScreenShareEnd msg:@"screen share end" withParams:nil];
         NSLog(@"finish");
     }];
-    [[AgoraScreenShareManager share].sharedView removeFromSuperview];
 }
 
 //关闭视频预览
@@ -493,6 +493,12 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 #pragma delegate
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     NSLog(@"%s", __func__);
+    
+    if (error) {
+        [self commentEvent:kOnBoardcast code:kFail msg:error.localizedDescription withParams:nil];
+        return;
+    }
+    
     _broadcastController = broadcastController;
     _broadcastController.delegate = self;
     

@@ -1,9 +1,8 @@
 //
 //  BroadcastViewController.swift
-//  Agora-Screen-Sharing-iOS-BroadcastUI
 //
-//  Created by GongYuhua on 2017/8/1.
-//  Copyright © 2017年 Agora. All rights reserved.
+//  Created by Learnta on 2018/6/20.
+//  Copyright © 2017年 Learnta Inc. All rights reserved.
 //
 
 import ReplayKit
@@ -13,6 +12,10 @@ class BroadcastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userStartBroadcast(withChannel: get_channel(), uid: get_uid())
+    }
+    
+    @IBAction func doCancelPressed(_ sender: UIButton) {
+        userDidCancelSetup()
     }
 }
 
@@ -51,7 +54,7 @@ private extension BroadcastViewController {
     }
     
     func userDidCancelSetup() {
-        let error = NSError(domain: "com.wilder.ilive.BroadcastSetupUI", code: -1, userInfo: nil)
+        let error = NSError(domain: "com.learnta.screenshare.BroadcastSetupUI", code: -1, userInfo: nil)
         extensionContext?.cancelRequest(withError: error)
     }
     
