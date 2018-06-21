@@ -36,9 +36,9 @@ class AgoraUploader {
 
         return CGSize(width: width, height: height)
     }()
-
+    
     private static let sharedAgoraEngine: AgoraRtcEngineKit = {
-        let kit = AgoraRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: nil)
+        let kit = AgoraRtcEngineKit.sharedEngine(withAppId: get_appid(), delegate: nil)
         kit.setChannelProfile(.liveBroadcasting)
         kit.setClientRole(.broadcaster)
 
@@ -87,5 +87,14 @@ class AgoraUploader {
 
     static func stopBroadcast() {
         sharedAgoraEngine.leaveChannel(nil)
+    }
+    
+    static func get_appid() -> String {
+        let appid = UserDefaults.init(suiteName: "group.ilive.broadcast")?.string(forKey: "appid")
+        if(appid != nil){
+            return appid!
+        } else {
+            return ""
+        }
     }
 }
