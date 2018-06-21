@@ -52,4 +52,7 @@
 #define kSuccess 1000
 #define kFail    1001
 
+/******************** app groups **********************/
+#define kAppGroups @"group.ilive.broadcast"
+
 #endif /* ConstHeader_h */

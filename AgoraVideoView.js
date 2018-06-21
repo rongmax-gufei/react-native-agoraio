@@ -18,6 +18,7 @@ export default class AgoraVideoView extends Component {
 AgoraVideoView.propTypes = {
     showLocalVideo: PropTypes.bool,
     remoteUid: PropTypes.number,
+    renderUid: PropTypes.number,
     zOrderMediaOverlay: PropTypes.bool,
     ...View.propTypes
 };

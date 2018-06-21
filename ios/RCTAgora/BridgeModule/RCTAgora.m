@@ -54,6 +54,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     AgoraClientRole role                = [options[kClientRole] integerValue];
     
     [AgoraConst share].appid = appid;
+    [SharedTools storagedAgoraAppId:appid];
     self.isBroadcaster = (role == AgoraClientRoleBroadcaster);
     
     // 初始化RtcEngineKit
@@ -76,6 +77,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
 RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
     //保存一下uid 在自定义视图使用
     [AgoraConst share].localUid = uid;
+    [SharedTools storagedAgoraChannel:channelName uid:uid];
     [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:nil];
 }
 
@@ -491,10 +493,6 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 #pragma delegate
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     NSLog(@"%s", __func__);
-    if (error) {
-        [self commentEvent:kOnBoardcast code:kFail msg:error.localizedDescription withParams:nil];
-        return;
-    }
     _broadcastController = broadcastController;
     _broadcastController.delegate = self;
     
