@@ -12,7 +12,6 @@ class SampleHandler: RPBroadcastSampleHandler {
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
         // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
-//        if let setupInfo = setupInfo, let channel = setupInfo["channelName"] as? String, let uid = setupInfo["uid"] as? String {
         if let setupInfo = setupInfo, let channel = setupInfo["channel"] as? String, let uid = setupInfo["uid"] as? String {
             //In-App Screen Capture
             AgoraUploader.startBroadcast(to: channel, uid: uid)

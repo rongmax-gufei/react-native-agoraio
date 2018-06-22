@@ -220,6 +220,8 @@ RCT_EXPORT_METHOD(startBroadcasting) {
 
 //关闭屏幕共享
 RCT_EXPORT_METHOD(stopBroadcasting) {
+    // 将屏幕共享创建的视频采集窗口移除
+    [[AgoraScreenShareManager share].sharedView removeFromSuperview];
     [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);

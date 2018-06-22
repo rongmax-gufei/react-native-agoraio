@@ -15,7 +15,7 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_VIEW_PROPERTY(showSharedScreen, BOOL)
 
 - (UIView *)view {
-    return [[RCTAgoraScreenShareView alloc] init];
+    return [RCTAgoraScreenShareView new];
 }
 
 @end
