@@ -11,7 +11,7 @@
 
 @implementation RCTAgoraVideoView
 
-- (instancetype)init{
+- (instancetype)init {
     
     if (self == [super init]) {
         _rtcEngine = [AgoraConst share].rtcEngine;
@@ -20,6 +20,10 @@
     return self;
 }
 
+/**
+ * 渲染本地视频画面
+ * showLocalVideo: 用户id
+ */
 - (void)setShowLocalVideo:(BOOL)showLocalVideo {
     if (showLocalVideo) {
         AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
@@ -28,10 +32,13 @@
         canvas.renderMode = AgoraVideoRenderModeHidden;
         [_rtcEngine setupLocalVideo:canvas];
     }
-    [AgoraVideoManager share].avRootView = self;
 }
 
--(void)setRemoteUid:(NSInteger)remoteUid {
+/**
+ * 根据远端用户id渲染对应视频画面
+ * remoteUid: 远端用户id
+ */
+- (void)setRemoteUid:(NSInteger)remoteUid {
     if (remoteUid > 0) {
         AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
         canvas.uid = remoteUid;
@@ -39,6 +46,25 @@
         canvas.renderMode = AgoraVideoRenderModeHidden;
         [_rtcEngine setupRemoteVideo:canvas];
     }
+}
+
+/**
+ * 根据用户id渲染对应视频画面
+ * renderUid: 用户id
+ */
+- (void)setRenderUid:(NSInteger)renderUid {
+    AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
+    canvas.uid = renderUid;
+    canvas.view = self;
+    canvas.renderMode = AgoraVideoRenderModeHidden;
+    if ([AgoraConst share].localUid == renderUid) {
+        // 本地视频流
+        [_rtcEngine setupLocalVideo:canvas];
+    } else {
+        // 远端视频流
+        [_rtcEngine setupRemoteVideo:canvas];
+    }
+    [AgoraVideoManager.share setAvRootView:self];
 }
 
 @end

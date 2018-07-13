@@ -27,13 +27,15 @@
 #define kVolume             @"volume"
 #define kSpeakers           @"speakers"
 #define kTotalVolume        @"totalVolume"
+#define kRenderMode         @"renderMode"
+#define kReactTag           @"reactTag"
 #define kAgoraEvent         @"agoraEvent"
 
 /******************** event cmd **********************/
-#define kOnAgoraRtcError                @"onAgoraRtcError"
-#define kOnAgoraRtcWarning              @"onAgoraRtcWarning"
-#define kOnJoinChannel                  @"onJoinChannel"
-#define kOnReJoinChannel                @"onReJoinChannel"
+#define kOnAgoraRtcError                @"onError"
+#define kOnAgoraRtcWarning              @"onWarning"
+#define kOnJoinChannelSuccess           @"onJoinChannelSuccess"
+#define kOnReJoinChannelSuccess         @"onReJoinChannelSuccess"
 #define kOnFirstLocalVideoFrameWithSize @"onFirstLocalVideoFrameWithSize"
 #define kOnFirstRemoteVideoDecoded      @"onFirstRemoteVideoDecoded"
 #define kOnFirstRemoteVideoFrameOfUid   @"onFirstRemoteVideoFrameOfUid"
@@ -44,9 +46,14 @@
 #define kOnConnectionDidLost            @"onConnectionDidLost"
 #define kOnConnectionDidBanned          @"onConnectionDidBanned"
 #define kOnBoardcast                    @"onBoardcast"
+#define kOnLeaveChannel                 @"onLeaveChannel"
 
 /******************** local code **********************/
-#define kSuccess 1000
-#define kFail    1001
+#define kSuccess        1000
+#define kFail           1001
+#define kScreenShareEnd -1
+
+/******************** app groups **********************/
+#define kAppGroups @"group.ilive.broadcast"
 
 #endif /* ConstHeader_h */

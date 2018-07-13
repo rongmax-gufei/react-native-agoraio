@@ -11,4 +11,9 @@
 
 @interface RCTAgoraScreenShareView : UIView
 
+@property (strong, nonatomic) AgoraRtcEngineKit *rtcEngine;
+
+@property (nonatomic, strong) UIView *sharedView;
+@property (nonatomic) BOOL showSharedScreen;
+
 @end

@@ -7,12 +7,12 @@
 		<key>Boardcast.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>BoardcastSetupUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Broadcast.xcscheme</key>
 		<dict>
@@ -28,6 +28,16 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>a.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
+		<key>aSetupUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>40</integer>
 		</dict>
 	</dict>
 </dict>

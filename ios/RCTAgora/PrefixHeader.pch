@@ -18,6 +18,10 @@
 #define NSLog(...)
 #endif
 
+#import "AgoraConst.h"
+#import "BundleTools.h"
 #import "ConstHeader.h"
+#import "SharedTools.h"
+#import "UIUtils.h"
 
 #endif /* PrefixHeader_pch */

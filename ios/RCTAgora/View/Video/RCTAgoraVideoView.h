@@ -15,5 +15,6 @@
 
 @property (nonatomic) BOOL showLocalVideo;
 @property (nonatomic) NSInteger remoteUid;
+@property (nonatomic) NSInteger renderUid;
 
 @end
