@@ -1,8 +1,9 @@
 //
 //  AgoraUploader.swift
+//  Agora-Screen-Sharing-iOS-Broadcast
 //
-//  Created by Learnta on 2018/6/21.
-//  Copyright © 2017年 Learnta Inc. All rights reserved.
+//  Created by GongYuhua on 2017/1/16.
+//  Copyright © 2017年 Agora. All rights reserved.
 //
 
 import Foundation
@@ -36,9 +37,9 @@ class AgoraUploader {
 
         return CGSize(width: width, height: height)
     }()
-    
+
     private static let sharedAgoraEngine: AgoraRtcEngineKit = {
-        let kit = AgoraRtcEngineKit.sharedEngine(withAppId: get_appid(), delegate: nil)
+        let kit = AgoraRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: nil)
         kit.setChannelProfile(.liveBroadcasting)
         kit.setClientRole(.broadcaster)
 
@@ -58,8 +59,8 @@ class AgoraUploader {
         return kit
     }()
 
-    static func startBroadcast(to channel: String, uid: String) {
-        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: UInt(uid)!, joinSuccess: nil)
+    static func startBroadcast(to channel: String) {
+        sharedAgoraEngine.joinChannel(byToken: nil, channelId: channel, info: nil, uid: 0, joinSuccess: nil)
     }
 
     static func sendVideoBuffer(_ sampleBuffer: CMSampleBuffer) {
@@ -87,14 +88,5 @@ class AgoraUploader {
 
     static func stopBroadcast() {
         sharedAgoraEngine.leaveChannel(nil)
-    }
-    
-    static func get_appid() -> String {
-        let appid = UserDefaults.init(suiteName: "group.ilive.broadcast")?.string(forKey: "appid")
-        if(appid != nil){
-            return appid!
-        } else {
-            return ""
-        }
     }
 }

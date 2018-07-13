@@ -19,14 +19,16 @@
 
 #import <videoprp/AgoraYuvEnhancerObjc.h>
 
-#import "AgoraVideoManager.h"
-#import "AgoraScreenShareManager.h"
+#import "AgoraConst.h"
+#import "BundleTools.h"
+#import "UIUtils.h"
 
 @interface RCTAgora ()<AgoraRtcEngineDelegate, RPBroadcastActivityViewControllerDelegate, RPBroadcastControllerDelegate>
 
 @property(nonatomic, strong) AgoraRtcEngineKit *rtcEngine;
 @property(nonatomic, strong) AgoraYuvEnhancerObjc *agoraEnhancer;
 @property(nonatomic, weak) RPBroadcastController *broadcastController;
+@property(nonatomic, weak) UIView *cameraPreview;
 @property(nonatomic, assign) BOOL isBroadcaster;
 
 @end
@@ -54,7 +56,6 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
     AgoraClientRole role                = [options[kClientRole] integerValue];
     
     [AgoraConst share].appid = appid;
-    [SharedTools storagedAgoraAppId:appid];
     self.isBroadcaster = (role == AgoraClientRoleBroadcaster);
     
     // 初始化RtcEngineKit
@@ -77,8 +78,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options) {
 RCT_EXPORT_METHOD(joinChannel:(NSString *)channelName uid:(NSInteger)uid) {
     //保存一下uid 在自定义视图使用
     [AgoraConst share].localUid = uid;
-    [SharedTools storagedAgoraChannel:channelName uid:uid];
-    [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:nil];
+    [self.rtcEngine joinChannelByToken:nil channelId:channelName info:nil uid:uid joinSuccess:NULL];
 }
 
 //离开频道
@@ -87,7 +87,9 @@ RCT_EXPORT_METHOD(leaveChannel) {
     [self.rtcEngine setupLocalVideo:nil];
     // 退出频道
     [self.rtcEngine leaveChannel:^(AgoraChannelStats * _Nonnull stat) {
-        [self commentEvent:kOnLeaveChannel code:kSuccess msg:@"离开房间成功" withParams:nil];
+        NSMutableDictionary *params = @{}.mutableCopy;
+        params[@"type"] = @"onLeaveChannel";
+        [self sendEvent:params];
     }];
   
     // 如果是主播，关闭预览
@@ -120,9 +122,9 @@ RCT_EXPORT_METHOD(changeRole) {
  */
 RCT_EXPORT_METHOD(setupLocalVideo:(NSDictionary *)options) {
     AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
-    canvas.uid = [options[kUid] integerValue];
-    canvas.view = [self.bridge.uiManager viewForReactTag:options[kReactTag]];
-    canvas.renderMode = [options[kRenderMode] integerValue];
+    canvas.uid = [options[@"uid"] integerValue];
+    canvas.view = [self.bridge.uiManager viewForReactTag:options[@"reactTag"]];
+    canvas.renderMode = [options[@"renderMode"] integerValue];
     [self.rtcEngine setupLocalVideo:canvas];
 }
 
@@ -135,14 +137,14 @@ RCT_EXPORT_METHOD(setupLocalVideo:(NSDictionary *)options) {
  */
 RCT_EXPORT_METHOD(setupRemoteVideo:(NSDictionary *)options) {
     AgoraRtcVideoCanvas *canvas = [[AgoraRtcVideoCanvas alloc] init];
-    canvas.uid = [options[kUid] integerValue];
-    canvas.view = [self.bridge.uiManager viewForReactTag:options[kReactTag]];
-    canvas.renderMode = [options[kRenderMode] integerValue];
+    canvas.uid = [options[@"uid"] integerValue];
+    canvas.view = [self.bridge.uiManager viewForReactTag:options[@"reactTag"]];
+    canvas.renderMode = [options[@"renderMode"] integerValue];
     [self.rtcEngine setupRemoteVideo:canvas];
 }
 
 //开启视频预览
-RCT_EXPORT_METHOD(startPreview) {
+RCT_EXPORT_METHOD(startPreview){
     [self.rtcEngine startPreview];
 }
 
@@ -182,7 +184,7 @@ RCT_EXPORT_METHOD(enableAudioVolumeIndication:(NSUInteger)interval smooth:(NSUIn
 }
 
 //开启屏幕共享
-RCT_EXPORT_METHOD(startBroadcasting) {
+RCT_EXPORT_METHOD(startBroadcasting){
     if (![RPScreenRecorder sharedRecorder].isAvailable) {
         return;
     }
@@ -219,16 +221,14 @@ RCT_EXPORT_METHOD(startBroadcasting) {
 }
 
 //关闭屏幕共享
-RCT_EXPORT_METHOD(stopBroadcasting) {
-    // 将屏幕共享创建的视频采集窗口移除
-    [[AgoraScreenShareManager share].sharedView removeFromSuperview];
+RCT_EXPORT_METHOD(stopBroadcasting){
     [self.broadcastController finishBroadcastWithHandler:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);
         }
-        [self commentEvent:kOnBoardcast code:kScreenShareEnd msg:@"screen share end" withParams:nil];
         NSLog(@"finish");
     }];
+    [self.cameraPreview removeFromSuperview];
 }
 
 //关闭视频预览
@@ -365,7 +365,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:kOnJoinChannelSuccess code:kSuccess msg:@"加入房间成功" withParams:params];
+    [self commentEvent:kOnJoinChannel code:kSuccess msg:@"加入房间成功" withParams:params];
 }
 
 /*
@@ -377,7 +377,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kUid] = [NSNumber numberWithInteger:uid];
     params[kChannel] = channel;
     
-    [self commentEvent:kOnReJoinChannelSuccess code:kSuccess msg:@"重新加入频道成功" withParams:params];
+    [self commentEvent:kOnReJoinChannel code:kSuccess msg:@"重新加入频道成功" withParams:params];
 }
 
 /*
@@ -457,7 +457,7 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
     params[kSpeakers] = arr;
     params[kTotalVolume] = [NSNumber numberWithInteger:totalVolume];
     
-    [self commentEvent:kOnAudioVolumeIndication code:kSuccess msg:@"音量提示" withParams:params];
+    [self commentEvent:kOnAudioVolumeIndication code:kSuccess msg:@"主播离开了频道（或掉线）" withParams:params];
 }
 
 /*
@@ -495,19 +495,27 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
 #pragma delegate
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *)broadcastActivityViewController didFinishWithBroadcastController:(nullable RPBroadcastController *)broadcastController error:(nullable NSError *)error {
     NSLog(@"%s", __func__);
-    
     if (error) {
         [self commentEvent:kOnBoardcast code:kFail msg:error.localizedDescription withParams:nil];
         return;
     }
-    
     _broadcastController = broadcastController;
     _broadcastController.delegate = self;
+    
+    //使用相机
+    //    [RPScreenRecorder sharedRecorder].cameraEnabled = false;
+    //使用麦克风
+    //    [RPScreenRecorder sharedRecorder].microphoneEnabled = false;
     
     [broadcastActivityViewController dismissViewControllerAnimated:YES completion:^{
         [_broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
             if (!error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    UIView *cameraPreview =  [RPScreenRecorder sharedRecorder].cameraPreviewView;
+                    cameraPreview.frame = CGRectMake(0, 20, 200, 400);
+                    [[UIUtils currentViewController].view addSubview:cameraPreview];
+                    self.cameraPreview = cameraPreview;
+                    
                     [self commentEvent:kOnBoardcast code:kSuccess msg:@"screen share start" withParams:nil];
                 });
             } else {
@@ -541,7 +549,6 @@ RCT_EXPORT_METHOD(closeBeautityFace) {
             params[key] = eparams[key];
         }
     }
-    NSLog(@"commentEvent => %@", params);
     [self sendEvent:params];
 }
 

@@ -6,21 +6,22 @@ import {
     Platform
 } from 'react-native'
 
-export default class AgoraVideoView extends Component {
+export default class AgoraView extends Component {
 
     render() {
         return (
-            <RCTAgoraVideoView {...this.props}/>
+            <RCTAgoraView {...this.props}/>
         )
     }
 }
 
-AgoraVideoView.propTypes = {
+AgoraView.propTypes = {
     showLocalVideo: PropTypes.bool,
     remoteUid: PropTypes.number,
-    renderUid: PropTypes.number,
     zOrderMediaOverlay: PropTypes.bool,
     ...View.propTypes
 };
 
-const RCTAgoraVideoView = requireNativeComponent("RCTAgoraVideoView", AgoraVideoView);
+// AgoraView.name = "AgoraView";
+
+const RCTAgoraView = requireNativeComponent("RCTAgoraView", AgoraView);
